@@ -1,0 +1,1060 @@
+plugin_spec_version: v2
+extension: plugin
+products: [insightconnect]
+name: microsoft_intune
+title: Microsoft Intune
+description: Microsoft cloud-based management solution that provides for mobile device and operating system management
+version: 2.0.0
+connection_version: 2
+vendor: rapid7
+support: rapid7
+cloud_ready: true
+supported_versions: ["Microsoft Graph REST API v1.0 2023-08-29"]
+status: []
+resources:
+  source_url: https://github.com/rapid7/insightconnect-plugins/tree/master/plugins/microsoft_intune
+  license_url: https://github.com/rapid7/insightconnect-plugins/blob/master/LICENSE
+  vendor_url: https://microsoft.com
+  docs_url: https://docs.rapid7.com/insightconnect/microsoft-intune/
+tags:
+  - microsoft
+  - intune
+  - azure
+hub_tags:
+  use_cases: [data_utility]
+  keywords: [intune, cloud, azure, cloud_enabled]
+  features: []
+types:
+  value:
+    "@odata.type":
+      title: Odata Type
+      type: string
+      description: Odata type
+      required: false
+      example: "#microsoft.graph.managedApp"
+    "@odata.context":
+      title: Odata Context
+      type: string
+      description: Odata context
+      required: false
+      example: https://example.com
+    id:
+      title: ID
+      type: string
+      description: ID
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    displayName:
+      title: Display Name
+      type: string
+      description: Display Name
+      required: false
+      example: Adobe Acrobat Reader
+    description:
+      title: Description
+      type: string
+      description: Description
+      required: false
+      example: Example description
+    publisher:
+      title: Publisher
+      type: string
+      description: Publisher
+      required: false
+      example: Adobe Inc.
+    largeIcon:
+      title: Large Icon
+      type: object
+      description: Large icon
+      required: false
+      example: {}
+    createdDateTime:
+      title: Created Datetime
+      type: string
+      description: Created datetime
+      required: false
+      example: 2020-11-20T14:51:29Z
+    lastModifiedDateTime:
+      title: Last Modified Datetime
+      type: string
+      description: Last modified datetime
+      required: false
+      example: 2020-11-20T14:51:29Z
+    isFeatured:
+      title: Is Featured
+      type: boolean
+      description: Is featured
+      required: false
+      example: false
+    privacyInformationUrl:
+      title: Privacy Information URL
+      type: string
+      description: Privacy information URL
+      required: false
+      example: https://example.com
+    informationUrl:
+      title: Information URL
+      type: string
+      description: Information URL
+      required: false
+      example: https://example.com
+    owner:
+      title: Owner
+      type: string
+      description: Owner
+      required: false
+      example: Example owner
+    developer:
+      title: Developer
+      type: string
+      description: Developer
+      required: false
+      example: Example developer
+    notes:
+      title: Notes
+      type: string
+      description: Notes
+      required: false
+      example: Example notes
+    publishingState:
+      title: Publishing State
+      type: string
+      description: Publishing state
+      required: false
+      example: published
+    appAvailability:
+      title: App Availability
+      type: string
+      description: App availability
+      required: false
+      example: global
+    version:
+      title: Version
+      type: string
+      description: Version
+      required: false
+      example: 1.0
+    packageId:
+      title: Package ID
+      type: string
+      description: Package ID
+      required: false
+      example: com.adobe.reader
+    appStoreUrl:
+      title: App Store URL
+      type: string
+      description: App store URL
+      required: false
+      example: https://example.com
+    minimumSupportedOperatingSystem:
+      title: Minimum Supported Operating System
+      type: object
+      description: Minimum supported operating system
+      required: false
+      example: '{"v4_0": false}'
+  configurationManagerClientEnabledFeatures:
+    "@odata.type":
+      title: Odata Type
+      type: string
+      description: Odata type
+      required: false
+      example: "microsoft.graph.configurationManagerClientEnabledFeatures"
+    compliancePolicy:
+      title: Compliance Policy
+      type: boolean
+      description: Compliance policy
+      required: false
+      example: true
+    deviceConfiguration:
+      title: Device Configuration
+      type: boolean
+      description: Device configuration
+      required: false
+      example: true
+    inventory:
+      title: Inventory
+      type: boolean
+      description: Inventory
+      required: false
+      example: true
+    modernApps:
+      title: Modern Apps
+      type: boolean
+      description: Modern apps
+      required: false
+      example: true
+    resourceAccess:
+      title: Resource Access
+      type: boolean
+      description: Resource access
+      required: false
+      example: true
+    windowsUpdateForBusiness:
+      title: Windows Update For Business
+      type: boolean
+      description: Windows update for business
+      required: false
+      example: true
+  deviceActionResults:
+    "@odata.type":
+      title: Odata Type
+      type: string
+      description: Odata type
+      required: false
+      example: "#microsoft.graph.windowsDefenderScanActionResult"
+    actionName:
+      title: Action Name
+      type: string
+      description: Action name
+      required: false
+      example: windowsDefenderScan
+    actionState:
+      title: Action State
+      type: string
+      description: Action state
+      required: false
+      example: done
+    lastUpdatedDateTime:
+      title: Last Updated Date Time
+      type: date
+      description: Last updated date time
+      required: false
+      example: 2023-08-30T10:21:31Z
+    startDateTime:
+      title: Start Date Time
+      type: date
+      description: Start date time
+      required: false
+      example: 2023-08-30T10:13:51.3392508Z
+  deviceHealthAttestationState:
+    "@odata.type":
+      title: Odata Type
+      type: string
+      description: Odata type
+      required: false
+      example: microsoft.graph.deviceHealthAttestationState
+    attestationIdentityKey:
+      title: Attestation Identity Key
+      type: string
+      description: Attestation identity key
+      required: false
+      example: Example key
+    bitLockerStatus:
+      title: BitLocker Status
+      type: string
+      description: BitLocker status
+      required: false
+      example: Bit Locker Status value
+    bootAppSecurityVersion:
+      title: Boot App Security Version
+      type: string
+      description: Boot app security version
+      required: false
+      example: Boot App Security Version value
+    bootDebugging:
+      title: Boot Debugging
+      type: string
+      description: Boot debugging
+      required: false
+      example: Boot Debugging value
+    bootManagerSecurityVersion:
+      title: Boot Manager Security Version
+      type: string
+      description: Boot manager security version
+      required: false
+      example: Boot Manager Security Version value
+    bootManagerVersion:
+      title: Boot Manager Version
+      type: string
+      description: Boot manager version
+      required: false
+      example: Boot Manager Version value
+    bootRevisionListInfo:
+      title: Boot Revision List Info
+      type: string
+      description: Boot revision list info
+      required: false
+      example: Boot Revision List Info value
+    codeIntegrity:
+      title: Code Integrity
+      type: string
+      description: Code integrity
+      required: false
+      example: Code Integrity value
+    codeIntegrityCheckVersion:
+      title: Code Integrity Check Version
+      type: string
+      description: Code integrity check version
+      required: false
+      example: Code Integrity Check Version value
+    codeIntegrityPolicy:
+      title: Code Integrity Policy
+      type: string
+      description: Code integrity policy
+      required: false
+      example: Code Integrity Policy value
+    contentNamespaceUrl:
+      title: Content Namespace URL
+      type: string
+      description: Content namespace URL
+      required: false
+      example: https://example.com
+    contentVersion:
+      title: Content Version
+      type: string
+      description: Content version
+      required: false
+      example: Content Version value
+    dataExcutionPolicy:
+      title: Data Excution Policy
+      type: string
+      description: Data excution policy
+      required: false
+      example: Data Excution Policy value
+    deviceHealthAttestationStatus:
+      title: Device Health Attestation Status
+      type: string
+      description: Device health attestation status
+      required: false
+      example: Device Health Attestation Status value
+    earlyLaunchAntiMalwareDriverProtection:
+      title: Early Launch Anti Malware Driver Protection
+      type: string
+      description: Early launch anti malware driver protection
+      required: false
+      example: Early Launch Anti Malware Driver Protection value
+    healthAttestationSupportedStatus:
+      title: Health Attestation Supported Status
+      type: string
+      description: Health attestation supported status
+      required: false
+      example: Health Attestation Supported Status value
+    healthStatusMismatchInfo:
+      title: Health Status Mismatch Info
+      type: string
+      description: Health status mismatch info
+      required: false
+      example: Health Status Mismatch Info value
+    issuedDateTime:
+      title: Issued Date Time
+      type: date
+      description: Issued date time
+      required: false
+      example: 2023-08-30T10:13:51.3392508Z
+    lastUpdateDateTime:
+      title: Last Update Date Time
+      type: date
+      description: Last update date time
+      required: false
+      example: 2023-08-30T10:13:51.3392508Z
+    operatingSystemKernelDebugging:
+      title: Operating System Kernel Debugging
+      type: string
+      description: Operating system kernel debugging
+      required: false
+      example: Operating System Kernel Debugging value
+    operatingSystemRevListInfo:
+      title: Operating System Rev List Info
+      type: string
+      description: Operating system rev list info
+      required: false
+      example: Operating System Rev List Info value
+    pcr0:
+      title: PCR0
+      type: string
+      description: PCR0
+      required: false
+      example: Pcr0 value
+    pcrHashAlgorithm:
+      title: PCR Hash Algorithm
+      type: string
+      description: PCR hash algorithm
+      required: false
+      example: Pcr Hash Algorithm value
+    resetCount:
+      title: Reset Count
+      type: integer
+      description: Reset count
+      required: false
+      example: 1024
+    restartCount:
+      title: Restart Count
+      type: integer
+      description: Restart count
+      required: false
+      example: 1024
+    safeMode:
+      title: Safe Mode
+      type: string
+      description: Safe mode
+      required: false
+      example: Safe Mode value
+    secureBoot:
+      title: Secure Boot
+      type: string
+      description: Secure boot
+      required: false
+      example: Secure Boot value
+    secureBootConfigurationPolicyFingerPrint:
+      title: Secure Boot Configuration Policy Finger Print
+      type: string
+      description: Secure boot configuration policy finger print
+      required: false
+      example: Secure Boot Configuration Policy Finger Print value
+    testSigning:
+      title: Test Signing
+      type: string
+      description: Test signing
+      required: false
+      example: Test Signing value
+    tpmVersion:
+      title: TPM Version
+      type: string
+      description: TPM version
+      required: false
+      example: TPM Version value
+    virtualSecureMode:
+      title: Virtual Secure Mode
+      type: string
+      description: Virtual secure mode
+      required: false
+      example: Virtual Secure Mode value
+    windowsPE:
+      title: Windows PE
+      type: string
+      description: Windows PE
+      required: false
+      example: Windows PE value
+  device:
+    "@odata.type":
+      title: Odata Type
+      type: string
+      description: Odata type
+      required: false
+      example: "#microsoft.graph.managedDevice"
+    activationLockBypassCode:
+      title: Activation Lock Bypass Code
+      type: string
+      description: Activation lock bypass code
+      required: false
+      example: 123456789
+    androidSecurityPatchLevel:
+      title: Android Security Patch Level
+      type: string
+      description: Android security patch level
+      required: false
+      example: 2023-08-30
+    azureADDeviceId:
+      title: Azure AD Device ID
+      type: string
+      description: Azure AD device ID
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    azureADRegistered:
+      title: Azure AD Registered
+      type: boolean
+      description: Azure AD registered
+      required: false
+      example: true
+    complianceGracePeriodExpirationDateTime:
+      title: Compliance Grace Period Expiration Date Time
+      type: date
+      description: Compliance grace period expiration date time
+      required: false
+      example: 9999-12-31T23:59:59.9999999Z
+    complianceState:
+      title: Compliance State
+      type: string
+      description: Compliance state
+      required: false
+      example: compliant
+    configurationManagerClientEnabledFeatures:
+      title: Configuration Manager Client Enabled Features
+      type: configurationManagerClientEnabledFeatures
+      description: Configuration manager client enabled features
+      required: false
+      example: {}
+    deviceActionResults:
+      title: Device Action Results
+      type: "[]deviceActionResults"
+      description: Device action results
+      required: false
+      example: []
+    deviceCategoryDisplayName:
+      title: Device Category Display Name
+      type: string
+      description: Device category display name
+      required: false
+      example: Example category
+    deviceEnrollmentType:
+      title: Device Enrollment Type
+      type: string
+      description: Device enrollment type
+      required: false
+      example: userEnrollment
+    deviceHealthAttestationState:
+      title: Device Health Attestation State
+      type: deviceHealthAttestationState
+      description: Device health attestation state
+      required: false
+      example: {}
+    deviceName:
+      title: Device Name
+      type: string
+      description: Device name
+      required: false
+      example: INTUNE-W10
+    deviceRegistrationState:
+      title: Device Registration State
+      type: string
+      description: Device registration state
+      required: false
+      example: registered
+    easActivated:
+      title: EAS Activated
+      type: boolean
+      description: EAS activated
+      required: false
+      example: true
+    easActivationDateTime:
+      title: EAS Activation Date Time
+      type: date
+      description: EAS activation date time
+      required: false
+      example: 2021-06-24T08:37:10.2303995Z
+    easDeviceId:
+      title: EAS Device ID
+      type: string
+      description: EAS device ID
+      required: false
+      example: FD12345678904B5820E08E8123456789
+    emailAddress:
+      title: Email Address
+      type: string
+      description: Email address
+      required: false
+      example: user@example.com
+    enrolledDateTime:
+      title: Enrolled Date Time
+      type: date
+      description: Enrolled date time
+      required: false
+      example: 2021-06-24T00:37:04.5885438Z
+    exchangeAccessState:
+      title: Exchange Access State
+      type: string
+      description: Exchange access state
+      required: false
+      example: unknown
+    exchangeAccessStateReason:
+      title: Exchange Access State Reason
+      type: string
+      description: Exchange access state reason
+      required: false
+      example: unknown
+    exchangeLastSuccessfulSyncDateTime:
+      title: Exchange Last Successful Sync Date Time
+      type: date
+      description: Exchange last successful sync date time
+      required: false
+      example: 2021-06-24T00:37:04.5885438Z
+    freeStorageSpaceInBytes:
+      title: Free Storage Space In Bytes
+      type: integer
+      description: Free storage space in bytes
+      required: false
+      example: 1646264320
+    id:
+      title: ID
+      type: string
+      description: ID
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    imei:
+      title: IMEI
+      type: string
+      description: IMEI
+      required: false
+      example: 123456789876543
+    isEncrypted:
+      title: Is Encrypted
+      type: boolean
+      description: Is encrypted
+      required: false
+      example: true
+    isSupervised:
+      title: Is Supervised
+      type: boolean
+      description: Is supervised
+      required: false
+      example: true
+    jailBroken:
+      title: Jail Broken
+      type: string
+      description: Jail broken
+      required: false
+      example: Unknown
+    lastSyncDateTime:
+      title: Last Sync Date Time
+      type: date
+      description: Last sync date time
+      required: false
+      example: 2023-08-30T10:22:33.6286683Z
+    managedDeviceName:
+      title: Managed Device Name
+      type: string
+      description: Managed device name
+      required: false
+      example: Example device
+    managedDeviceOwnerType:
+      title: Managed Device Owner Type
+      type: string
+      description: Managed device owner type
+      required: false
+      example: personal
+    managementAgent:
+      title: Management Agent
+      type: string
+      description: Management agent
+      required: false
+      example: mdm
+    manufacturer:
+      title: Manufacturer
+      type: string
+      description: Manufacturer
+      required: false
+      example: "VMware, Inc."
+    meid:
+      title: MEID
+      type: string
+      description: MEID
+      required: false
+      example: ABC123456789CBA
+    model:
+      title: Model
+      type: string
+      description: Model
+      required: false
+      example: VMware Virtual Platform
+    operatingSystem:
+      title: Operating System
+      type: string
+      description: Operating system
+      required: false
+      example: Windows
+    osVersion:
+      title: OS Version
+      type: string
+      description: OS version
+      required: false
+      example: 10.0.19044.3086
+    partnerReportedThreatState:
+      title: Partner Reported Threat State
+      type: string
+      description: Partner reported threat state
+      required: false
+      example: activated
+    phoneNumber:
+      title: Phone Number
+      type: string
+      description: Phone number
+      required: false
+      example: 123456789
+    remoteAssistanceSessionErrorDetails:
+      title: Remote Assistance Session Error Details
+      type: string
+      description: Remote assistance session error details
+      required: false
+      example: Example details
+    remoteAssistanceSessionUrl:
+      title: Remote Assistance Session URL
+      type: string
+      description: Remote assistance session URL
+      required: false
+      example: https://example.com
+    serialNumber:
+      title: Serial Number
+      type: string
+      description: Serial number
+      required: false
+      example: VMware-123456789-987654321
+    subscriberCarrier:
+      title: Subscriber Carrier
+      type: string
+      description: Subscriber carrier
+      required: false
+      example: Example subscriber carrier
+    totalStorageSpaceInBytes:
+      title: Total Storage Space In Bytes
+      type: integer
+      description: Total storage space in bytes
+      required: false
+      example: 33773584384
+    userDisplayName:
+      title: User Display Name
+      type: string
+      description: User display name
+      required: false
+      example: Example User
+    userId:
+      title: User ID
+      type: string
+      description: User ID
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    userPrincipalName:
+      title: User Principal Name
+      type: string
+      description: User principal name
+      required: false
+      example: user@example.com
+    wiFiMacAddress:
+      title: Wifi MAC Address
+      type: string
+      description: Wifi MAC address
+      required: false
+      example: 12-34-56-78-AB-CD
+  autopilotDevice:
+    addressableUserName:
+      title: Addressable User Name
+      type: string
+      description: Addressable user name
+      required: false
+      example: user@example.com
+    azureActiveDirectoryDeviceId:
+      title: Azure Active Directory Device ID
+      type: string
+      description: The unique identifier for the Azure Active Directory device
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    displayName:
+      title: Display Name
+      type: string
+      description: Display name of the device
+      required: false
+      example: Example Name
+    enrollmentState:
+      title: Enrollment State
+      type: string
+      description: State of the enrollment
+      required: false
+      example: notContacted
+    groupTag:
+      title: Group Tag
+      type: string
+      description: Group tag of the autopilot device
+      required: false
+      example: example-tag
+    id:
+      title: ID
+      type: string
+      description: Unique identifier for the autopilot device
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    lastContactedDateTime:
+      title: Last Contacted Date Time
+      type: string
+      description: The date when the device was last contacted
+      required: false
+      example: 2021-06-24T00:37:04.5885438Z
+    managedDeviceId:
+      title: Managed Device ID
+      type: string
+      description: The identifier of the managed device
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    manufacturer:
+      title: Manufacturer
+      type: string
+      description: OEM manufacturer of the device
+      required: false
+      example: Example Manufacturer
+    model:
+      title: Model
+      type: string
+      description: Model of the autopilot device
+      required: false
+      example: Example Model
+    productKey:
+      title: Product Key
+      type: string
+      description: Product key of the device
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    purchaseOrderIdentifier:
+      title: Purchase Order Identifier
+      type: string
+      description: The identifier of the purchase order
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    resourceName:
+      title: Resource Name
+      type: string
+      description: Name of the resource
+      required: false
+      example: Example Name
+    serialNumber:
+      title: Serial Number
+      type: string
+      description: Serial number of the device
+      required: false
+      example: 1A2B3C4D
+    skuNumber:
+      title: SKU Number
+      type: string
+      description: Stock Keeping Unit number of the device
+      required: false
+      example: ABCD1234
+    systemFamily:
+      title: System Family
+      type: string
+      description: Family of the device system
+      required: false
+      example: example_family
+    userPrincipalName:
+      title: User Principal Name
+      type: string
+      description: Principal name of the user
+      required: false
+      example: Example Name
+connection:
+  credentials:
+    title: Credentials
+    description: E-mail address and password
+    type: credential_username_password
+    required: true
+    example: '{"username": "user@example.com", "password": "mypassword"}'
+  clientId:
+    title: Client ID
+    description: Client ID, also called Application ID
+    type: string
+    required: true
+    example: a74dfb10-i33o-44e1-ba87-5fn2bb4e6b4d
+  clientSecret:
+    title: Client Secret
+    description:  Client secret key
+    type: credential_secret_key
+    required: true
+    example: kQDFcZoJYmxJpiS1x7rdyleyNFwhvLgcOZCkYG+5=
+  tenantId:
+    title: Tenant ID
+    description: Tenant ID can be found in Active Directory
+    type: string
+    required: true
+    example: 3a522933-ae5e-2b63-96ab-3c004b4f7f10
+actions:
+  search_devices:
+    title: Search Devices
+    description: Search devices by device name, user ID, email address or device ID
+    input:
+      device:
+        title: Device
+        description: Search devices by either of - device name, user ID, email address, device ID
+        type: string
+        required: true
+        example: 547a48e3-0942-4888-acf1-a92b7fb19ef9
+    output:
+      devices:
+        title: Devices
+        description: Devices details
+        required: false
+        type: "[]device"
+        example: []
+  get_device:
+    title: Get Device
+    description: Get information about the device
+    input:
+      deviceId:
+        title: Device ID
+        description: ID of the device
+        type: string
+        required: true
+        example: 9e8fd111-6c41-1111-85b9-11395662e111
+    output:
+      device:
+        title: Device
+        description: Information about the device
+        required: false
+        type: device
+        example: {}
+  quick_scan:
+    title: Quick Scan
+    description: Perform a quick scan of the device
+    input:
+      deviceId:
+        title: Device ID
+        description: ID of the device
+        type: string
+        required: true
+        example: 9e8fd111-6c41-1111-85b9-11395662e111
+    output:
+      success:
+        title: Success
+        description: Whether the scan was successful
+        required: false
+        type: boolean
+        example: true
+  full_scan:
+    title: Full Scan
+    description: Perform a full scan of the device
+    input:
+      deviceId:
+        title: Device ID
+        description: ID of the device
+        type: string
+        required: true
+        example: 9e8fd111-6c41-1111-85b9-11395662e111
+    output:
+      success:
+        title: Success
+        description: Whether the scan was successful
+        required: false
+        type: boolean
+        example: true
+  antivirus_scan:
+    title: Antivirus Scan
+    description: Initiate a Windows Defender Antivirus scan on a machine
+    input:
+      device:
+        title: Device
+        description: Search devices by device name, user ID, email address, or device ID
+        type: string
+        required: true
+        example: 547a48e3-0942-4888-acf1-a92b7fb19ef9
+      update:
+        title: Update Signatures
+        description: If true the action updates Antivirus Signatures before scan
+        type: boolean
+        required: false
+        default: false
+        example: True
+    output:
+      success:
+        title: Success
+        description: Return true if scan was initiated successfully
+        type: boolean
+        required: true
+        example: true
+  wipe:
+    title: Wipe
+    description: Wipe device by device name, user ID, email address, or device ID if it is not whitelisted
+    input:
+      device:
+        title: Device
+        description: Device name, user ID, email address, or device ID
+        type: string
+        required: true
+        example: 547a48e3-0942-4888-acf1-a92b7fb19ef9
+      whitelist:
+        title: Whitelist
+        description: This list contains a set of of device names, user IDs, email addresses, or device IDs that a user can pass in that will not be wiped
+        type: "[]string"
+        required: false
+        example: ["user@example.com", "705c034c-034c-705c-4c03-5c704c035c70"]
+    output:
+      success:
+        title: Success
+        description: Return true if device was successfully wiped
+        type: boolean
+        required: true
+        example: true
+  manage_device:
+    title: Manage Device
+    description: Perform management tasks on a device such as rebooting and syncing
+    input:
+      device:
+        title: Device
+        description: Device name, user ID, email address, or device ID
+        type: string
+        required: true
+        example: aaaa55aa-a55a-5a5a-5aa5-aaaaa555aaa
+      type:
+        title: Type
+        description: Type of action
+        type: string
+        required: true
+        example: Sync
+        enum:
+          - Reboot
+          - Sync
+      whitelist:
+        title: Whitelist
+        description: This list contains a set of of device names, user IDs, email addresses, or device IDs that action will not be performed on
+        type: "[]string"
+        required: false
+        example: ["user@example.com", "705c034c-034c-705c-4c03-5c704c035c70"]
+    output:
+      success:
+        title: Success
+        description: Return true if action was successfully performed on device
+        type: boolean
+        required: true
+        example: true
+  get_managed_apps:
+    title: Get Managed Apps
+    description: Returns InTune manageable apps
+    input:
+      app:
+        title: App
+        description: Application ID or name, if empty returns all applications
+        type: string
+        required: false
+        example: af6040ed-efe0-494c-89ed-89880989674c
+    output:
+      managedApps:
+        title: Managed Apps
+        description: Application details
+        type: "[]value"
+        required: false
+        example: []
+  get_autopilot_device:
+    title: Get Autopilot Device
+    description: Get information about the Autopilot device
+    input:
+      deviceId:
+        title: Device ID
+        description: ID of the Autopilot device
+        type: string
+        required: true
+        example: 9e8fd111-6c41-1111-85b9-11395662e111
+    output:
+      device:
+        title: Device
+        description: Information about the autopilot device
+        required: false
+        type: autopilotDevice
+        example: {}
+  delete_device_from_intune:
+    title: Delete Device from Intune
+    description: Delete the managed device from Intune
+    input:
+      deviceId:
+        title: Device ID
+        description: ID of the managed device
+        type: string
+        required: true
+        example: 9e8fd111-6c41-1111-85b9-11395662e111
+    output:
+      success:
+        title: Success
+        description: Whether the scan was successful
+        type: boolean
+        required: true
+        example: true
+  delete_device_from_autopilot:
+    title: Delete Device from Autopilot
+    description: Delete the device from Autopilot
+    input:
+      deviceId:
+        title: Device ID
+        description: ID of the device
+        type: string
+        required: true
+        example: 9e8fd111-6c41-1111-85b9-11395662e111
+    output:
+      success:
+        title: Success
+        description: Whether the scan was successful
+        type: boolean
+        required: true
+        example: true

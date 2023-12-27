@@ -1,0 +1,1795 @@
+plugin_spec_version: v2
+extension: plugin
+products: [insightconnect]
+name: rapid7_insightidr
+title: "Rapid7 InsightIDR"
+description: "This plugin allows you to add indicators to a threat and see the status of investigations"
+version: 6.0.0
+connection_version: 5
+supported_versions: ["Latest release successfully tested on 2022-07-20."]
+vendor: rapid7
+cloud_ready: true
+resources:
+  source_url: https://github.com/rapid7/insightconnect-plugins/tree/master/plugins/rapid7_insightidr
+  license_url: https://github.com/rapid7/insightconnect-plugins/blob/master/LICENSE
+  vendor_url: https://www.rapid7.com
+  docs_url: https://docs.rapid7.com/insightconnect/rapid7-insightidr
+tags: [ "IDR", "SIEM" ]
+support: rapid7
+status: []
+hub_tags:
+  use_cases: [threat_detection_and_response]
+  keywords: [siem, rapid7, cloud_enabled]
+  features: []
+sdk:
+  type: full
+  version: 5
+  user: nobody
+types:
+  investigation_metadata:
+    index:
+      title: Index
+      description: The zero-based index of the page retrieved
+      type: integer
+      required: false
+    size:
+      title: Size
+      description: The size of the page requested
+      type: integer
+      required: false
+    total_data:
+      title: Total Data
+      description: The total number of results available with the given filter parameters
+      type: integer
+      required: false
+    total_pages:
+      title: Total Pages
+      description: The total number of pages available with the given filter parameters
+      type: integer
+      required: false
+  alert:
+    alert_type:
+      title: Alert Type
+      description: The type of an alert
+      type: string
+      required: false
+    alert_type_description:
+      title: Alert Type Description
+      description: An optional description of this type of alert
+      type: string
+      required: false
+    created_time:
+      title: Created Time
+      description: The time when the alert was created
+      type: string
+      required: false
+    detection_rule_rrn:
+      title: Detection Rule RRN
+      description: The time when the alert was created
+      type: string
+      required: false
+    first_event_time:
+      title: First Event Time
+      description: The time the first event involved in this alert occurred
+      type: string
+      required: false
+    id:
+      title: Alert ID
+      description: The identifier of an alert
+      type: string
+      required: false
+    latest_event_time:
+      title: Latest Event Time
+      description: The time the latest event involved in this alert occurred
+      type: string
+      required: false
+    title:
+      title: Title
+      description: The title of the alert
+      type: string
+      required: false
+  assignee:
+    email:
+      title: Email
+      description: The email of the assigned user
+      type: string
+      required: false
+    name:
+      title: Name
+      description: The name of the assigned user
+      type: string
+      required: false
+  investigation:
+    assignee:
+      title: Assignee
+      description: The user assigned to this investigation, if any
+      type: assignee
+      required: false
+    created_time:
+      title: Created Time
+      description: The time the investigation was created as an ISO formatted timestamp
+      type: string
+      required: true
+    disposition:
+      title: Disposition
+      description: The disposition of this investigation, where possible values are BENIGN, MALICIOUS, NOT_APPLICABLE, and UNSPECIFIED
+      type: string
+      required: true
+    first_alert_time:
+      title: First Alert Time
+      description: The create time of the first alert belonging to this investigation
+      type: string
+      required: false
+    last_accessed:
+      title: Last Accessed
+      description: The time investigation was last viewed or modified
+      type: string
+      required: true
+    latest_alert_time:
+      title: Latest Alert Time
+      description: The create time of the most recent alert belonging to this investigation
+      type: string
+      required: false
+    organization_id:
+      title: Organization ID
+      description: The id of the organization that owns this investigation
+      type: string
+      required: true
+    priority:
+      title: Priority
+      description: The investigations priority, where possible values are CRITICAL, HIGH, MEDIUM, LOW, and UNKNOWN
+      type: string
+      required: true
+    rrn:
+      title: RRN
+      description: The RRN of the investigation
+      type: string
+      required: true
+    source:
+      title: Source
+      description: The source of this investigation
+      type: string
+      required: true
+    status:
+      title: Status
+      description: The status of the investigation
+      type: string
+      required: true
+    title:
+      title: Title
+      description: Investigation title
+      type: string
+      required: true
+  threat:
+    indicator_count:
+      title: Indicator Count
+      description: The number of indicators in this threat
+      type: integer
+      required: false
+      example: 2
+    name:
+      title: Name
+      description: The name of the threat
+      type: string
+      required: false
+      example: bad-vrius
+    note:
+      title: Note
+      description: Notes about this threat
+      type: string
+      required: false
+      example: test
+    published:
+      title: Published
+      description: Indicates whether this threat has been published
+      type: boolean
+      required: false
+      example: false
+  link:
+    rel:
+      title: Relation
+      description: Relation
+      type: string
+    href:
+      title: HREF
+      description: HREF
+      type: string
+  eventData:
+    oaState:
+      title: OA State
+      type: string
+      description: OA state
+      required: false
+    lastAsSignatureAge:
+      title: Last As Signature Age
+      type: string
+      description: Last as signature age
+      required: false
+    productStatus:
+      title: Product Status
+      type: string
+      description: Product status
+      required: false
+    assignatureVersion:
+      title: As Signature Version
+      type: string
+      description: As signature version
+      required: false
+    ioavState:
+      title: IOAV State
+      type: string
+      description: IOAV state
+      required: false
+    asSignatureCreationTime:
+      title: As Signature Creation Time
+      type: string
+      description: As signature creation time
+      required: false
+    lastFullScanSource:
+      title: Last Full Scan Source
+      type: string
+      description: Last full scan source
+      required: false
+    nriSignatureVersion:
+      title: NRI Signature Version
+      type: string
+      description: NRI signature version
+      required: false
+    lastFullScanStartTime:
+      title: Last Full Scan Start Time
+      type: string
+      description: Last full scan start time
+      required: false
+    engineVersion:
+      title: Engine Version
+      type: string
+      description: Engine version
+      required: false
+    bmState:
+      title: BMS State
+      type: string
+      description: BMS state
+      required: false
+    lastQuickScanSource:
+      title: Last Quick Scan Source
+      type: string
+      description: Last quick scan source
+      required: false
+    lastFullScanEndTime:
+      title: Last Full Scan End Time
+      type: string
+      description: Last full scan end time
+      required: false
+    productName:
+      title: Product Name
+      type: string
+      description: Product name
+      required: false
+    rtpState:
+      title: RTP State
+      type: string
+      description: RTP state
+      required: false
+    platformVersion:
+      title: Platform Version
+      type: string
+      description: Platform version
+      required: false
+    lastQuickScanAge:
+      title: Last Quick Scan Age
+      type: string
+      description: Last quick scan age
+      required: false
+    data:
+      title: Data
+      type: "[]object"
+      description: Data
+      required: false
+    lastQuickScanEndTime:
+      title: Last Quick Scan End Time
+      type: string
+      description: Last quick scan end time
+      required: false
+    avSignatureCreationTime:
+      title: AV Signature Creation Time
+      type: string
+      description: AV signature creation time
+      required: false
+    avsignatureVersion:
+      title: AV Signature Version
+      type: string
+      description: AV signature version
+      required: false
+    lastAvSignatureAge:
+      title: Last AV Signature Age
+      type: string
+      description: Last AV signature age
+      required: false
+    nriEngineVersion:
+      title: NRI Engine Version
+      type: string
+      description: NRI engine version
+      required: false
+    lastQuickScanStartTime:
+      title: Last Quick Scan Start Time
+      type: string
+      description: Last quick scan start time
+      required: false
+    lastFullScanAge:
+      title: Last Full Scan Age
+      type: string
+      description: Last full scan age
+      required: false
+  message:
+    sourceName:
+      title: Source Name
+      type: string
+    eventCode:
+      title: Event Code
+      type: integer
+    computerName:
+      title: Computer Name
+      type: string
+    sid:
+      title: SID
+      type: string
+    isDomainController:
+      title: Is Domain Controller
+      type: boolean
+    eventData:
+      title: Event Data
+      type: eventData
+    timeWritten:
+      title: Time Written
+      type: string
+  events:
+    labels:
+      title: Labels
+      description: List of labels
+      type: "[]string"
+    timestamp:
+      title: Timestamp
+      description: Timestamp
+      type: integer
+    sequence_number:
+      title: Sequence Number
+      description: Sequence number
+      type: integer
+    log_id:
+      title: Log ID
+      description: Log ID
+      type: string
+    message:
+      title: Message
+      description: Message
+      type: message
+    links:
+      title: Links
+      description: Links
+      type: "[]link"
+  statistics:
+    stats:
+      title: Stats
+      description: Holds the overall result when query does not contain a 'groupby' clause
+      type: object
+      required: true
+    groups:
+      title: Groups
+      description: Holds the overall result for each group in a 'groupby' query
+      type: '[]object'
+      required: true
+    granularity:
+      title: Granularity
+      description: The time window in milliseconds for each time slice in the time series
+      type: integer
+      required: true
+    timeseries:
+      title: Time Series
+      description: Holds the query results for each timeslice (each partition of the time_range), for non-'groupby' queries
+      type: object
+      required: true
+    groups_timeseries:
+      title: Groups Time Series
+      description: For 'groupby' queries, holds the timeseries object for each group
+      type: '[]object'
+      required: true
+    from:
+      title: From
+      description: The start of the time range for the query, as a UNIX timestamp in milliseconds
+      type: integer
+      required: true
+    to:
+      title: To
+      description: The end of the time range for the query, as a UNIX timestamp in milliseconds
+      type: integer
+      required: true
+    type:
+      title: Type
+      description: The type of function performed, for example, "count", "max", "average", "standarddeviation"
+      type: string
+      required: true
+    key:
+      title: Key
+      description: The key which the function of the 'calculate' clause is applied to
+      type: string
+      required: false
+    cardinality:
+      title: Cardinality
+      description: Always 0
+      type: integer
+      required: true
+    others:
+      title: Others
+      description: Not yet implemented
+      type: object
+      required: true
+    status:
+      title: Status
+      description: Holds a status code for the query, potentially different from the status code of the response
+      type: integer
+      required: true
+    all_exact_results:
+      title: All Exact Results
+      description: Boolean indicating whether groups are calculated approximately (approximated if a groupby query involves over 10,000 groups)
+      type: boolean
+      required: true
+  links:
+    href:
+      title: HREF
+      type: string
+      description: HREF
+      required: false
+    rel:
+      title: REL
+      type: string
+      description: REL
+      required: false
+  user_data:
+    platform_managed:
+      title: Platform Managed
+      type: string
+      description: Platform managed
+      required: false
+  logsets_info:
+    id:
+      title: ID
+      type: string
+      description: ID
+      required: false
+    links:
+      title: Links
+      type: "[]links"
+      description: Links
+      required: false
+    name:
+      title: Name
+      type: string
+      description: Name
+      required: false
+    rrn:
+      title: RRN
+      type: string
+      description: RRN
+      required: false
+    user_data:
+      title: User Data
+      type: user_data
+      description: User data
+      required: false
+  during:
+    time_range:
+      title: Time Range
+      type: string
+      description: Time range description
+      required: false
+    to:
+      title: To
+      type: integer
+      description: Time range end value
+      required: false
+    from:
+      title: From
+      type: integer
+      description: Time range start value
+      required: false
+  leql:
+    statement:
+      title: Statement
+      type: string
+      description: Logentries Query Language statement
+      required: false
+    during:
+      title: During
+      type: during
+      description: Query duration data
+      required: false
+  query:
+    id:
+      title: ID
+      type: string
+      description: Query ID
+      required: false
+    name:
+      title: Name
+      type: string
+      description: Query name
+      required: false
+    leql:
+      title: LEQL
+      type: leql
+      description: LEQL data
+      required: false
+    logs:
+      title: Logs
+      type: "[]string"
+      description: Query logs
+      required: false
+  creator:
+    name:
+      title: Name
+      description: The name of who or what created a resource
+      type: string
+      required: false
+    type:
+      title: Type
+      description: A type that denotes who or what created a resource
+      type: string
+      required: false
+  attachment:
+    created_time:
+      title: Created Time
+      description: The time the attachment was created as an ISO formatted timestamp
+      type: date
+      required: false
+    rrn:
+      title: RRN
+      description: The RRN of the attachment
+      type: string
+      required: false
+    creator:
+      title: Creator
+      description: Who or what created the attachment
+      type: creator
+      required: false
+    file_name:
+      title: File Name
+      description: The original filename of the uploaded attachment
+      type: string
+      required: false
+    mime_type:
+      title: MIME Type
+      description: The MIME type of the attachment
+      type: string
+      required: false
+    scan_status:
+      title: Scan Status
+      description: The scan status of the attachment, indicating whether the attachment has been scanned and, if so, the result. INFECTED or PENDING attachments may not be downloaded
+      type: string
+      required: false
+    size:
+      title: Size
+      description: The size in bytes of the attachment
+      type: integer
+      required: false
+  comment:
+    created_time:
+      title: Created Time
+      description: The time the comment was created as an ISO formatted timestamp
+      type: date
+      required: false
+    rrn:
+      title: RRN
+      description: The RRN of the comment
+      type: string
+      required: false
+    target:
+      title: Target
+      description: The target where the comment belongs to
+      type: string
+      required: false
+    creator:
+      title: Creator
+      description: Who or what created the comment
+      type: creator
+      required: false
+    body:
+      title: Body
+      description: The body of the comment
+      type: string
+      required: false
+    visibility:
+      title: Visibility
+      description: Who can view the comment
+      type: string
+      required: false
+    attachments:
+      title: Attachments
+      description: List of attachments associated with this comment
+      type: "[]attachment"
+      required: false
+      example: [{"rrn": "rrn:collaboration:us:44d88612-fea8-a8f3-6de8-2e1278abb02f:attachment:1234567890","creator": {"type": "USER","name": "Example User"},"created_time": "2022-08-19T13:00:58.645Z","file_name": "test.txt","mime_type": "text/plain","size": 4,"scan_status": "CLEAN"}]
+  user:
+    domain:
+      title: Domiain
+      description: The domain this user is associated with.
+      type: string
+      required: false
+    name:
+      title: Name
+      description: The name of this user.
+      type: string
+      required: false
+    first_name:
+      title: First Name
+      description: The first name of this user, if known.
+      type: string
+      required: false
+    last_name:
+      title: Last Name
+      description: The last name of this user, if known.
+      type: string
+      required: false
+    rrn:
+      title: RRN
+      description: The unique identifier for this user.
+      type: string
+      required: false
+  asset:
+    name:
+      title: Name
+      description: The user friendly name for this asset.
+      type: string
+      required: false
+    rrn:
+      title: RRN
+      description: The unique identifier for this asset.
+      type: string
+      required: false
+connection:
+  api_key:
+    title: API Key
+    description: InsightIDR API key
+    type: credential_secret_key
+    required: true
+    example: 4472f2g7-991z-4w70-li11-7552w8qm0266
+  region:
+    title: Region
+    description: The region for InsightIDR
+    type: string
+    enum:
+      - United States 1
+      - United States 2
+      - United States 3
+      - Europe
+      - Canada
+      - Australia
+      - Japan
+    required: true
+    default: United States 1
+    example: United States 1
+actions:
+  replace_indicators:
+    title: Replace Indicators
+    description: Replace InsightIDR threat indicators in a threat with the given threat key
+    input:
+      key:
+        title: Key
+        description: The key of a threat for which the indicators are going to be added
+        type: string
+        required: true
+        example: c9404e11-b81a-429d-9400-05c531f229c3
+      ips:
+        title: IP Addresses
+        description: IP addresses to add
+        type: "[]string"
+        required: false
+        example: [ "10.0.0.1","10.0.0.2" ]
+      hashes:
+        title: Process Hashes
+        description: Process hashes to add
+        type: "[]string"
+        required: false
+        example: [ "A94A8FE5CCB19BA61C4C0873D391E987982FBBD3","C3499C2729730A7F807EFB8676A92DCB6F8A3F8F" ]
+      domain_names:
+        title: Domain Names
+        description: Domain names to add
+        type: "[]string"
+        required: false
+        example: [ "rapid7.com","google.com" ]
+      urls:
+        title: URLs
+        description: URLs to add
+        type: "[]string"
+        required: false
+        example: [ "https://example.com","https://test.com" ]
+    output:
+      rejected_indicators:
+        title: Rejected Indicators
+        description: The list of indicators that have been rejected during the update
+        type: "[]string"
+        required: false
+        example: ["example.com", "10.0.0.1"]
+      threat:
+        title: Threat
+        description: The information about the threat
+        type: threat
+        required: false
+        example: {"name": "bad-virus","note": "test","published": False,"indicator_count": 2}
+  list_investigations:
+    title: List Investigations
+    description: Retrieve a page of investigations matching the given request parameters
+    input:
+      statuses:
+        title: Statuses
+        description: Comma-separated list of investigation statuses to include in the result. Possible values are OPEN, CLOSED, INVESTIGATING, WAITING
+        type: "[]string"
+        required: false
+        example: ["CLOSED"]
+      start_time:
+        title: Start Time
+        description: An optional ISO-formatted timestamp, where only investigations whose createTime is after this date will be returned
+        type: date
+        required: false
+        example: "2020-06-01T12:11:13+05:30"
+      end_time:
+        title: End Time
+        description: An optional-ISO formatted timestamp, where only investigations whose createTime is before this date will be returned
+        type: date
+        required: false
+        example: "2020-06-01T12:11:13+05:30"
+      size:
+        title: Size
+        description: Amount of data for a page to retrieve, where its value must be greater than 0 and less than or equal to 100
+        type: integer
+        required: true
+        default: 100
+        example: 100
+      index:
+        title: Index
+        description: Zero-based index of the page to retrieve, where value must be greater than or equal to 0
+        type: integer
+        required: true
+        default: 0
+        example: 1
+      email:
+        title: Email
+        description: A user's email address, where only investigations assigned to that user will be included
+        type: string
+        required: false
+        example: user@example.com
+      priorities:
+        title: Priorities
+        description: A comma-separated list of investigation priorities to include in the result, where possible values are LOW, MEDIUM, HIGH, CRITICAL
+        type: "[]string"
+        required: false
+        example: '["LOW", "MEDIUM", "HIGH", "CRITICAL"]'
+      sort:
+        title: Sort
+        description: A field for investigations to be sorted
+        type: string
+        enum:
+          - ""
+          - Create time Ascending
+          - Create time Descending
+          - Priority Ascending
+          - Priority Descending
+          - Last alert time Ascending
+          - Last alert time Descending
+          - RRN Ascending
+          - RRN Descending
+          - Alerts most recent created time Ascending
+          - Alerts most recent created time Descending
+          - Alerts most recent detection created time Ascending
+          - Alerts most recent detection created time Descending
+        required: false
+        example: Create time Ascending
+      sources:
+        title: Sources
+        description: A comma-separated list of investigation sources to include in the result, where possible values are USER, ALERT, HUNT, AUTOMATION
+        type: "[]string"
+        required: false
+        example: '["USER","ALERT"]'
+    output:
+      investigations:
+        title: Investigations
+        description: A list of found investigations
+        type: "[]investigation"
+        required: true
+        example: [{"assignee": {"email": "user@example.com","name": "Ellen Example"},"created_time": "2018-06-06T16:56:42Z","disposition": "BENIGN","first_alert_time": "2018-06-06T16:56:42Z","last_accessed": "2018-06-06T16:56:42Z","latest_alert_time": "2018-06-06T16:56:42Z","organization_id": "174e4f99-2ac7-4481-9301-4d24c34baf06","priority": "CRITICAL","rrn": "rrn:example","source": "ALERT","status": "OPEN","title": "Example Title"}]
+      metadata:
+        title: Metadata
+        description: The pagination parameters used to generate this page result
+        type: investigation_metadata
+        required: true
+        example: {"index": 0,"size": 1,"total_data": 1,"total_pages": 1}
+  create_investigation:
+    title: Create Investigation
+    description: Allows to create investigation manually
+    input:
+      title:
+        title: Title
+        description: Investigation's title
+        type: string
+        required: true
+        example: Example Title
+      status:
+        title: Status
+        description: Investigation's status
+        type: string
+        enum:
+          - ""
+          - OPEN
+          - CLOSED
+        required: false
+        example: OPEN
+      priority:
+        title: Priority
+        description: Investigation's priority
+        type: string
+        enum:
+          - ""
+          - LOW
+          - MEDIUM
+          - HIGH
+          - CRITICAL
+        required: false
+        example: LOW
+      disposition:
+        title: Disposition
+        description: Investigation's disposition
+        type: string
+        enum:
+          - ""
+          - BENIGN
+          - MALICIOUS
+          - NOT_APPLICABLE
+        required: false
+        example: BENIGN
+      email:
+        title: Email
+        description: A user's email address for investigation to be assigned
+        type: string
+        required: false
+        example: user@example.com
+    output:
+      investigation:
+        title: Investigation
+        description: The body of the specified investigation
+        type: investigation
+        required: true
+        example: {"assignee": {"email": "user@example.com","name": "Ellen Example"},"created_time": "2018-06-06T16:56:42Z","disposition": "BENIGN","first_alert_time": "2018-06-06T16:56:42Z","last_accessed": "2018-06-06T16:56:42Z","latest_alert_time": "2018-06-06T16:56:42Z","organization_id": "174e4f99-2ac7-4481-9301-4d24c34baf06","priority": "CRITICAL","rrn": "rrn:example","source": "ALERT","status": "OPEN","title": "Example Title"}
+  search_investigations:
+      title: Search Investigations
+      description: Allows to search for investigations that match the given criteria
+      input:
+        search:
+          title: Search
+          description: The criteria for which entities to return
+          type: "[]object"
+          required: false
+          example: '[{"field": "Example Field", "operator": "EQUALS", "value": "Test"}]'
+        sort:
+          title: Sort
+          description: The sorting information, where possible field values are RRN, PRIORITY, CREATED TIME, and order values are ASC, DESC
+          type: "[]object"
+          required: false
+          example: '[{"field": "Example Field", "order": "ASC"}]'
+        start_time:
+          title: Start Time
+          description: The starting time from when investigations were created
+          type: date
+          required: false
+          example: 2020-09-06T12:07:55.1366667Z
+        end_time:
+          title: End Time
+          description: The ending time when investigations were created
+          type: date
+          required: false
+          example: 2020-09-06T12:07:55.1366667Z
+        size:
+          title: Size
+          description: Amount of data for a page to retrieve, where its value must be greater than 0 or less than or equal to 100
+          type: integer
+          required: true
+          default: 100
+          example: 100
+        index:
+          title: Index
+          description: Zero-based index of the page to retrieve, where value must be greater than or equal to 0
+          type: integer
+          required: true
+          default: 0
+          example: 1
+      output:
+        investigations:
+          title: Investigations
+          description: A list of found investigations
+          type: "[]investigation"
+          required: true
+          example: [{"assignee": {"email": "user@example.com","name": "Ellen Example"},"created_time": "2018-06-06T16:56:42Z","disposition": "BENIGN","first_alert_time": "2018-06-06T16:56:42Z","last_accessed": "2018-06-06T16:56:42Z","latest_alert_time": "2018-06-06T16:56:42Z","organization_id": "174e4f99-2ac7-4481-9301-4d24c34baf06","priority": "CRITICAL","rrn": "rrn:example","source": "ALERT","status": "OPEN","title": "Example Title"}]
+        metadata:
+          title: Metadata
+          description: The pagination parameters used to generate this page result
+          type: investigation_metadata
+          required: true
+          example: {"index": 0,"size": 1,"total_data": 1,"total_pages": 1}
+  update_investigation:
+    title: Update Investigation
+    description: Allows to update existing investigation by ID or RRN
+    input:
+      id:
+        title: ID or RRN
+        description: The identifier of investigation to be update (ID or RRN)
+        type: string
+        required: true
+        example: rrn:investigation:example:11111111-1111-1111-1111-111111111111:investigation:11111111
+      title:
+        title: Title
+        description: Investigation's title
+        type: string
+        required: false
+        example: Example Title
+      status:
+        title: Status
+        description: Investigation's status
+        type: string
+        enum:
+          - ""
+          - OPEN
+          - INVESTIGATING
+          - CLOSED
+        required: false
+        example: OPEN
+      priority:
+        title: Priority
+        description: Investigation's priority
+        type: string
+        enum:
+          - ""
+          - UNSPECIFIED
+          - LOW
+          - MEDIUM
+          - HIGH
+          - CRITICAL
+        required: false
+        example: LOW
+      disposition:
+        title: Disposition
+        description: Investigation's disposition
+        type: string
+        enum:
+          - ""
+          - BENIGN
+          - MALICIOUS
+          - NOT_APPLICABLE
+        required: false
+        example: BENIGN
+      email:
+        title: Email
+        description: A user's email address for investigation to be assigned
+        type: string
+        required: false
+        example: user@example.com
+    output:
+      investigation:
+        title: Investigation
+        description: The body of the specified investigation
+        type: investigation
+        required: true
+        example: {"assignee": {"email": "user@example.com","name": "Ellen Example"},"created_time": "2018-06-06T16:56:42Z","disposition": "BENIGN","first_alert_time": "2018-06-06T16:56:42Z","last_accessed": "2018-06-06T16:56:42Z","latest_alert_time": "2018-06-06T16:56:42Z","organization_id": "174e4f99-2ac7-4481-9301-4d24c34baf06","priority": "CRITICAL","rrn": "rrn:example","source": "ALERT","status": "OPEN","title": "Example Title"}
+  get_investigation:
+    title: Get Investigation
+    description: Allows to get existing investigation by ID or RRN
+    input:
+      id:
+        title: ID or RRN
+        description: The identifier of investigation (ID or RRN)
+        type: string
+        required: true
+        example: rrn:investigation:example:11111111-1111-1111-1111-111111111111:investigation:11111111
+    output:
+      investigation:
+        title: Investigation
+        description: The body of the specified investigation
+        type: investigation
+        required: true
+        example: {"assignee": {"email": "user@example.com","name": "Ellen Example"},"created_time": "2018-06-06T16:56:42Z","disposition": "BENIGN","first_alert_time": "2018-06-06T16:56:42Z","last_accessed": "2018-06-06T16:56:42Z","latest_alert_time": "2018-06-06T16:56:42Z","organization_id": "174e4f99-2ac7-4481-9301-4d24c34baf06","priority": "CRITICAL","rrn": "rrn:example","source": "ALERT","status": "OPEN","title": "Example Title"}
+  set_priority_of_investigation:
+    title: Set Priority of Investigation
+    description: Allows to change the priority of the investigation with the given ID or RRN
+    input:
+      id:
+        title: ID or RRN
+        description: The ID or RNN of the investigation to change the priority of
+        type: string
+        required: true
+        example: rrn:investigation:example:11111111-1111-1111-1111-111111111111:investigation:11111111
+      priority:
+        title: Priority
+        description: Investigation's priority
+        type: string
+        enum:
+          - UNSPECIFIED
+          - LOW
+          - MEDIUM
+          - HIGH
+          - CRITICAL
+        required: true
+        example: LOW
+    output:
+      investigation:
+        title: Investigation
+        description: The investigation for which the priority was set
+        type: investigation
+        required: true
+        example: {"assignee": {"email": "user@example.com","name": "Ellen Example"},"created_time": "2018-06-06T16:56:42Z","disposition": "BENIGN","first_alert_time": "2018-06-06T16:56:42Z","last_accessed": "2018-06-06T16:56:42Z","latest_alert_time": "2018-06-06T16:56:42Z","organization_id": "174e4f99-2ac7-4481-9301-4d24c34baf06","priority": "CRITICAL","rrn": "rrn:example","source": "ALERT","status": "OPEN","title": "Example Title"}
+  set_disposition_of_investigation:
+    title: Set Disposition of Investigation
+    description: Allows to change the disposition of the investigation with the given ID or RRN
+    input:
+      id:
+        title: ID
+        description: The ID or RNN of the investigation to change the disposition of
+        type: string
+        required: true
+        example: rrn:investigation:example:11111111-1111-1111-1111-111111111111:investigation:11111111
+      disposition:
+        title: Disposition
+        description: Investigation's disposition
+        type: string
+        enum:
+          - BENIGN
+          - MALICIOUS
+          - NOT_APPLICABLE
+        required: true
+        example: BENIGN
+    output:
+      investigation:
+        title: Investigation
+        description: The investigation for which the disposition was set
+        type: investigation
+        required: true
+        example: {"assignee": {"email": "user@example.com","name": "Ellen Example"},"created_time": "2018-06-06T16:56:42Z","disposition": "BENIGN","first_alert_time": "2018-06-06T16:56:42Z","last_accessed": "2018-06-06T16:56:42Z","latest_alert_time": "2018-06-06T16:56:42Z","organization_id": "174e4f99-2ac7-4481-9301-4d24c34baf06","priority": "CRITICAL","rrn": "rrn:example","source": "ALERT","status": "OPEN","title": "Example Title"}
+  set_status_of_investigation_action:
+    title: Set Status of Investigation
+    description: Set the status of the investigation with the given ID
+    input:
+      id:
+        title: ID or RRN
+        description: The ID of the investigation to change the status of
+        type: string
+        required: true
+        example: 174e4f99-2ac7-4481-9301-4d24c34baf06
+      status:
+        title: Status
+        description: The new status for the investigation
+        type: string
+        required: true
+        default: CLOSED
+        example: CLOSED
+        enum:
+        - OPEN
+        - CLOSED
+    output:
+      investigation:
+        title: Investigation
+        description: The investigation for which the status was set
+        type: investigation
+        required: true
+        example: {"assignee": {"email": "user@example.com","name": "Ellen Example"},"created_time": "2018-06-06T16:56:42Z","disposition": "BENIGN","first_alert_time": "2018-06-06T16:56:42Z","last_accessed": "2018-06-06T16:56:42Z","latest_alert_time": "2018-06-06T16:56:42Z","organization_id": "174e4f99-2ac7-4481-9301-4d24c34baf06","priority": "CRITICAL","rrn": "rrn:example","source": "ALERT","status": "OPEN","title": "Example Title"}
+  list_alerts_for_investigation:
+    title: List Alerts for Investigation
+    description: Retrieve a page of alerts associated with the specified investigation
+    input:
+      id:
+        title: ID or RRN
+        description: The identifier of investigation (ID or RRN)
+        type: string
+        required: true
+        example: rrn:investigation:example:11111111-1111-1111-1111-111111111111:investigation:11111111
+      size:
+        title: Size
+        description: The optional size of the page to retrieve. Must be an integer greater than 0 or less than or equal to 100. Default value is 100
+        type: integer
+        required: true
+        default: 100
+        example: 100
+      index:
+        title: Index
+        description: The optional zero-based index of the page to retrieve. Must be an integer greater than or equal to 0
+        type: integer
+        required: true
+        default: 0
+        example: 1
+    output:
+      alerts:
+        title: Alerts
+        description: A list of alerts associated with the investigation
+        type: "[]alert"
+        required: true
+        example: [{"alert_type": "Example Type","alert_type_description": "Example Description","created_time": "01-01-2020T00:00:00","detection_rule_rrn": "rrn:example","first_event_time": "01-01-2020T00:00:00","id": "11111111-1111-1111-1111-111111111111","latest_event_time": "01-01-2020T00:00:00","title": "Example Title"}]
+      metadata:
+        title: Metadata
+        description: The pagination parameters used to generate this page result
+        type: investigation_metadata
+        required: true
+        example: {"index": 0,"size": 1,"total_data": 1,"total_pages": 1}
+  add_indicators_to_a_threat:
+    title: Add Indicators to a Threat
+    description: Add InsightIDR threat indicators to a threat with the given threat key
+    input:
+      key:
+        title: Key
+        description: The key of a threat for which the indicators are going to be added. e.g. c9404e11-b81a-429d-9400-05c531f229c3
+        type: string
+        required: true
+        example: c9404e11-b81a-429d-9400-05c531f229c3
+      ips:
+        title: IP Addresses
+        description: IP addresses to add. e.g. ["10.0.0.1","10.0.0.2"]
+        type: "[]string"
+        required: false
+        example: ["10.0.0.1","10.0.0.2"]
+      hashes:
+        title: Process Hashes
+        description: Process hashes to add. e.g. ["A94A8FE5CCB19BA61C4C0873D391E987982FBBD3","C3499C2729730A7F807EFB8676A92DCB6F8A3F8F"]
+        type: "[]string"
+        required: false
+        example: ["A94A8FE5CCB19BA61C4C0873D391E987982FBBD3","C3499C2729730A7F807EFB8676A92DCB6F8A3F8F"]
+      domain_names:
+        title: Domain Names
+        description: Domain names to add. e.g. ["rapid7.com","google.com"]
+        type: "[]string"
+        required: false
+        example: ["rapid7.com","google.com"]
+      urls:
+        title: URLs
+        description: URLs to add. e.g. ["https://example.com","https://test.com"]
+        type: "[]string"
+        required: false
+        example: ["https://example.com","https://test.com"]
+    output:
+      rejected_indicators:
+        title: Rejected Indicators
+        description: The list of indicators that have been rejected during the update
+        type: "[]string"
+        required: false
+        example: ["https://example.com","https://test.com"]
+      threat:
+        title: Threat
+        description: The information about the threat
+        type: threat
+        required: false
+        example: {"name": "Contributing Collaborative Threat: Flagged Malicious", "published": False,"indicator_count": 13}
+  assign_user_to_investigation:
+    title: Assign User to Investigation
+    description: Assign a user to the specified investigation
+    input:
+      id:
+        title: ID
+        description: Investigation ID or RRN
+        type: string
+        example: 174e4f99-2ac7-4481-9301-4d24c34baf06
+        required: true
+      user_email_address:
+        title: User Email Address
+        description: The email address of the user to assign to this investigation, used to log into the insight platform
+        type: string
+        example: user@example.com
+        required: true
+    output:
+      success:
+        title: Success
+        description: Was the user assigned successfully
+        type: boolean
+        required: true
+        example: true
+      investigation:
+        title: Investigation
+        description: The investigation that was modified
+        type: investigation
+        required: true
+        example: {"assignee": {"email": "user@example.com","name": "Ellen Example"},"created_time": "2018-06-06T16:56:42Z","disposition": "BENIGN","first_alert_time": "2018-06-06T16:56:42Z","last_accessed": "2018-06-06T16:56:42Z","latest_alert_time": "2018-06-06T16:56:42Z","organization_id": "174e4f99-2ac7-4481-9301-4d24c34baf06","priority": "CRITICAL","rrn": "rrn:example","source": "ALERT","status": "OPEN","title": "Example Title"}
+  query:
+    title: Get Query Results
+    description: Get query results for a LEQL query by log ID
+    input:
+      id:
+        title: ID
+        description: Log ID
+        type: string
+        example: 174e4f99-2ac7-4481-9301-4d24c34baf06
+        required: true
+      most_recent_first:
+        title: Most Recent First
+        description: Order most recent first
+        type: boolean
+        example: true
+        required: false
+    output:
+      events:
+        title: Events
+        description: Events from logs
+        type: "[]events"
+        required: true
+        example: [{"labels": [],"timestamp": 1601598638768,"sequence_number": 123456789123456789,"log_id": "64z0f0p9-1a99-4501-xe36-a6d03687f313","message": {"timestamp": "2020-10-02T00:29:14.649Z","destination_asset": "iagent-win7","source_asset_address": "192.168.100.50","destination_asset_address": "example-host","destination_local_account": "user","logon_type": "NETWORK","result": "SUCCESS","new_authentication": "false","service": "ntlmssp ","source_json": {"sourceName": "Microsoft-Windows-Security-Auditing","insertionStrings": ["S-1-0-0","-","-","0x0","X-X-X-XXXXXXXXXXX","user@example.com","example-host","0x204f163c","3","NtLmSsp ","NTLM","","{00000000-0000-0000-0000-000000000000}","-","NTLM V2","128","0x0","-","192.168.50.1","59090"],"eventCode": 4624,"computerName": "example-host","sid": "","isDomainController": false,"eventData": null,"timeWritten": "2020-10-02T00:29:13.670722000Z"}},"links": [{"rel": "Context","href": "https://us.api.insight.rapid7.com/log_search/query/context/xxxx"}],"sequence_number_str": "123456789123456789"}]
+  get_a_log:
+    title: Get a Log
+    description: Get a specific log from an account
+    input:
+      id:
+        title: ID
+        description: Query ID
+        type: string
+        example: 174e4f99-2ac7-4481-9301-4d24c34baf06
+        required: true
+    output:
+      log:
+        title: Log
+        description: Requested log
+        type: logsets_info
+        required: true
+        example: {"log": {"id": "0b9a242d-d2fb-4e42-8656-eb5ff64d652f","name": "Windows Defender","tokens": ["bc38a911-65f1-4755-cca3-a330a6336b3a"],"structures": ["1238a911-65f1-4755-cca3-a330a6336b3a"],"user_data": {"platform_managed": "true"},"source_type": "token","token_seed": null,"retention_period": "default","links": [{"rel": "Related","href": "https://example.com"}],"rrn": "rrn:logsearch:us:bc38a911-65f1-4755-cca3-a330a6336b3a:log:bc38a911-65f1-4755-cca3-a330a6336b3a","logsets_info": [{"id": "bc38a911-65f1-4755-cca3-a330a6336b3a","name": "Unparsed Data","rrn": "rrn:logsearch:us:bc38a911-65f1-4755-cca3-a330a6336b3a:logset:bc38a911-65f1-4755-cca3-a330a6336b3a","links": [{"rel": "Self","href": "https://example.com/3e966a63-bf3a-4a3c-8903-979c7e90ce85"}]}]}}
+  get_all_logs:
+    title: Get All Logs
+    description: Request used to list all logs for an account
+    output:
+      logs:
+        title: Logs
+        description: All logs
+        type: logsets_info
+        required: true
+        example: {"log": {"id": "0b9a242d-d2fb-4e42-8656-eb5ff64d652f","name": "Windows Defender","tokens": ["bc38a911-65f1-4755-cca3-a330a6336b3a"],"structures": ["1238a911-65f1-4755-cca3-a330a6336b3a"],"user_data": {"platform_managed": "true"},"source_type": "token","token_seed": null,"retention_period": "default","links": [{"rel": "Related","href": "https://example.com"}],"rrn": "rrn:logsearch:us:bc38a911-65f1-4755-cca3-a330a6336b3a:log:bc38a911-65f1-4755-cca3-a330a6336b3a","logsets_info": [{"id": "bc38a911-65f1-4755-cca3-a330a6336b3a","name": "Unparsed Data","rrn": "rrn:logsearch:us:bc38a911-65f1-4755-cca3-a330a6336b3a:logset:bc38a911-65f1-4755-cca3-a330a6336b3a","links": [{"rel": "Self","href": "https://example.com/3e966a63-bf3a-4a3c-8903-979c7e90ce85"}]}]}}
+  advanced_query_on_log:
+    title: Advanced Query on Log
+    description: Realtime query an InsightIDR log. This will query individual logs for results
+    input:
+      query:
+        title: Query
+        description: LEQL Query
+        type: string
+        example: "where(user=adagentadmin, loose)"
+        required: true
+        order: 1
+      relative_time:
+        title: Relative Time
+        description: A relative time in the past to look for alerts
+        type: string
+        example: "Last 5 Minutes"
+        default: "Last 5 Minutes"
+        required: true
+        order: 2
+        enum:
+          - "Last 5 Minutes"
+          - "Last 10 Minutes"
+          - "Last 20 Minutes"
+          - "Last 30 Minutes"
+          - "Last 45 Minutes"
+          - "Last 1 Hour"
+          - "Last 2 Hours"
+          - "Last 3 Hours"
+          - "Last 6 Hours"
+          - "Last 12 Hours"
+          - "Use Time From Value"
+      time_from:
+        title: Time From
+        description: Beginning date and time for the query. This will be ignored unless Relative Time input is set to 'Use Time From Value'. The format is flexible and will work with simple dates (e.g. 01-01-2020) to full ISO time (e.g. 01-01-2020T00:00:00)
+        type: string
+        example: "01-01-2020T00:00:00"
+        required: false
+        order: 3
+      time_to:
+        title: Time To
+        description: Date and time for the end of the query. If left blank, the current time will be used. The format is flexible and will work with simple dates (e.g. 01-01-2020) to full ISO time (e.g. 01-01-2020T00:00:00)
+        type: string
+        example: "12-31-2020T00:00:00"
+        required: false
+        order: 4
+      timeout:
+        title: Timeout
+        description: Time in seconds to wait for the query to return. If exceeded the plugin will throw an error
+        type: int
+        example: 60
+        default: 60
+        required: true
+        order: 5
+      log:
+        title: Log
+        description: Log to search
+        type: string
+        example: Firewall Activity
+        required: true
+        order: 6
+    output:
+      results:
+        title: Query Results
+        description: Query Results
+        type: "[]events"
+        required: true
+        example: [{"labels": [],"timestamp": 1601598638768,"sequence_number": 123456789123456789,"log_id": "64z0f0p9-1a99-4501-xe36-a6d03687f313","message": {"timestamp": "2020-10-02T00:29:14.649Z","destination_asset": "iagent-win7","source_asset_address": "192.168.100.50","destination_asset_address": "example-host","destination_local_account": "user","logon_type": "NETWORK","result": "SUCCESS","new_authentication": "false","service": "ntlmssp ","source_json": {"sourceName": "Microsoft-Windows-Security-Auditing","insertionStrings": ["S-1-0-0","-","-","0x0","X-X-X-XXXXXXXXXXX","user@example.com","example-host","0x204f163c","3","NtLmSsp ","NTLM","","{00000000-0000-0000-0000-000000000000}","-","NTLM V2","128","0x0","-","192.168.50.1","59090"],"eventCode": 4624,"computerName": "example-host","sid": "","isDomainController": false,"eventData": null,"timeWritten": "2020-10-02T00:29:13.670722000Z"}},"links": [{"rel": "Context","href": "https://us.api.insight.rapid7.com/log_search/query/context/xxxx"}],"sequence_number_str": "123456789123456789"}]
+      count:
+        title: Count
+        description: Number of log entries found
+        type: integer
+        required: true
+        example: 10
+  advanced_query_on_log_set:
+    title: Advanced Query on Log Set
+    description: Realtime query an InsightIDR log set. This will query entire log sets for results
+    input:
+      query:
+        title: Query
+        description: LEQL Query
+        type: string
+        example: "where(user=adagentadmin, loose)"
+        required: true
+        order: 1
+      relative_time:
+        title: Relative Time
+        description: A relative time in the past to look for alerts
+        type: string
+        example: "Last 5 Minutes"
+        default: "Last 5 Minutes"
+        required: true
+        order: 2
+        enum:
+          - "Last 5 Minutes"
+          - "Last 10 Minutes"
+          - "Last 20 Minutes"
+          - "Last 30 Minutes"
+          - "Last 45 Minutes"
+          - "Last 1 Hour"
+          - "Last 2 Hours"
+          - "Last 3 Hours"
+          - "Last 6 Hours"
+          - "Last 12 Hours"
+          - "Use Time From Value"
+      time_from:
+        title: Time From
+        description: Beginning date and time for the query. This will be ignored unless Relative Time input is set to 'Use Time From Value'. The format is flexible and will work with simple dates (e.g. 01-01-2020) to full ISO time (e.g. 01-01-2020T00:00:00)
+        type: string
+        example: "01-01-2020T00:00:00"
+        required: false
+        order: 3
+      time_to:
+        title: Time To
+        description: Date and time for the end of the query. If left blank, the current time will be used. The format is flexible and will work with simple dates (e.g. 01-01-2020) to full ISO time (e.g. 01-01-2020T00:00:00)
+        type: string
+        example: "12-31-2020T00:00:00"
+        required: false
+        order: 4
+      timeout:
+        title: Timeout
+        description: Time in seconds to wait for the query to return. If exceeded the plugin will throw an error
+        type: int
+        example: 60
+        default: 60
+        required: true
+        order: 5
+      log_set:
+        title: Log Set
+        description: Log Set to search
+        type: string
+        example: Firewall Activity
+        required: true
+        order: 6
+        enum:
+          - Advanced Malware Alert
+          - Active Directory Admin Activity
+          - Asset Authentication
+          - Cloud Service Admin Activity
+          - Cloud Service Activity
+          - DNS Query
+          - Endpoint Activity
+          - Endpoint Agent
+          - Exploit Mitigation Alert
+          - File Access Activity
+          - File Modification Activity
+          - Firewall Activity
+          - Network Flow
+          - Host To IP Observations
+          - IDS Alert
+          - Ingress Authentication
+          - Raw Log
+          - SSO Authentication
+          - Unparsed Data
+          - Third Party Alert
+          - Virus Alert
+          - Web Proxy Activity
+    output:
+      results_events:
+        title: Query Results (Events)
+        description: Query Results
+        type: "[]events"
+        required: false
+        example: [{"labels": [],"timestamp": 1601598638768,"sequence_number": 123456789123456789,"log_id": "64z0f0p9-1a99-4501-xe36-a6d03687f313","message": {"timestamp": "2020-10-02T00:29:14.649Z","destination_asset": "iagent-win7","source_asset_address": "192.168.100.50","destination_asset_address": "example-host","destination_local_account": "user","logon_type": "NETWORK","result": "SUCCESS","new_authentication": "false","service": "ntlmssp ","source_json": {"sourceName": "Microsoft-Windows-Security-Auditing","insertionStrings": ["S-1-0-0","-","-","0x0","X-X-X-XXXXXXXXXXX","user@example.com","example-host","0x204f163c","3","NtLmSsp ","NTLM","","{00000000-0000-0000-0000-000000000000}","-","NTLM V2","128","0x0","-","192.168.50.1","59090"],"eventCode": 4624,"computerName": "example-host","sid": "","isDomainController": false,"eventData": null,"timeWritten": "2020-10-02T00:29:13.670722000Z"}},"links": [{"rel": "Context","href": "https://us.api.insight.rapid7.com/log_search/query/context/xxxx"}],"sequence_number_str": "123456789123456789"}]
+      results_statistical:
+        title: Query Results (Statistical)
+        description: Query Results
+        type: statistics
+        required: false
+      count:
+        title: Count
+        description: Number of log entries found
+        type: integer
+        required: true
+        example: 10
+  close_investigations_in_bulk:
+    title: Close Investigations in Bulk
+    description: This action is used to close all investigations that fall within a date range
+    input:
+      source:
+        title: Source
+        description: The name of an investigation source
+        type: string
+        example: MANUAL
+        default: MANUAL
+        required: false
+        enum:
+          - ALERT
+          - MANUAL
+          - HUNT
+      datetime_from:
+        title: Datetime From
+        description: An ISO formatted timestamp, default last week
+        type: date
+        example: 2018-07-01 00:00:00 00:00
+        required: false
+      datetime_to:
+        title: Datetime To
+        description: An ISO formatted timestamp of the ending date range, current time if left blank
+        type: date
+        example: 2018-07-01 00:00:00 00:00
+        required: false
+      max_investigations_to_close:
+        title: Max Investigations to Close
+        description: An optional maximum number of alerts to close with this request. If this parameter is not specified then there is no maximum. If this limit is exceeded, then an error is returned
+        type: integer
+        example: 10
+        required: false
+      alert_type:
+        title: Alert Type
+        description: The category of alerts that should be closed
+        type: string
+        example: Account Created
+        required: false
+    output:
+      ids:
+        title: IDs
+        description: The IDs of the investigations that were closed by the request
+        type: "[]string"
+        required: true
+        example: ["6c7db8d1-abc5-b9da-dd71-1a3ffffe8a16"]
+      num_closed:
+        title: Num Closed
+        description: The number of investigations closed by the request
+        type: integer
+        required: true
+        example: 10
+  create_threat:
+    title: Create Threat
+    description: Create a private InsightIDR threat and add indicators to this threat
+    input:
+      threat_name:
+        title: Threat Name
+        description: Name of created threat
+        type: string
+        required: true
+        example: Threat created via InsightConnect
+      note_text:
+        title: Note Text
+        description: Note text of created threat
+        type: string
+        required: false
+        example: Threat created via InsightConnect
+        default: Threat created via InsightConnect
+      indicators:
+        title: Indicators
+        description: Add indicators to new threat in InsightIDR. Accept IP addresses, process hashes (SHA1, MD5, SHA256), domain names, URLs
+        type: '[]string'
+        required: true
+        example: ["example.com", "10.0.0.1"]
+    output:
+      rejected_indicators:
+        title: Rejected Indicators
+        description: Rejected indicators in new threat
+        type: "[]string"
+        required: true
+        example: ["example.com", "10.0.0.1"]
+      threat:
+        title: Threat
+        description: The information about the new threat
+        type: threat
+        required: true
+        example: {"name": "Threat created via InsightConnect", "note": "Threat created via InsightConnect", "published": False,"indicator_count": 2}
+  get_all_saved_queries:
+    title: Get All Saved Queries
+    description: Retrieve all saved InsightIDR LEQL queries
+    output:
+      saved_queries:
+        title: Saved Queries
+        description: Saved LEQL queries
+        type: "[]query"
+        required: true
+        example: [{"id": "00000000-0000-9eec-0000-000000000000", "leql": {"during": {"from": null, "time_range": "yesterday", "to": null}, "statement": "where(931dde6c60>=800)"}, "logs": ["31a4d56e-460e-460f-9542-c2bc8edd7c6b"], "name": "Large Values Yesterday"}]
+  get_a_saved_query:
+    title: Get a Saved Query
+    description: Retrieve a saved InsightIDR LEQL query by its ID
+    input:
+      query_id:
+        title: Query ID
+        description: UUID of saved query
+        type: string
+        required: true
+        example: "00000000-0000-10d0-0000-000000000000"
+    output:
+      saved_query:
+        title: Saved Query
+        description: Saved LEQL query
+        type: query
+        required: true
+        example: {"id": "00000000-0000-9eec-0000-000000000000", "leql": {"during": {"from": null, "time_range": "yesterday", "to": null}, "statement": "where(931dde6c60>=800)"}, "logs": ["31a4d56e-460e-460f-9542-c2bc8edd7c6b"], "name": "Large Values Yesterday"}
+  list_comments:
+    title: List Comments
+    description: List all comments on an investigation by passing an investigation's RRN as the target value
+    input:
+      target:
+        title: Target
+        description: The target of the comment, which determines where it will appear within InsightIDR
+        type: string
+        required: true
+        example: "rrn:investigation:us:01234567-89ab-cdef-0000-123123123123:investigation:ABCDEF543210"
+      index:
+        title: Index
+        description: The optional 0 based index of the page to retrieve. Must be an integer greater than or equal to 0. Default value set to 0
+        type: integer
+        required: false
+        default: 0
+        example: 3
+      size:
+        title: Size
+        description: Size of the page to retrieve. Must be an integer greater than 0 or less than or equal to 100. Default value set to 20
+        type: integer
+        required: false
+        default: 20
+        example: 100
+    output:
+      comments:
+        title: Comments
+        description: List of comments
+        type: "[]comment"
+        required: false
+        example: [{"created_time": "2022-08-18T12:53:26.676Z","rrn": "rrn:collaboration:us:44d88612-fea8-a8f3-6de8-2e1278abb02f:comment:1234567890","target": "rrn:investigation:us:44d88612-fea8-a8f3-6de8-2e1278abb02f:investigation:1234567890","creator": {"type": "USER","name": "Example User"},"body": "test","visibility": "PUBLIC"}]
+      success:
+        title: Success
+        description: Whether the action was successful or not
+        type: boolean
+        required: true
+        example: true
+  create_comment:
+    title: Create Comment
+    description: Create a comment for a particular target. The target determines where the comment will appear within InsightIDR. Only certain types of RRNs are permitted as targets, such as investigation RRNs
+    input:
+      target:
+        title: Target
+        description: The target of the comment, which determines where it will appear within InsightIDR
+        type: string
+        required: true
+        example: "rrn:investigation:us:01234567-89ab-cdef-0000-123123123123:investigation:ABCDEF543210"
+      body:
+        title: Body
+        description: The body of the comment
+        type: string
+        required: false
+        example: Example comment
+      attachments:
+        title: Attachments
+        description: An array of attachment RRNs to associate with the comment
+        type: "[]string"
+        required: false
+        example: ["rrn:collaboration:us:01234567-89ab-cdef-0000-123123123123:attachment:ABCDEF543210"]
+    output:
+      comment:
+        title: Comment
+        description: Newly created comment
+        type: comment
+        required: false
+        example: {"created_time": "2022-09-22T08:38:13.962Z","rrn": "rrn:collaboration:us:44d88612-fea8-a8f3-6de8-2e1278abb02f:comment:1234567890","target": "rrn:investigation:us:01234567-89ab-cdef-0000-123123123123:investigation:ABCDEF543210","creator": {"type": "USER","name": "Example User"},"body": "test","visibility": "PUBLIC","attachments": [{"rrn": "rrn:collaboration:us:01234567-89ab-cdef-0000-123123123123:attachment:ABCDEF543210","creator": {"type": "USER","name": "Example User"},"created_time": "2022-09-20T13:54:28.246Z","file_name": "test.txt","mime_type": "text/plain","size": 4,"scan_status": "CLEAN"}]}
+      success:
+        title: Success
+        description: Whether the action was successful or not
+        type: boolean
+        required: true
+        example: true
+  delete_comment:
+    title: Delete Comment
+    description: Delete a comment by using an RRN. The RRN determines which comment will be deleted
+    input:
+      comment_rrn:
+        title: Comment RRN
+        description: The RRN of the comment
+        type: string
+        required: true
+        example: "rrn:collaboration:us:01234567-89ab-cdef-0000-123123123123:comment:ABCDEF543210"
+    output:
+      success:
+        title: Success
+        description: Whether the action was successful or not
+        type: boolean
+        required: true
+        example: true
+  list_attachments:
+    title: List Attachments
+    description: Retrieves attachments matching the given request parameters
+    input:
+      target:
+        title: Target
+        description: The RRN of the target, for which attachments will be returned
+        type: string
+        required: true
+        example: "rrn:investigation:us:01234567-89ab-cdef-0000-123123123123:investigation:ABCDEF543210"
+      index:
+        title: Index
+        description: The optional 0 based index of the page to retrieve. Must be an integer greater than or equal to 0. Default value set to 0
+        type: integer
+        required: false
+        default: 0
+        example: 3
+      size:
+        title: Size
+        description: Size of the page to retrieve. Must be an integer greater than 0 or less than or equal to 100. Default value set to 20
+        type: integer
+        required: false
+        default: 20
+        example: 100
+    output:
+      attachments:
+        title: Attachments
+        description: List of attachments
+        type: "[]attachment"
+        required: false
+        example: [{"rrn": "rrn:collaboration:us:44d88612-fea8-a8f3-6de8-2e1278abb02f:attachment:1234567890","creator": {"type": "USER","name": "Example User"},"created_time": "2022-08-19T13:00:58.645Z","file_name": "test.txt","mime_type": "text/plain","size": 4,"scan_status": "CLEAN"}]
+      success:
+        title: Success
+        description: Whether the action was successful or not
+        type: boolean
+        required: true
+        example: true
+  upload_attachment:
+    title: Upload Attachment
+    description: Upload an attachment
+    input:
+      filename:
+        title: Filename
+        description: Name of the file, which should contain the file extension
+        type: string
+        required: true
+        example: test.txt
+      file_content:
+        title: File Content
+        description: Base64 encoded content of the file
+        type: bytes
+        required: true
+        example: dGVzdA==
+    output:
+      attachment:
+        title: Attachment
+        description: Attachment details
+        type: "[]attachment"
+        required: false
+        example: [{"rrn": "rrn:collaboration:us:44d88612-fea8-a8f3-6de8-2e1278abb02f:attachment:1234567890","creator": {"type": "USER","name": "Example User"},"created_time": "2022-08-19T13:00:58.645Z","file_name": "test.txt","mime_type": "text/plain","size": 4,"scan_status": "CLEAN"}]
+      success:
+        title: Success
+        description: Whether the action was successful or not
+        type: boolean
+        required: true
+        example: true
+  get_attachment_information:
+    title: Get Attachment Information
+    description: Get information from an attachment by RRN. The RRN determines which attachment information is retrieved from
+    input:
+      attachment_rrn:
+        title: Attachment RRN
+        description: The RRN of the attachment
+        type: string
+        required: true
+        example: "rrn:collaboration:us:01234567-89ab-cdef-0000-123123123123:attachment:ABCDEF543210"
+    output:
+      attachment:
+        title: Attachment
+        description: Attachment details
+        type: attachment
+        required: false
+        example: {"rrn": "rrn:collaboration:us:44d88612-fea8-a8f3-6de8-2e1278abb02f:attachment:1234567890","creator": {"type": "USER","name": "Example User"},"created_time": "2022-08-19T13:00:58.645Z","file_name": "test.txt","mime_type": "text/plain","size": 4,"scan_status": "CLEAN"}
+      success:
+        title: Success
+        description: Whether the action was successful or not
+        type: boolean
+        required: true
+        example: true
+  delete_attachment:
+    title: Delete Attachment
+    description: Delete an attachment with the given RRN
+    input:
+      attachment_rrn:
+        title: Attachment RRN
+        description: The RRN of the attachment
+        type: string
+        required: true
+        example: "rrn:collaboration:us:01234567-89ab-cdef-0000-123123123123:attachment:ABCDEF543210"
+    output:
+      success:
+        title: Success
+        description: Whether the action was successful or not
+        type: boolean
+        required: true
+        example: true
+  download_attachment:
+    title: Download Attachment
+    description: Download an attachment by RRN. The RRN determines which attachment is downloaded
+    input:
+      attachment_rrn:
+        title: Attachment RRN
+        description: The RRN of the attachment
+        type: string
+        required: true
+        example: "rrn:collaboration:us:01234567-89ab-cdef-0000-123123123123:attachment:ABCDEF543210"
+    output:
+      attachment_content:
+        title: Attachment Content
+        description: The base64 encoded content of the attachment
+        type: bytes
+        required: false
+        example: dGVzdA==
+      success:
+        title: Success
+        description: Whether the action was successful or not
+        type: boolean
+        required: true
+        example: true
+  get_user_information:
+    title: Get User Information
+    description: Get information from an user by RRN. The RRN determines which user the information is retrieved from
+    input:
+      user_rrn:
+        title: User RRN
+        description: The RRN of the user
+        type: string
+        required: true
+        example: "rrn:uba:us:6bcf6c5b-552d-49a4-a3f5-259e0514585f:user:83002c85d7c6"
+    output:
+      user:
+        title: User
+        description: User details
+        type: user
+        required: false
+        example: {"domain": "tor.acme.com","first_name": "John","last_name": "Doe","name": "John Doe","rrn": "rrn:uba:us:6bcf6c5b-552d-49a4-a3f5-259e0514585f:user:83002c85d7c6"}
+      success:
+        title: Success
+        description: Whether the action was successful or not
+        type: boolean
+        required: true
+        example: true
+  get_asset_information:
+    title: Get Asset Information
+    description: Get information from an asset by RRN. The RRN determines which asset the information is retrieved from
+    input:
+      asset_rrn:
+        title: Asset RRN
+        description: The RRN of the asset
+        type: string
+        required: true
+        example: "rrn:uba:us:6bcf6c5b-552d-49a4-a3f5-259e0514585f:asset:83002c85d7c6"
+    output:
+      asset:
+        title: Asset
+        description: Asset details
+        type: asset
+        required: false
+        example: {"name": "morbo.tor.acme.com","rrn": "rrn:uba:us:6bcf6c5b-552d-49a4-a3f5-259e0514585f:asset:83002c85d7c6"}
+      success:
+        title: Success
+        description: Whether the action was successful or not
+        type: boolean
+        required: true
+        example: true

@@ -1,0 +1,83 @@
+{
+	"spec": "4fa8814f7a1dad536a21d7e9de9751c6",
+	"manifest": "447e9671154a8344ca38101005070c84",
+	"setup": "104b67f143c716178e8c47921d6b4e0b",
+	"schemas": [
+		{
+			"identifier": "add_user_to_group/schema.py",
+			"hash": "7b71b24171ce2c8751a3f40e871b3975"
+		},
+		{
+			"identifier": "assign_user_to_app_sso/schema.py",
+			"hash": "da30ca1f06f41a6ec1c44eeb4e998288"
+		},
+		{
+			"identifier": "create_user/schema.py",
+			"hash": "7948ce3f280a8f2b3d1e2c7883b55918"
+		},
+		{
+			"identifier": "deactivate_user/schema.py",
+			"hash": "1e3689c5d3c149576c7c7c5094bf9cf8"
+		},
+		{
+			"identifier": "delete_user/schema.py",
+			"hash": "39478620f6a9e9027daa9fbee7238e83"
+		},
+		{
+			"identifier": "get_factors/schema.py",
+			"hash": "6d4e9a8f8c567e564ef1d6d77c07a51e"
+		},
+		{
+			"identifier": "get_user/schema.py",
+			"hash": "2945f2887382978578f81cb59e933e83"
+		},
+		{
+			"identifier": "get_user_groups/schema.py",
+			"hash": "ce61d20a9129fde82b4e5be290c9863b"
+		},
+		{
+			"identifier": "list_groups/schema.py",
+			"hash": "77d9beabc56bdae5c7b0eef31f99d354"
+		},
+		{
+			"identifier": "remove_user_from_group/schema.py",
+			"hash": "93dbda155ecf9235626fef9f6152535f"
+		},
+		{
+			"identifier": "reset_factors/schema.py",
+			"hash": "6392fb8de86137653c7261bf5a5d8f5a"
+		},
+		{
+			"identifier": "reset_password/schema.py",
+			"hash": "c991a097faa46d33b72b8a392f24ad6e"
+		},
+		{
+			"identifier": "send_push/schema.py",
+			"hash": "233c7f55846752c912fdc884d8f9d69d"
+		},
+		{
+			"identifier": "suspend_user/schema.py",
+			"hash": "42fb94e4cae4a1710bf2b35cb5cd5d25"
+		},
+		{
+			"identifier": "unsuspend_user/schema.py",
+			"hash": "8e74924d6237d564c3b3d29d720e863f"
+		},
+		{
+			"identifier": "update_blacklist_zones/schema.py",
+			"hash": "d43e965959f882b97c1d6c5d4a36f3f9"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "aa0f47ad5de837074dac3368bca368c5"
+		},
+		{
+			"identifier": "monitor_logs/schema.py",
+			"hash": "c7846002b9cb1c3069e098b40868f0d2"
+		},
+		{
+			"identifier": "users_added_removed_from_group/schema.py",
+			"hash": "efd9eb550bf768bdfebb341f6b6bd229"
+		}
+	]
+}

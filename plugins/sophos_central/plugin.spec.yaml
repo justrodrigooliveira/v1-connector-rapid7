@@ -1,0 +1,1801 @@
+plugin_spec_version: v2
+extension: plugin
+products: [insightconnect]
+name: sophos_central
+title: Sophos Central
+description: Sophos Central is a unified console for managing Sophos products. Using the Sophos Central plugin for Rapid7 InsightConnect, users can get alerts, endpoints, and SIEM events
+version: 4.4.0
+supported_versions: ["Sophos Central API 2023-03-10"]
+vendor: rapid7
+support: rapid7
+status: []
+resources:
+  source_url: https://github.com/rapid7/insightconnect-plugins/tree/master/plugins/sophos_central
+  license_url: https://github.com/rapid7/insightconnect-plugins/blob/master/LICENSE
+  vendor_url: https://www.sophos.com
+tags:
+- sophos
+- firewall
+hub_tags:
+  use_cases: [threat_detection_and_response]
+  keywords: [sophos, firewall]
+  features: []
+
+types:
+  date_time_zone:
+    fixed:
+      type: boolean
+    id:
+      type: string
+  chronology:
+    zone:
+      type: date_time_zone
+  date_time:
+    afterNow:
+      type: boolean
+    beforeNow:
+      type: boolean
+    centuryOfEra:
+      type: integer
+    chronology:
+      type: chronology
+    dayOfMonth:
+      type: integer
+    dayOfWeek:
+      type: integer
+    dayOfYear:
+      type: integer
+    equalNow:
+      type: boolean
+    era:
+      type: integer
+    hourOfDay:
+      type: integer
+    millis:
+      type: integer
+    millisOfDay:
+      type: integer
+    millisOfSecond:
+      type: integer
+    minuteOfDay:
+      type: integer
+    minuteOfHour:
+      type: integer
+    monthOfYear:
+      type: integer
+    secondOfDay:
+      type: integer
+    secondOfMinute:
+      type: integer
+    weekOfWeekyear:
+      type: integer
+    weekyear:
+      type: integer
+    year:
+      type: integer
+    yearOfCentury:
+      type: integer
+    yearOfEra:
+      type: integer
+    zone:
+      type: date_time_zone
+  object_id:
+    counter:
+      type: integer
+    date:
+      type: string
+    machineIdentifier:
+      type: integer
+    processIdentifier:
+      type: integer
+    time:
+      type: integer
+    timeSecond:
+      type: integer
+    timestamp:
+      type: integer
+  customer_license:
+    expired:
+      type: boolean
+    expires_on:
+      type: date_time
+    id:
+      type: object_id
+    license_code:
+      type: string
+    license_id:
+      type: string
+    license_type:
+      type: string
+      enum:
+      - ALPHA
+      - BETA
+      - EAP
+      - ENTERPRISE
+      - FULL
+      - FREE
+      - MONTHLY
+      - MSP
+      - TERMED
+      - TRIAL
+      - VIRTUAL
+    quota:
+      type: integer
+    starts_on:
+      type: date_time
+    suspended:
+      type: boolean
+  previous_password_entity:
+    invalidated:
+      type: date
+    password:
+      type: string
+  check_tamper_protection_status:
+    enabled:
+      title: Enabled
+      description: Return true when tamper protection is enable
+      required: true
+      type: boolean
+  tamper_protection_entity:
+    enabled:
+      type: boolean
+    globally_enabled:
+      type: boolean
+    password:
+      type: string
+    previous_passwords:
+      type: '[]previous_password_entity'
+  assigned_product:
+    code:
+      type: string
+    version:
+      type: string
+    status:
+      type: string
+  endpoint_entry:
+    adSyncInfo:
+      type: object
+    alert_status:
+      type: integer
+    assignedProducts:
+      type: '[]assigned_product'
+    awsInfo:
+      type: object
+      additionalProperties:
+        type: string
+    azureInfo:
+      type: object
+      additionalProperties:
+        type: string
+    beta:
+      type: boolean
+    decloned_from:
+      type: string
+    deleted_at:
+      type: string
+    device_encryption_status_unmanaged:
+      type: boolean
+    early_access_program:
+      type: string
+    endpoint_type:
+      type: string
+    group_full_name:
+      type: string
+    group_id:
+      type: string
+    group_name:
+      type: string
+    health_status:
+      type: integer
+    heartbeat_utm_name:
+      type: string
+    id:
+      type: string
+    info:
+      type: object
+    is_adsync_group:
+      type: boolean
+    java_id:
+      type: string
+    last_activity:
+      type: string
+    last_user:
+      type: string
+    last_user_id:
+      type: string
+    license_codes:
+      type: '[]string'
+    machine_id:
+      type: string
+    name:
+      type: string
+    registered_at:
+      type: string
+    status:
+      type: object
+    tamper_protection:
+      type: tamper_protection_entity
+    transport:
+      type: string
+  current_licenses_response:
+    licenses:
+      type: '[]customer_license'
+  endpoint_whitelist_properties:
+    property:
+      type: string
+    type:
+      type: string
+      enum:
+      - SHA_256
+      - CERTIFICATE_SIGNER
+      - PATH
+  alert_entity:
+    created_at:
+      type: string
+      description: The date at which the alert was created
+    customer_id:
+      type: string
+      description: The unique identifier of the customer linked with this record
+    data:
+      type: object
+      additionalProperties:
+        type: object
+    description:
+      type: string
+      description: The description of the alert that was generated
+    event_service_event_id:
+      type: string
+      description: The Event Services event id
+    id:
+      type: string
+      description: Identifier for the alert
+    location:
+      type: string
+      description: The location captured for this record
+    severity:
+      type: string
+      description: The severity for this alert
+      enum:
+      - LOW
+      - MEDIUM
+      - HIGH
+    source:
+      type: string
+      description: Describes the source from alert was generated
+    threat:
+      type: string
+      description: The name of the threat responsible for the generation of alert
+    threat_cleanable:
+      type: boolean
+    type:
+      type: string
+      description: Describes the type of the device on which alert was generated
+    when:
+      type: string
+      description: The date at which the alert was created
+  customer_feature:
+    expirationProcessed:
+      type: boolean
+    expired:
+      type: boolean
+    expiresOn:
+      type: date_time
+    featureCode:
+      type: string
+      enum:
+      - f_invalid
+      - f_srv
+      - f_srv_av
+      - f_srv_appctl
+      - f_srv_devctl
+      - f_srv_devctl_block
+      - f_srv_dlp
+      - f_srv_lockdown
+      - f_srv_web
+      - f_srv_mtd
+      - f_srv_xpd
+      - f_srv_hbt
+      - f_srv_stac
+      - f_srv_efw
+      - f_srv_extsup_win2k3
+      - f_virt_ep_av
+      - f_virt_srv_av
+      - f_ep
+      - f_ep_appctl
+      - f_ep_devctl
+      - f_ep_dlp
+      - f_ep_av
+      - f_ep_web
+      - f_ep_efw
+      - f_ep_denc_deprecated
+      - f_ep_denc
+      - f_ep_fenc
+      - f_ep_xpd
+      - f_ep_stac
+      - f_ep_ntp
+      - f_ep_ntp_adv
+      - f_ep_ntp_xg
+      - f_ep_hbt
+      - f_ep_hbt_adv
+      - f_ep_hbt_xg
+      - f_ep_extsup_winxp
+      - f_mob
+      - f_mob_lock
+      - f_mob_locate
+      - f_mob_wipe
+      - f_mob_policy_compliance
+      - f_mob_policy_exchange
+      - f_mob_policy_passcode
+      - f_mob_policy_restrictions
+      - f_mob_policy_vpn
+      - f_mob_policy_wifi
+      - f_mob_container_email
+      - f_mob_container_mcm
+      - f_mob_container_docs
+      - f_mob_container_browser
+      - f_smc_migration
+      - f_smsec
+      - f_smsec_webfiltering
+      - f_csg
+      - f_multi_policies
+      - f_support
+      - f_user_specific
+      - f_ad_sync
+      - f_xgemail
+      - f_xgemail_antispam
+      - f_xgemail_av
+      - f_xgemail_eminbox
+      - f_xgemail_quarantine
+      - f_xgemail_ssp
+      - f_xgemail_ad_sync
+      - f_xgemail_toc_url_protect
+      - f_xgemail_dkim
+      - f_xgemail_spf
+      - f_xgemail_anti_phish
+      - f_xgemail_att_policy
+      - f_wifi_entry_standard
+      - f_wifi_performance_standard
+      - f_phish_training
+    generatedFromLicenseId:
+      type: string
+    licenseCode:
+      type: string
+    protection:
+      type: boolean
+    valid:
+      type: boolean
+  core_remedy_item:
+    descriptor:
+      type: string
+    result:
+      type: string
+      enum:
+      - NOT_APPLICABLE
+      - SUCCESS
+      - NOT_FOUND
+      - DELETED
+      - FAILED_TO_DELETE
+      - WHITELISTED
+      - OTHER_ERROR
+      - FAILED_TO_DELETE_SYSTEM_PROTECTED
+    type:
+      type: string
+  installer_info:
+    beta:
+      type: boolean
+    command:
+      type: string
+    platform:
+      type: string
+    productName:
+      type: string
+    url:
+      type: string
+  customer_featuresResponse:
+    features:
+      type: '[]customer_feature'
+  core_remedy_items:
+    items:
+      type: '[]core_remedy_item'
+    totalItems:
+      type: integer
+  legacy_event_entity:
+    core_remedy_items:
+      description: details of the items cleaned or restored
+      type: core_remedy_items
+    created_at:
+      type: string
+      description: The date at which the event was created
+    customer_id:
+      type: string
+      description: The identifier of the customer for which record is created
+    endpoint_id:
+      type: string
+      description: The corresponding endpoint id associated with the record
+    endpoint_type:
+      type: string
+      description: The corresponding endpoint type associated with the record
+    group:
+      type: string
+      description: The group associated with the group
+    id:
+      type: string
+      description: The Identifier for the event
+    location:
+      type: string
+      description: The location captured for this record
+    name:
+      type: string
+      description: The name of the record created
+    origin:
+      type: string
+      description: originating component of a detection
+    severity:
+      type: string
+      description: The severity for this alert
+      enum:
+      - NONE
+      - LOW
+      - MEDIUM
+      - HIGH
+      - CRITICAL
+    source:
+      type: string
+      description: The source for this record
+    threat:
+      type: string
+      description: The threat associated with the record
+    type:
+      type: string
+      description: The type of this record
+    user_id:
+      type: string
+      description: The identifier of the user for which record is created
+    when:
+      type: string
+      description: The date at which the event was created
+    whitelist_properties:
+      type: '[]endpoint_whitelist_properties'
+      description: The properties by which this event can be whitelisted on an endpoint,
+        if applicable
+  event_aggregate:
+    has_more:
+      type: boolean
+    items:
+      type: '[]legacy_event_entity'
+    next_cursor:
+      type: string
+      description: Value of the next cursor. This will be used to make next call of API
+  hashes_response:
+    hashes:
+      type: object
+  installer_info_response:
+    installer_info:
+      type: '[]installer_info'
+  pages:
+    current:
+      title: Current
+      description: The 1-based page number being returned
+      type: integer
+      required: false
+      example: 1
+    size:
+      title: Size
+      description: The size of the page being returned
+      type: integer
+      required: false
+      example: 50
+    total:
+      title: Total
+      description: The total number of pages that exist, if pageTotal=true in the request
+      type: integer
+      required: false
+      example: 1
+    items:
+      title: Items
+      description: The total number of items across all pages, if pageTotal=true was passed into the request
+      type: integer
+      required: false
+      example: 1
+    maxSize:
+      title: Max Size
+      description: The maximum page size that can be requested
+      type: integer
+      required: false
+      example: 100
+  objectId:
+    id:
+      title: ID
+      description: The ID of the referenced object
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+  user:
+    id:
+      title: ID
+      description: Principal email or client ID
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    type:
+      title: Type
+      description: Principal type
+      type: string
+      required: false
+      example: user
+    name:
+      title: Name
+      description: User principal name
+      type: string
+      required: false
+      example: Example name
+    accountType:
+      title: Account Type
+      description: Type of the account
+      type: string
+      required: false
+      example: tenant
+    accountId:
+      title: Account ID
+      description: ID of the account
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+  userObject:
+    id:
+      title: ID
+      description: Unique ID for the user
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    name:
+      title: Name
+      description: Person's name
+      type: string
+      required: false
+      example: Example name
+  properties:
+    fileName:
+      title: File Name
+      description: File name
+      type: string
+      required: false
+      example: sample.txt
+    path:
+      title: Path
+      description: Path for the application
+      type: string
+      required: false
+      example: $path/sample.txt
+    sha256:
+      title: SHA256
+      description: SHA256 value for the application
+      type: string
+      required: false
+      example: ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
+    certificateSigner:
+      title: Certificate Signer
+      description: Value saved for the certificateSigner
+      type: string
+      required: false
+      example: Example signer
+  item:
+    id:
+      title: ID
+      description: Item ID
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    createdAt:
+      title: Created At
+      description: Date and time (UTC) when the item was created
+      type: string
+      required: false
+      example: 2023-03-02T13:00:19.494Z
+    updatedAt:
+      title: Updated At
+      description: Date and time (UTC) when the item was updated
+      type: string
+      required: false
+      example: 2023-03-02T13:00:19.494Z
+    properties:
+      title: Properties
+      description: Item properties
+      type: properties
+      required: false
+      example: {}
+    comment:
+      title: Comment
+      description: Comment indicating why the item was blocked or allowed
+      type: string
+      required: false
+      example: Example comment
+    type:
+      title: Type
+      description: Property by which an item is blocked or allowed
+      type: string
+      required: false
+      example: sha256
+    createdBy:
+      title: Created By
+      description: Created by
+      type: userObject
+      required: false
+      example: {}
+    originPerson:
+      title: Origin Person
+      description: Origin person
+      type: userObject
+      required: false
+      example: {}
+    originEndpoint:
+      title: Origin Endpoint
+      description: Represents a referenced object
+      type: objectId
+      required: false
+      example: {}
+  isolationState:
+    status:
+      title: Status
+      description: "Isolation status reported by endpoint. The following values are allowed: isolated, notIsolated"
+      type: string
+      required: false
+      example: isolated
+    adminIsolated:
+      title: Admin Isolated
+      description: Whether isolation was triggered by an admin
+      type: boolean
+      required: false
+      example: false
+    selfIsolated:
+      title: Self Isolated
+      description: Whether isolation was triggered by the endpoint itself
+      type: boolean
+      required: false
+      example: false
+  cloud:
+    provider:
+      title: Provider
+      description: "Cloud provider in which the endpoint is running. The following values are allowed: aws, azure"
+      type: string
+      required: false
+      example: aws
+    instanceId:
+      title: Instance ID
+      description: Unique ID for the cloud instance
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+  lockdown:
+    status:
+      title: Status
+      description: "Endpoint lockdown status. The following values are allowed: creatingWhitelist, installing, locked, notInstalled, registering, starting, stopping, unavailable, uninstalled, unlocked"
+      type: string
+      required: false
+      example: creatingWhitelist
+    updateStatus:
+      title: Update Status
+      description: "Endpoint lockdown update status. The following values are allowed: upToDate, updating, rebootRequired, notInstalled"
+      type: string
+      required: false
+      example: upToDate
+  volume:
+    volumeId:
+      title: Volume ID
+      description: Endpoint volume ID
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    status:
+      title: Status
+      description: "Endpoint volume encryption status. The following values are allowed: notEncrypted, encrypted, encrypting, notSupported, suspended, unknown"
+      type: string
+      required: false
+      example: notEncrypted
+  encryption:
+    volumes:
+      title: Volumes
+      description: Endpoint volumes
+      type: "[]volume"
+      required: false
+      example: []
+  assignedProduct:
+    code:
+      title: Code
+      description: "Endpoint product. The following values are allowed: coreAgent, interceptX, xdr, endpointProtection, deviceEncryption, mtr, ztna"
+      type: string
+      required: false
+      example: coreAgent
+    version:
+      title: Version
+      description: Version of a product assigned to an endpoint
+      type: string
+      required: false
+      example: Example version
+    status:
+      title: Status
+      description: "Installation status of a product assigned to the endpoint. The following values are allowed: installed, notInstalled"
+      type: string
+      required: false
+      example: installed
+  associatedPerson:
+    id:
+      title: ID
+      description: Unique ID for the Person
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    name:
+      title: Name
+      description: Person's name
+      type: string
+      required: false
+      example: Example name
+    viaLogin:
+      title: Via Login
+      description: Person's login on the endpoint
+      type: string
+      required: false
+      example: Example login
+  group:
+    id:
+      title: ID
+      description: Unique ID for endpoint group
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    name:
+      title: Name
+      description: Endpoint group name
+      type: string
+      required: false
+      example: Example name
+  osObject:
+    isServer:
+      title: Is Server
+      description: Whether the OS is a server OS
+      type: boolean
+      required: false
+      example: false
+    platform:
+      title: Platform
+      description: "OS platform type. The following values are allowed: windows, linux, macOS"
+      type: string
+      required: false
+      example: windows
+    name:
+      title: Name
+      description: OS name as reported by the endpoint
+      type: string
+      required: false
+      example: Example name
+    majorVersion:
+      title: Major Version
+      description: OS major version
+      type: integer
+      required: false
+      example: 1
+    minorVersion:
+      title: Minor Version
+      description: OS minor version
+      type: integer
+      required: false
+      example: 1
+    build:
+      title: Build
+      description: OS build
+      type: integer
+      required: false
+      example: 1
+  serviceDetails:
+    name:
+      title: Name
+      description: Service name
+      type: string
+      required: false
+      example: Service name
+    status:
+      title: Status
+      description: 'Status of a service on an endpoint. The following values are allowed: running, stopped, missing'
+      type: string
+      required: false
+      example: running
+  services:
+    status:
+      title: Status
+      description: 'Health status of an endpoint or a service running on an endpoint. The following values are allowed: good, suspicious, bad, unknown'
+      type: string
+      required: false
+      example: good
+    serviceDetails:
+      title: Service Details
+      description: Details of services on the endpoint
+      type: "[]serviceDetails"
+      required: false
+      example: []
+  threats:
+    status:
+      title: Status
+      description: 'Health status of an endpoint or a service running on an endpoint. The following values are allowed: good, suspicious, bad, unknown'
+      type: string
+      required: false
+      example: good
+  health:
+    overall:
+      title: Overall
+      description: "Health status of an endpoint or a service running on an endpoint. The following values are allowed: good, suspicious, bad, unknown"
+      type: string
+      required: false
+      example: good
+    threats:
+      title: Threats
+      description: Threats on the endpoint
+      type: threats
+      required: false
+      example: {}
+    services:
+      title: Services
+      description: Status of services on the endpoint
+      type: services
+      required: false
+      example: {}
+  endpointObject:
+    id:
+      title: ID
+      description: Unique endpoint ID
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    hostname:
+      title: Hostname
+      description: Endpoint hostname
+      type: string
+      required: false
+      example: example-hostname
+  endpoints:
+    total:
+      title: Total
+      description: Total number of endpoints in this group
+      type: integer
+      required: false
+      example: 10
+    itemsCount:
+      title: Items Count
+      description: Total number of items in the list
+      type: integer
+      required: false
+      example: 5
+    items:
+      title: Items
+      description: List of endpoints belonging to the group
+      type: '[]endpointObject'
+      required: false
+      example: []
+  endpointGroup:
+    id:
+      title: ID
+      description: Endpoint group ID
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    name:
+      title: Name
+      description: Endpoint group name
+      type: string
+      required: false
+      example: Example Group
+    description:
+      title: Description
+      description: Endpoint group description
+      type: string
+      required: false
+      example: Example description
+    type:
+      title: Type
+      description: Endpoint group type
+      type: string
+      required: false
+      example: computer
+    endpoints:
+      title: Endpoints
+      description: Associated endpoints
+      type: endpoints
+      required: false
+      example: {}
+    tenant:
+      title: Tenant
+      description: Reference to a tenant
+      type: objectId
+      required: false
+      example: {}
+    createdAt:
+      title: Created At
+      description: When the group was created
+      type: string
+      required: false
+      example: 2023-03-02T13:00:19.494Z
+    updatedAt:
+      title: Updated At
+      description: When the group was last updated
+      type: string
+      required: false
+      example: 2023-03-02T13:00:19.494Z
+  isolation:
+    enabled:
+      title: Enabled
+      description: Whether the endpoint should be isolated or not
+      type: boolean
+      required: false
+      example: true
+    lastEnabledAt:
+      title: Last Enabled At
+      description: When isolation was last enabled for the endpoint
+      type: string
+      required: false
+      example: 2023-03-02T13:00:19.494Z
+    lastEnabledBy:
+      title: Last Enabled By
+      description: Last enabled by
+      type: user
+      required: false
+      example: {}
+    lastDisabledAt:
+      title: Last Disabled At
+      description: When isolation was last disabled for the endpoint
+      type: string
+      required: false
+      example: 2023-03-02T13:00:19.494Z
+    lastDisabledBy:
+      title: Last Disabled By
+      description: Last disabled by
+      type: user
+      required: false
+      example: {}
+    comment:
+      title: Comment
+      description: Reason endpoint should be isolated or not
+      type: string
+      required: false
+      example: Example Comment
+  endpointIsolation:
+    id:
+      title: ID
+      description: Endpoint ID
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    isolation:
+      title: Isolation
+      description: Isolation state of an endpoint
+      type: isolation
+      required: false
+      example: {}
+  endpointRemovalErrors:
+    endpointsNotFound:
+      title: Endpoints Not Found
+      description: Endpoints not found
+      type: "[]string"
+      required: false
+      example: '["9de5069c-5afe-602b-2ea0-a04b66beb2c0"]'
+  endpointsItem:
+    id:
+      title: ID
+      description: Unique ID of the endpoint
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    type:
+      title: Type
+      description: "Endpoint type. The following values are allowed: computer, server, securityVm"
+      type: string
+      required: false
+      example: computer
+    tenant:
+      title: Tenant
+      description: Represents a referenced object
+      type: objectId
+      required: false
+      example: {}
+    hostname:
+      title: Hostname
+      description: Hostname of the endpoint
+      type: string
+      required: false
+      example: example-hostname
+    health:
+      title: Health
+      description: Endpoint health status
+      type: health
+      required: false
+      example: {}
+    os:
+      title: OS
+      description: OS information
+      type: osObject
+      required: false
+      example: {}
+    ipv4Addresses:
+      title: IPv4 Addresses
+      description: List of IPv4 addresses
+      type: "[]string"
+      required: false
+      example: ["198.51.100.1"]
+    ipv6Addresses:
+      title: IPv6 Addresses
+      description: List of IPv6 addresses
+      type: "[]string"
+      required: false
+      example: ["198.51.100.1"]
+    macAddresses:
+      title: MAC Addresses
+      description: List of MAC addresses
+      type: "[]string"
+      required: false
+      example: ["00-B0-D0-63-C2-26"]
+    group:
+      title: Group
+      description: Endpoint group
+      type: group
+      required: false
+      example: {}
+    associatedPerson:
+      title: Associated Person
+      description: Person associated with an endpoint
+      type: associatedPerson
+      required: false
+      example: {}
+    tamperProtectionEnabled:
+      title: Tamper Protection Enabled
+      description: Whether Tamper Protection is turned on
+      type: boolean
+      required: false
+      example: false
+    assignedProducts:
+      title: Assigned Products
+      description: Products assigned to the endpoint
+      type: "[]assignedProduct"
+      required: false
+      example: []
+    lastSeenAt:
+      title: Last Seen At
+      description: Date and time (UTC) when the endpoint last communicated with Sophos Central
+      type: string
+      required: false
+      example: 2023-03-02T13:00:19.494Z
+    encryption:
+      title: Encryption
+      description: Endpoint encryption state
+      type: encryption
+      required: false
+      example: {}
+    lockdown:
+      title: Lockdown
+      description: Server lockdown status
+      type: lockdown
+      required: false
+      example: {}
+    online:
+      title: Online
+      description: Whether endpoint is currently online
+      type: boolean
+      required: false
+      example: false
+    cloud:
+      title: Cloud
+      description: Endpoint cloud
+      type: cloud
+      required: false
+      example: {}
+    isolation:
+      title: Isolation
+      description: Endpoint isolation state as reported by an endpoint
+      type: isolationState
+      required: false
+      example: {}
+  pagesDetails:
+    size:
+      title: Size
+      description: The size of the page being returned
+      type: integer
+      required: false
+      example: 50
+    total:
+      title: Total
+      description: The total number of pages that exist, if pageTotal=true in the request
+      type: integer
+      required: false
+      example: 1
+    items:
+      title: Items
+      description: The total number of items across all pages, if pageTotal=true was passed into the request
+      type: integer
+      required: false
+      example: 1
+    maxSize:
+      title: Max Size
+      description: The maximum page size that can be requested
+      type: integer
+      required: false
+      example: 100
+    fromKey:
+      title: From Key
+      description: The key of the first item in the returned page
+      type: string
+      required: false
+      example: exampleKey
+    nextKey:
+      title: Next Key
+      description: The key to use when fetching the next page
+      type: string
+      required: false
+      example: exampleKey
+
+connection:
+  region:
+    title: API Region
+    description: API region
+    type: string
+    required: false
+    example: US East
+    default: US East
+    enum:
+      - US West
+      - US East
+      - EU Ireland
+      - DE Germany
+  client_secret:
+    title: Client Secret
+    description: Client secret key that allows access to Sophos Central
+    type: credential_secret_key
+    required: true
+    example: a1e263620c12382b36054cf34512ef836854e61d27ab2d079dda27af903a5b6eec396416b2dc40aabce6edfg670b0790d9a90
+  client_id:
+    title: Client ID
+    description: Client ID for Sophos Central instance
+    type: credential_secret_key
+    required: true
+    example: 8a9jbad0-12ab-88be-cad4-3b4cad6f78e0
+  tenant_id:
+    title: Tenant ID
+    description: Tenant ID for Sophos Central instance
+    type: credential_secret_key
+    required: false
+    example: 5b0eba20-ab12-34cd-88be-3a4cdc6a70f8
+
+actions:
+  get_endpoints:
+    title: Get Endpoints
+    description: Get endpoints for a customer based on the last seen after date and time
+    input:
+      since:
+        title: Since
+        description: Last seen after date and time (UTC) or duration inclusive, eg. 2019-09-23T12:02:01.700Z, -P1D, PT20M, PT4H500S
+        required: false
+        type: string
+        example: 2019-09-23T12:02:01.700Z
+    output:
+      items:
+        title: Items
+        description: Endpoint items
+        type: "[]endpoint_entry"
+        required: true
+        example: []
+  get_alerts:
+    title: Get Alerts
+    description: Get alerts for a customer based on the parameters provided
+    input:
+      from_date:
+        title: From Date
+        description: The starting date from which alerts will be retrieved defined as Unix timestamp in UTC. Must be within last 24 hours
+        required: false
+        type: string
+        example: 2019-09-23T12:02:01.700Z
+    output:
+      alerts:
+        title: Alerts
+        description: Alerts for specified time period
+        type: '[]alert_entity'
+        required: true
+        example: []
+  blacklist:
+    title: Blacklist
+    description: Blocks a hash across all systems
+    input:
+      hash:
+        title: Hash
+        description: Create a blacklist item from a SHA256 hash
+        type: string
+        required: true
+        example: 275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f
+      description:
+        title: Description
+        description: Description for why the hash is blacklisted
+        type: string
+        required: false
+        default: Hash Blacklisted from InsightConnect
+        example: Hash Blacklisted from InsightConnect
+      blacklist_state:
+        title: Blacklist State
+        description: Set true to blacklist hash, set false to unblacklist hash
+        type: boolean
+        required: true
+        example: true
+    output:
+      success:
+        title: Success
+        description: Return true if blacklist item was created or deleted
+        type: boolean
+        required: true
+        example: true
+  antivirus_scan:
+    title: Antivirus Scan
+    description: Sends a request to the specified endpoint to perform or configure a scan
+    input:
+      agent:
+        title: Agent
+        description: Agent ID, IPv4 address, IPv6 address, MAC address or hostname
+        type: string
+        required: true
+        example: 198.51.100.100
+    output:
+      id:
+        title: ID
+        description: Antivirus scan ID
+        type: string
+        required: true
+        example: 999fd666-9666-4e66-a066-d66fd966ad66
+      status:
+        title: Status
+        description: Antivirus scan status
+        type: string
+        required: true
+        example: requested
+      requested_at:
+        title: Requested At
+        description: Antivirus scan requested at
+        type: string
+        required: true
+        example: 2020-08-02T21:30:55.487Z
+  get_agent_details:
+    title: Get Agent Details
+    description: Get details for an agent
+    input:
+      agent:
+        title: Agent
+        description: Agent to retrieve device information from. Accepts IPv4 address, IPv6 address, MAC address, hostname, or device ID
+        type: string
+        required: true
+        example: 198.51.100.100
+    output:
+      agent:
+        title: Agents
+        description: Details for the matched agent
+        type: endpoint_entry
+        required: true
+        example: {}
+  check_tamper_protection_status:
+    title: Check Tamper Protection Status
+    description: Get tamper status by IP address, Hostname, MAC address or Device ID
+    input:
+      agent:
+        title: Agent
+        description: Device ID, IPv4 address, IPv6 address, MAC address or hostname
+        type: string
+        required: true
+        example: 198.51.100.100
+    output:
+      tamper_status:
+        title: Tamper Status
+        description: Tamper status for provided agent
+        type: check_tamper_protection_status
+        required: true
+        example: {}
+  get_blocked_items:
+    title: Get Blocked Items
+    description: Get a list of blocked items
+    input:
+      page:
+        title: Page
+        description: The page number to fetch, starting with 1
+        type: integer
+        required: false
+        default: 1
+        example: 1
+      pageSize:
+        title: Page Size
+        description: The size of the page requested
+        type: integer
+        required: false
+        default: 50
+        example: 50
+      pageTotal:
+        title: Page Total
+        description: Whether the number of pages should be calculated and returned in the response
+        type: boolean
+        required: false
+        default: false
+        example: false
+    output:
+      items:
+        title: Items
+        description: List of blocked items
+        type: "[]item"
+        required: false
+        example: []
+      pages:
+        title: Pages
+        description: Pages details
+        type: pages
+        required: false
+        example: {}
+  add_blocked_item:
+    title: Add Blocked Item
+    description: Block an item from exoneration
+    input:
+      type:
+        title: Type
+        description: "Property by which an item is blocked. The following values are allowed: SHA256"
+        type: string
+        required: true
+        default: sha256
+        example: sha256
+      propertiesFileName:
+        title: Properties File Name
+        description: Properties file name for the application
+        type: string
+        required: false
+        example: sample.txt
+      propertiesPath:
+        title: Properties Path
+        description: Properties path for the application
+        type: string
+        required: false
+        example: $path/sample.txt
+      propertiesSha256:
+        title: Properties SHA256
+        description: Properties SHA256 value for the application
+        type: string
+        required: true
+        example: ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
+      propertiesCertificateSigner:
+        title: Properties Certificate Signer
+        description: Properties value saved for the certificateSigner
+        type: string
+        required: false
+        example: Example signer
+      comment:
+        title: Comment
+        description: Comment indicating why the item should be blocked
+        type: string
+        required: true
+        example: Example comment
+    output:
+      blockedItem:
+        title: Blocked Item
+        description: Blocked item created
+        type: item
+        required: false
+        example: {}
+  remove_blocked_item:
+    title: Remove Blocked Item
+    description: Deletes the specified blocked item
+    input:
+      blockedItemId:
+        title: Blocked Item ID
+        description: The identifier of the blocked item
+        type: string
+        required: true
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    output:
+      success:
+        title: Success
+        description: Whether the item was deleted. Returns success if can't find item or it has been successfully deleted
+        type: boolean
+        required: false
+        example: true
+  get_endpoint_groups:
+    title: Get Endpoint Groups
+    description: Get endpoint groups
+    input:
+      groupType:
+        title: Group Type
+        description: "Endpoint group type. The following values are allowed: all, computer, server"
+        required: false
+        type: string
+        enum:
+        - all
+        - computer
+        - server
+        default: all
+        example: computer
+      sort:
+        title: Sort
+        description: Sort criteria for endpoint groups. Valid sort fields are id, name, createdAt, and updatedAt. You can append ':asc' or ':desc' to each field to specify the sort direction. The default sort direction for each field is unspecified
+        required: false
+        type: '[]string'
+        example: ["createdAt:desc","name:asc"]
+      fields:
+        title: Fields
+        description: The fields to return in a partial response
+        required: false
+        type: '[]string'
+        example: ["name", "createdAt"]
+      page:
+        title: Page
+        description: The page number to fetch
+        required: false
+        type: integer
+        default: 1
+        example: 5
+      pageTotal:
+        title: Page Total
+        description: Whether the number of pages should be calculated and returned in the response
+        required: false
+        type: boolean
+        example: false
+      pageSize:
+        title: Page Size
+        description: The size of the page requested
+        required: false
+        type: integer
+        default: 50
+        example: 10
+      ids:
+        title: Endpoint Group IDs
+        description: Endpoint group IDs to match. Must contain at most 50 items that must be unique
+        required: false
+        type: '[]string'
+        example: ["9de5069c-5afe-602b-2ea0-a04b66beb2c0"]
+      search:
+        title: Search
+        description: Term to search for in the specified search fields
+        required: false
+        type: string
+        example: Example
+      searchFields:
+        title: Search Fields
+        description: "Search your specified fields. The default is to search group names only. The following values are allowed: name, description"
+        required: false
+        type: '[]string'
+        example: ["description","name"]
+      endpointIds:
+        title: Endpoint IDs
+        description: Endpoint IDs. Must contain at most 50 items that must be unique
+        required: false
+        type: '[]string'
+        example: ["9de5069c-5afe-602b-2ea0-a04b66beb2c0"]
+    output:
+      endpointGroups:
+        title: Endpoint Groups
+        description: List of endpoint groups
+        type: "[]endpointGroup"
+        required: false
+        example: []
+      pages:
+        title: Pages
+        description: Pages details
+        type: pages
+        required: false
+        example: {}
+  get_allowed_items:
+    title: Get Allowed Items
+    description: Get a list of allowed items
+    input:
+      page:
+        title: Page
+        description: The page number to fetch
+        required: false
+        type: integer
+        default: 1
+        example: 3
+      pageSize:
+        title: Page Size
+        description: The size of the page requested
+        required: false
+        type: integer
+        default: 50
+        example: 5
+      pageTotal:
+        title: Page Total
+        description: Whether the number of pages should be calculated and returned in the response
+        required: false
+        type: boolean
+        example: false
+    output:
+      items:
+        title: Items
+        description: List of allowed items
+        type: "[]item"
+        required: false
+        example: []
+      pages:
+        title: Pages
+        description: Pages details
+        type: pages
+        required: false
+        example: {}
+  add_allowed_item:
+    title: Add Allowed Item
+    description: Exempt an item from conviction
+    input:
+      type:
+        title: Type
+        description: Property by which an item is allowed. You need to fill in the input starting with 'properties' for the selected type
+        required: true
+        type: string
+        enum:
+          - sha256
+          - path
+          - certificateSigner
+        example: sha256
+      propertiesFileName:
+        title: Properties File Name
+        description: Properties file name for the application
+        required: false
+        type: string
+        example: sample.txt
+      propertiesPath:
+        title: Properties Path
+        description: Properties path for the application. Required if 'path' is selected in the Type input
+        required: false
+        type: string
+        example: $path/sample.txt
+      propertiesSha256:
+        title: Properties SHA256
+        description: Properties SHA256 value for the application. Required if 'SHA256' is selected in the Type input
+        required: false
+        type: string
+        example: ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
+      propertiesCertificateSigner:
+        title: Properties Certificate Signer
+        description: Properties value saved for the certificateSigner. Required if 'certificateSigner' is selected in the Type input
+        required: false
+        type: string
+        example: Example signer
+      comment:
+        title: Comment
+        description: Comment indicating why the item should be allowed
+        required: true
+        type: string
+        example: Example comment
+      originPersonId:
+        title: Origin Person ID
+        description: Person associated with the endpoint where the item to be allowed was last seen
+        required: false
+        type: string
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+      originEndpointId:
+        title: Origin Endpoint ID
+        description: Endpoint where the item to be allowed was last seen
+        required: false
+        type: string
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    output:
+      allowedItem:
+        title: Allowed Item
+        description: Allowed item created
+        type: item
+        required: false
+        example: {}
+  remove_allowed_item:
+    title: Remove Allowed Item
+    description: Deletes the specified allowed item
+    input:
+      allowedItemId:
+        title: Allowed Item ID
+        description: The identifier of the allowed item
+        required: true
+        type: string
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    output:
+      success:
+        title: Success
+        description: Whether the action was successful
+        type: boolean
+        required: false
+        example: true
+  isolate_endpoint:
+    title: Isolate Endpoint
+    description: Turn on or off endpoint isolation for multiple endpoints
+    input:
+      enabled:
+        title: Enabled
+        description: Whether the endpoints should be isolated or not
+        type: boolean
+        required: true
+        default: true
+        example: true
+      ids:
+        title: IDs
+        description: List of endpoints IDs
+        type: "[]string"
+        required: true
+        example: '["9de5069c-5afe-602b-2ea0-a04b66beb2c0"]'
+      comment:
+        title: Comment
+        description: Reason the endpoints should be isolated or not
+        type: string
+        required: false
+        example: Example comment
+    output:
+      endpoints:
+        title: Endpoints
+        description: List of endpoints for which isolation has been updated
+        type: "[]endpointIsolation"
+        required: false
+        example: []
+  add_endpoint_group:
+    title: Add Endpoint Group
+    description: Add a new endpoint group
+    input:
+      name:
+        title: Name
+        description: Endpoint group name
+        type: string
+        required: true
+        example: Example Group
+      type:
+        title: Type
+        description: Group type
+        type: string
+        enum:
+        - computer
+        - server
+        required: true
+        default: computer
+        example: computer
+      description:
+        title: Description
+        description: Group description
+        type: string
+        required: false
+        example: Example description
+      endpointIds:
+        title: Endpoint IDs
+        description: List of endpoint IDs that will be added to the group
+        type: "[]string"
+        required: false
+        example: '["9de5069c-5afe-602b-2ea0-a04b66beb2c0"]'
+    output:
+      endpointGroup:
+        title: Endpoint Group
+        description: Information about the created endpoint group
+        type: endpointGroup
+        required: false
+        example: {}
+  get_endpoint_group:
+    title: Get Endpoint Group
+    description: Get endpoint group by ID
+    input:
+      groupId:
+        title: Group ID
+        description: Endpoint group ID
+        type: string
+        required: true
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    output:
+      endpointGroup:
+        title: Endpoint Group
+        description: Information about the provided endpoint group
+        type: endpointGroup
+        required: false
+        example: {}
+  add_endpoint_to_group:
+    title: Add Endpoint to Group
+    description: Add endpoints to your group
+    input:
+      groupId:
+        title: Group ID
+        description: Endpoint group ID
+        type: string
+        required: true
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+      ids:
+        title: IDs
+        description: List of endpoint IDs
+        type: "[]string"
+        required: true
+        example: '["9de5069c-5afe-602b-2ea0-a04b66beb2c0"]'
+    output:
+      addedEndpoints:
+        title: Added Endpoints
+        description: Endpoints added to the group
+        type: '[]endpointObject'
+        required: false
+        example: []
+  remove_endpoint_from_group:
+    title: Remove Endpoint from Group
+    description: Remove endpoints from a group
+    input:
+      groupId:
+        title: Group ID
+        description: Endpoint group ID
+        type: string
+        required: true
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+      ids:
+        title: IDs
+        description: List of endpoint IDs
+        type: "[]string"
+        required: true
+        example: '["9de5069c-5afe-602b-2ea0-a04b66beb2c0"]'
+    output:
+      removedEndpoints:
+        title: Removed Endpoints
+        description: Endpoints removed from a group
+        type: '[]endpointObject'
+        required: false
+        example: []
+      errors:
+        title: Errors
+        description: Information about which endpoints could not be removed from the group
+        type: endpointRemovalErrors
+        required: false
+        example: {}
+  get_endpoints_in_group:
+    title: Get Endpoints in Group
+    description: Retrieve endpoints in your specified group
+    input:
+      groupId:
+        title: Group ID
+        description: Endpoint group ID
+        type: string
+        required: true
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+      sort:
+        title: Sort
+        description: "Defines how to sort the data. Matches (^[^:]+$)|(^[^:]+:(asc|desc)$)"
+        type: "[]string"
+        required: false
+        example: ["id:asc"]
+      fields:
+        title: Fields
+        description: The fields to return in a partial response. All fields are returned by default
+        type: "[]string"
+        required: false
+        example: ["id", "type"]
+      pageFromKey:
+        title: Page from Key
+        description: Key of the page to fetch
+        type: string
+        required: false
+        example: exampleKey
+      pageTotal:
+        title: Page Total
+        description: Whether the number of pages should be calculated and returned in the response
+        type: boolean
+        required: false
+        default: false
+        example: false
+      pageSize:
+        title: Page Size
+        description: The size of the page requested. Value must be inclusively between 1 and 1000
+        type: integer
+        required: false
+        default: 50
+        example: 50
+      search:
+        title: Search
+        description: Term to search for in the specified search fields
+        type: string
+        required: false
+        example: example
+      searchFields:
+        title: Search Fields
+        description: 'List of search fields for finding the given search term. The following values are allowed: "hostname", "groupName", "associatedPersonName", "ipAddresses", "osName"'
+        type: "[]string"
+        required: false
+        example: ["hostname", "groupName", "associatedPersonName", "ipAddresses", "osName"]
+    output:
+      items:
+        title: Items
+        description: List of endpoints belonging to the given group
+        type: "[]endpointsItem"
+        required: false
+        example: []
+      pages:
+        title: Pages
+        description: Pages details
+        type: pagesDetails
+        required: false
+        example: {}

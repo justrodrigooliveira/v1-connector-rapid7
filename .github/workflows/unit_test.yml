@@ -1,0 +1,51 @@
+name: UnitTest
+
+on: [push]
+
+env:
+  COVERAGE_THRESHOLD: 60
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.8'
+
+    - name: Run Unit Tests on Plugin(s)
+      env: 
+        PACKAGE_CLOUD_TOKEN: ${{ secrets.CI_PACKAGECLOUD_TOKEN }}
+      run: |
+        sudo apt-get update && sudo apt-get install -y apt-transport-https curl gcc libkrb5-dev git gnupg krb5-user libffi-dev libssl1.1 ntp adcli sssd samba-common software-properties-common sudo realmd wget pandoc
+        python -m pip install --upgrade pip setuptools
+        curl -s "https://${PACKAGE_CLOUD_TOKEN}@packagecloud.io/install/repositories/rapid7/insightconnect_internal_python_tooling/script.python.sh" | bash
+        python -m pip install --user icon-integrations-ci --no-cache-dir --no-warn-script-location
+        python -m pip install --user insightconnect_plugin_runtime --no-cache-dir --no-warn-script-location
+        cd plugins
+        /home/runner/.local/bin/icon-ci run_unit_tests --generate_coverage
+    - name: Show coverage 
+      run: |
+        cd plugins
+        coverage_data_files=()
+        while IFS=  read -r -d $'\0'; do
+         coverage_data_files+=("$REPLY")
+        done < <(find "." -maxdepth 1 -iname '*\.coverage' -print0)
+        if [ ${#coverage_data_files[@]} -eq 0 ]; then
+            echo "No coverage data."
+        else
+            for data_file in "${coverage_data_files[@]}"
+            do
+                python -m coverage report --data-file=$data_file
+                percentage=$(python -m coverage report --data-file=$data_file | grep TOTAL | awk '{print $NF}')
+                number=$(echo $percentage |  sed -r 's/[%]+//g')
+                if [ $COVERAGE_THRESHOLD -gt "$number" ]; then
+                    echo "Unit test coverage of $percentage is below the required threshold $COVERAGE_THRESHOLD for $data_file"
+                    exit 1
+                fi
+            done
+        fi

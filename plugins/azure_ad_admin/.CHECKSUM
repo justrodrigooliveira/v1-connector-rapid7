@@ -1,0 +1,83 @@
+{
+	"spec": "5cccb9e034e7629ed9a29e03d18dc3bd",
+	"manifest": "42d5718e13f70c6bc6a8b0234a782418",
+	"setup": "c5a71e4324e2dc57436ad42fa1922521",
+	"schemas": [
+		{
+			"identifier": "add_user_to_group/schema.py",
+			"hash": "e64453e79d3fd708b8bba569febf9510"
+		},
+		{
+			"identifier": "add_user_to_groups_by_id/schema.py",
+			"hash": "e97f9c045d30cfe8254c8307647cf15d"
+		},
+		{
+			"identifier": "change_user_password/schema.py",
+			"hash": "7e4eb4437d28c32d4fc4300cb64a1dfb"
+		},
+		{
+			"identifier": "create_user/schema.py",
+			"hash": "d86a828bf532c6470d9cc45ff8ed0b85"
+		},
+		{
+			"identifier": "delete_device/schema.py",
+			"hash": "eabe03d3ac7e3be5e311c1e232d86e4c"
+		},
+		{
+			"identifier": "disable_device/schema.py",
+			"hash": "7d1ac4354f897359534e6e0e8b540879"
+		},
+		{
+			"identifier": "disable_user_account/schema.py",
+			"hash": "bb68bb34606b69db2079e927c11afa53"
+		},
+		{
+			"identifier": "enable_device/schema.py",
+			"hash": "3334f0e5ab4d0b25792070f01eb83f3c"
+		},
+		{
+			"identifier": "enable_user_account/schema.py",
+			"hash": "b8d4033d3af2ad105094ca90e0767115"
+		},
+		{
+			"identifier": "force_user_to_change_password/schema.py",
+			"hash": "3bc93016df45cc14081b99889b82e689"
+		},
+		{
+			"identifier": "get_device/schema.py",
+			"hash": "517c37bd2f850e7d34f88bfa05b62c27"
+		},
+		{
+			"identifier": "get_group_by_name/schema.py",
+			"hash": "46cf68c7cf5a33ec5ab1c2b32c12ed5e"
+		},
+		{
+			"identifier": "get_user_info/schema.py",
+			"hash": "d1b951829cc8fb0dfd6e33164b63333a"
+		},
+		{
+			"identifier": "remove_user_from_group/schema.py",
+			"hash": "baf89f23338f82d27a7ed05cd1a69862"
+		},
+		{
+			"identifier": "revoke_sign_in_sessions/schema.py",
+			"hash": "0595c8b68ede1f6777aa1bfe497814c7"
+		},
+		{
+			"identifier": "search_device/schema.py",
+			"hash": "88f0c76012974b8f1127b18074067e92"
+		},
+		{
+			"identifier": "update_user_info/schema.py",
+			"hash": "c73404e9a17455e6ba362707228fc886"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "44a55e73e16d66ac6802d046d45ed3de"
+		},
+		{
+			"identifier": "risk_detection/schema.py",
+			"hash": "41d7d8397cfcf1511697dd32c8e1fda3"
+		}
+	]
+}

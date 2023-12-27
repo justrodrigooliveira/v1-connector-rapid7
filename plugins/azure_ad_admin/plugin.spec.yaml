@@ -1,0 +1,1339 @@
+plugin_spec_version: v2
+extension: plugin
+products: [insightconnect]
+name: azure_ad_admin
+title: Azure AD Admin
+description: Perform administrative operations in Azure AD
+version: 4.1.1
+connection_version: 4
+vendor: rapid7
+cloud_ready: true
+support: community
+supported_versions: [2022-05-30]
+status: []
+resources:
+  source_url: https://github.com/rapid7/insightconnect-plugins/tree/master/plugins/azure_ad_admin
+  license_url: https://github.com/rapid7/insightconnect-plugins/blob/master/LICENSE
+  vendor_url: https://www.microsoft.com/
+tags:
+  - Microsoft
+  - Azure
+  - Active Directory
+  - Administration
+hub_tags:
+  use_cases: [threat_detection_and_response, user_management]
+  keywords: [azure, microsoft, active directory, administration, cloud_enabled]
+  features: []
+types:
+  manager:
+    "@odata.context":
+      title: "@odata.type"
+      type: string
+      description: "@odata.type"
+      required: false
+    id:
+      title: ID
+      type: string
+      description: Manager ID
+      required: false
+    deletedDateTime:
+      title: Deleted Date Time
+      type: date
+      description: Deleted Date Time
+      required: false
+    accountEnabled:
+      title: Account Enabled
+      type: boolean
+      description: Account Enabled
+      required: false
+    ageGroup:
+      title: Age Group
+      type: string
+      description: Age Group
+      required: false
+    businessPhones:
+      title: Business Phones
+      type: "[]string"
+      description: Business phones
+      required: false
+    companyName:
+      title: Company Name
+      type: string
+      description: Company Name
+      required: false
+    consentProvidedForMinor:
+      title: Consent Provided For Minor
+      type: string
+      description: Consent Provided For Minor
+      required: false
+    country:
+      title: Country
+      type: string
+      description: Country
+      required: false
+    createdDateTime:
+      title: Created Date Time
+      type: date
+      description: Created Date Time
+      required: false
+    creationType:
+      title: Creation Type
+      type: string
+      description: Creation Type
+      required: false
+    department:
+      title: Department
+      type: string
+      description: Department
+      required: false
+    displayName:
+      title: Display Name
+      type: string
+      description: Display Name
+      required: false
+    employeeId:
+      title: Employee ID
+      type: string
+      description: Employee ID
+      required: false
+    employeeHireDate:
+      title: Employee Hire Date
+      type: date
+      description: Employee Hire Date
+      required: false
+    employeeType:
+      title: Employee Type
+      type: string
+      description: Employee Type
+      required: false
+    externalUserState:
+      title: External User State
+      type: string
+      description: External User State
+      required: false
+    externalUserStateChangeDateTime:
+      title: External User State Change Date Time
+      type: string
+      description: External User State Change Date Time
+      required: false
+    faxNumber:
+      title: Fax Number
+      type: string
+      description: Fax Number
+      required: false
+    givenName:
+      title: Given Name
+      type: string
+      description: Given Name
+      required: false
+    jobTitle:
+      title: Job Title
+      type: string
+      description: Job Title
+      required: false
+    legalAgeGroupClassification:
+      title: Legal Age Group Classification
+      type: string
+      description: Legal Age Group Classification
+      required: false
+    mail:
+      title: Mail
+      type: string
+      description: Mail
+      required: false
+    mailNickname:
+      title: Mail Nickname
+      type: string
+      description: Mail Nickname
+      required: false
+    mobilePhone:
+      title: Mobile Phone
+      type: string
+      description: Mobile Phone
+      required: false
+    onPremisesDistinguishedName:
+      title: On Premises Distinguished Name
+      type: string
+      description: On Premises Distinguished Name
+      required: false
+    onPremisesDomainName:
+      title: On Premises Domain Name
+      type: string
+      description: On Premises Domain Name
+      required: false
+    onPremisesImmutableId:
+      title: On Premises Immutable ID
+      type: string
+      description: On Premises Immutable ID
+      required: false
+    onPremisesLastSyncDateTime:
+      title: On Premises Last Sync Date Time
+      type: date
+      description: On Premises Last Sync Date Time
+      required: false
+    onPremisesSecurityIdentifier:
+      title: On Premises Security Identifier
+      type: string
+      description: On Premises Security Identifier
+      required: false
+    onPremisesSamAccountName:
+      title: On Premises Sam Account Name
+      type: string
+      description: On Premises Sam Account Name
+      required: false
+    onPremisesSyncEnabled:
+      title: On Premises Sync Enabled
+      type: boolean
+      description: On Premises Sync Enabled
+      required: false
+    onPremisesUserPrincipalName:
+      title: On Premises User Principal Name
+      type: string
+      description: On Premises User Principal Name
+      required: false
+    otherMails:
+      title: Other Mails
+      type: "[]string"
+      description: Other Mails
+      required: false
+    passwordPolicies:
+      title: Password Policies
+      type: string
+      description: Password Policies
+      required: false
+    officeLocation:
+      title: Office Location
+      type: string
+      description: Office Location
+      required: false
+    postalCode:
+      title: Postal Code
+      type: string
+      description: Postal Code
+      required: false
+    preferredDataLocation:
+      title: Preferred Data Location
+      type: string
+      description: Preferred Data Location
+      required: false
+    proxyAddresses:
+      title: Proxy Addresses
+      type: "[]string"
+      description: Proxy Addresses
+      required: false
+    refreshTokensValidFromDateTime:
+      title: Refresh Tokens Valid From Date Time
+      type: date
+      description: Refresh Tokens Valid From Date Time
+      required: false
+    imAddresses:
+      title: Im Addresses
+      type: "[]string"
+      description: Im Addresses
+      required: false
+    isResourceAccount:
+      title: Is Resource Account
+      type: boolean
+      description: Is Resource Account
+      required: false
+    showInAddressList:
+      title: Show In Address List
+      type: boolean
+      description: Show In Address List
+      required: false
+    signInSessionsValidFromDateTime:
+      title: Sign In Sessions Valid From Date Time
+      type: date
+      description: Sign In Sessions Valid From Date Time
+      required: false
+    state:
+      title: State
+      type: string
+      description: State
+      required: false
+    streetAddress:
+      title: Street Address
+      type: string
+      description: Street Address
+      required: false
+    surname:
+      title: Surname
+      type: string
+      description: Surname
+      required: false
+    usageLocation:
+      title: Usage Location
+      type: string
+      description: Usage Location
+      required: false
+    userPrincipalName:
+      title: User Principal Name
+      type: string
+      description: User Principal Name
+      required: false
+    userType:
+      title: User Type
+      type: string
+      description: User Type
+      required: false
+    authorizationInfo:
+      title: Authorization Info
+      type: object
+      description: Authorization Info
+      required: false
+    employeeOrgData:
+      title: Employee Org Data
+      type: string
+      description: Employee Org Data
+      required: false
+    assignedLicenses:
+      title: Assigned Licenses
+      type: "[]object"
+      description: Assigned Licenses
+      required: false
+    assignedPlans:
+      title: Assigned Plans
+      type: "[]object"
+      description: Assigned Plans
+      required: false
+    identities:
+      title: Identities
+      type: "[]object"
+      description: Identities
+      required: false
+    onPremisesProvisioningErrors:
+      title: On Premises Provisioning Errors
+      type: "[]string"
+      description: On Premises Provisioning Errors
+      required: false
+    passwordProfile:
+      title: Password Profile
+      type: object
+      description: Password Profile
+      required: false
+    onPremisesExtensionAttributes:
+      title: On Premises Extension Attributes
+      type: object
+      description: On Premises Extension Attributes
+      required: false
+    provisionedPlans:
+      title: Provisioned Plans
+      type: "[]object"
+      description: Provisioned Plans
+      required: false
+  user_information:
+    accountEnabled:
+      title: "Account Enabled"
+      type: boolean
+      description: "Account enabled"
+      required: false
+    displayName:
+      title: "Display Name"
+      type: string
+      description: "Display name"
+      required: false
+    mobilePhone:
+      title: "Mobile Phone"
+      type: string
+      description: "Mobile phone"
+      required: false
+    preferredLanguage:
+      title: "Preferred Language"
+      type: string
+      description: "Preferred language"
+      required: false
+    jobTitle:
+      title: "Job Title"
+      type: string
+      description: "Job title"
+      required: false
+    userPrincipalName:
+      title: "User Principal Name"
+      type: string
+      description: "User principal name"
+      required: false
+    "@odata.context":
+      title: "@odata.Context"
+      type: string
+      description: "@odata.context"
+      required: false
+    officeLocation:
+      title: "Office Location"
+      type: string
+      description: "Office location"
+      required: false
+    businessPhones:
+      title: "Business Phones"
+      type: "[]string"
+      description: "Business phones"
+      required: false
+    mail:
+      title: "Mail"
+      type: string
+      description: "Mail"
+      required: false
+    surname:
+      title: "Surname"
+      type: string
+      description: "Surname"
+      required: false
+    givenName:
+      title: "Given Name"
+      type: string
+      description: "Given Name"
+      required: false
+    id:
+      title: "ID"
+      type: string
+      description: "ID"
+      required: false
+    manager:
+      title: Manager
+      description: Manager
+      type: manager
+      required: False
+  group:
+    mailNickname:
+      title: "Mail Nickname"
+      type: string
+      description: "Mail nickname"
+      required: false
+    groupTypes:
+      title: "Group Types"
+      type: "[]string"
+      description: "Group types"
+      required: false
+    displayName:
+      title: "Display Name"
+      type: string
+      description: "Display name"
+      required: false
+    description:
+      title: "Description"
+      type: string
+      description: "Description"
+      required: false
+    createdDateTime:
+      title: "Created Date Time"
+      type: string
+      description: "Created date time"
+      required: false
+    securityEnabled:
+      title: "Security Enabled"
+      type: boolean
+      description: "Security enabled"
+      required: false
+    renewedDateTime:
+      title: "Renewed Date Time"
+      type: string
+      description: "Renewed date time"
+      required: false
+    proxyAddresses:
+      title: "Proxy Addresses"
+      type: "[]string"
+      description: "Proxy addresses"
+      required: false
+    visibility:
+      title: "Visibility"
+      type: string
+      description: "Visibility"
+      required: false
+    mail:
+      title: "Mail"
+      type: string
+      description: "Mail"
+      required: false
+    isAssignableToRole:
+      title: "Is Assignable to Role"
+      type: boolean
+      description: "Is assignable to role"
+      required: false
+    id:
+      title: "ID"
+      type: string
+      description: "ID"
+      required: false
+    mailEnabled:
+      title: "Mail Enabled"
+      type: boolean
+      description: "Mail enabled"
+      required: false
+  geo_coordinates:
+    altitude:
+      title: Altitude
+      description: The altitude (height), in feet, above sea level
+      type: string
+      required: false
+    latitude:
+      title: Latitude
+      description: The latitude, in decimal
+      type: string
+      required: false
+    longitude:
+      title: Longitude
+      description: The longitude, in decimal
+      type: string
+      required: false
+  sign_in_location:
+    city:
+      title: City
+      description: City where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity
+      type: string
+      required: false
+    country_or_region:
+      title: Country Or Region
+      description: Country code info (2 letter code) where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity
+      type: string
+      required: false
+    geo_coordinates:
+      title: Geo Coordinates
+      description: Geo coordinates
+      type: geo_coordinates
+      required: false
+    state:
+      title: State
+      description: State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity
+      type: string
+      required: false
+  risk:
+    id:
+      title: ID
+      description: Unique ID of the risk detection
+      type: string
+      required: true
+    request_id:
+      title: Request ID
+      description: Request ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in
+      type: string
+      required: false
+    correlation_id:
+      title: Correlation ID
+      description: Correlation ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in
+      type: string
+      required: false
+    risk_type:
+      title: Risk Type
+      description: The type of risk event detected
+      type: string
+      required: false
+    risk_state:
+      title: Risk State
+      description: The state of a detected risky user or sign-in
+      type: string
+      required: false
+    risk_level:
+      title: Risk Level
+      description: Level of the detected risk
+      type: string
+      required: false
+    risk_detail:
+      title: Risk Detail
+      description: Details of the detected risk. Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden
+      type: string
+      required: false
+    source:
+      title: Risk Level
+      description: Source of the risk detection. For example, activeDirectory
+      type: string
+      required: false
+    detection_timing_type:
+      title: Detection Timimg Type
+      description: Timing of the detected risk (real-time/offline). The possible values are notDefined, realtime, nearRealtime, offline, unknownFutureValue
+      type: string
+      required: false
+    activity:
+      title: Activity
+      description: Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue
+      type: string
+      required: false
+    token_issuer_type:
+      title: Token Issuer Type
+      description: Indicates the type of token issuer for the detected sign-in risk. The possible values are AzureAD, ADFederationServices, and unknownFutureValue
+      type: string
+      required: false
+    ip_address:
+      title: IP Address
+      description: IP address of the client from where the risk occurred
+      type: string
+      required: false
+    location:
+      title: Location
+      description: Location of the client from where the risk occurred
+      type: sign_in_location
+      required: false
+    activity_date_time:
+      title: Activity Date Time
+      description: Date and time that the risky activity occurred
+      type: string
+      required: false
+    detected_date_time:
+      title: Detected Date Time
+      description: Date and time that the risk was detected
+      type: string
+      required: false
+    last_updated_date_time:
+      title: Last Updated Date Time
+      description: Date and time that the risk detection was last updated
+      type: string
+      required: false
+    user_id:
+      title: User ID
+      description: User ID
+      type: string
+      required: false
+    user_display_name:
+      title: User Display Name
+      description: User display name
+      type: string
+      required: false
+    user_principal_name:
+      title: User Principal Name
+      description: The user principal name (UPN) of the user
+      type: string
+      required: false
+    additional_info:
+      title: Additional Information
+      description: Additional information associated with the risk detection
+      type: string
+      required: false
+  alternativeSecurityId:
+    identityProvider:
+      title: Identity Provider
+      description: Identity provider
+      type: string
+      required: false
+      example: example_provider
+    key:
+      title: Key
+      description: Key
+      type: string
+      required: false
+      example: ["WAA1ADAAOQA6ADwAUwBIAEEAMQAtAFQAUAAtAFAAVQBC"]
+    type:
+      title: Type
+      description: Type
+      type: integer
+      required: false
+      example: 2
+  extensionAttributes:
+    extensionAttribute1:
+      title: Extension Attribute 1
+      description: First customizable extension attribute
+      type: string
+      required: false
+      example: example1
+    extensionAttribute2:
+      title: Extension Attribute 2
+      description: Second customizable extension attribute
+      type: string
+      required: false
+      example: example2
+    extensionAttribute3:
+      title: Extension Attribute 3
+      description: Third customizable extension attribute
+      type: string
+      required: false
+      example: example3
+    extensionAttribute4:
+      title: Extension Attribute 4
+      description: Fourth customizable extension attribute
+      type: string
+      required: false
+      example: example4
+    extensionAttribute5:
+      title: Extension Attribute 5
+      description: Fifth customizable extension attribute
+      type: string
+      required: false
+      example: example5
+    extensionAttribute6:
+      title: Extension Attribute 6
+      description: Sixth customizable extension attribute
+      type: string
+      required: false
+      example: example6
+    extensionAttribute7:
+      title: Extension Attribute 7
+      description: Seventh customizable extension attribute
+      type: string
+      required: false
+      example: example7
+    extensionAttribute8:
+      title: Extension Attribute 8
+      description: Eighth customizable extension attribute
+      type: string
+      required: false
+      example: example8
+    extensionAttribute9:
+      title: Extension Attribute 9
+      description: Ninth customizable extension attribute
+      type: string
+      required: false
+      example: example9
+    extensionAttribute10:
+      title: Extension Attribute 10
+      description: Tenth customizable extension attribute
+      type: string
+      required: false
+      example: example10
+    extensionAttribute11:
+      title: Extension Attribute 11
+      description: Eleventh customizable extension attribute
+      type: string
+      required: false
+      example: example11
+    extensionAttribute12:
+      title: Extension Attribute 12
+      description: Twelfth customizable extension attribute
+      type: string
+      required: false
+      example: example12
+    extensionAttribute13:
+      title: Extension Attribute 13
+      description: Thirteenth customizable extension attribute
+      type: string
+      required: false
+      example: example13
+    extensionAttribute14:
+      title: Extension Attribute 14
+      description: Fourteenth customizable extension attribute
+      type: string
+      required: false
+      example: example14
+    extensionAttribute15:
+      title: Extension Attribute 15
+      description: Fifteenth customizable extension attribute
+      type: string
+      required: false
+      example: example15
+  device:
+    accountEnabled:
+      title: Account Enabled
+      description: True if the account is enabled; otherwise, false
+      type: boolean
+      required: false
+      example: true
+    alternativeSecurityIds:
+      title: Alternative Security IDs
+      description: List of alternative security IDs
+      type: '[]alternativeSecurityId'
+      required: false
+      example: []
+    approximateLastSignInDateTime:
+      title: Approximate Last Sign In Datetime
+      description: The timestamp of last login in ISO 8601 format and in UTC time
+      type: string
+      required: false
+      example: 2023-06-08T13:08:47Z
+    complianceExpirationDateTime:
+      title: Compliant Expiration Datetime
+      description: The timestamp when the device is no longer deemed compliant
+      type: string
+      required: false
+      example: 2023-06-08T13:08:47Z
+    deviceCategory:
+      title: Device Category
+      description: User-defined property set by Intune to automatically add devices to groups and simplify managing devices
+      type: string
+      required: false
+      example: my-device-category
+    deviceId:
+      title: Device ID
+      description: Unique identifier set by Azure Device Registration Service at the time of registration
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    deviceMetadata:
+      title: Device Metadata
+      description: Metadata of the device
+      type: string
+      required: false
+      example: Example metadata
+    deviceOwnership:
+      title: Device Ownership
+      description: Ownership of the device
+      type: string
+      required: false
+      example: Personal
+    deviceVersion:
+      title: Device Version
+      description: Version of the device
+      type: integer
+      required: false
+      example: 2
+    displayName:
+      title: Display Name
+      description: The display name for the device
+      type: string
+      required: false
+      example: DESKTOP-123456
+    enrollmentProfileName:
+      title: Enrollment Profile Name
+      description: Enrollment profile name of the device
+      type: string
+      required: false
+      example: Apple Device Enrollment Profile
+    enrollmentType:
+      title: Enrollment Type
+      description: Enrollment type of the device
+      type: string
+      required: false
+      example: UserEnrollment
+    exchangeActiveSyncIds:
+      title: Exchange Active Sync IDs
+      description: Exchange active sync IDs of the device
+      type: '[]string'
+      required: false
+      example: ["eas::9de5069c-5afe-602b-2ea0-a04b66beb2c0"]
+    extensionAttributes:
+      title: Extension Attributes
+      description: Contains extension attributes 1-15 for the device
+      type: extensionAttributes
+      required: false
+      example: {}
+    id:
+      title: ID
+      description: The unique identifier for the device
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    isCompliant:
+      title: Is Compliant
+      description: Whether the device complies with Mobile Device Management (MDM) policies
+      type: boolean
+      required: false
+      example: false
+    isManaged:
+      title: Is Managed
+      description: Whether the device is managed by Mobile Device Management (MDM)
+      type: boolean
+      required: false
+      example: false
+    isRooted:
+      title: Is Rooted
+      description: Whether the device is rooted
+      type: boolean
+      required: false
+      example: true
+    managementType:
+      title: Management Type
+      description: Management type of the device
+      type: string
+      required: false
+      example: MDM
+    manufacturer:
+      title: Manufacturer
+      description: Manufacturer of the device
+      type: string
+      required: false
+      example: Google
+    mdmAppId:
+      title: Mobile Device Management App ID
+      description: Application identifier used to register device into MDM
+      type: string
+      required: false
+      example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    model:
+      title: Model
+      description: Model of the device
+      type: string
+      required: false
+      example: Android SDK built for x86
+    onPremisesLastSyncDateTime:
+      title: On Premises Last Sync Date Time
+      description: The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time.
+      type: string
+      required: false
+      example: 2014-01-01T00:00:00Z
+    onPremisesSyncEnabled:
+      title: On Premises Sync Enabled
+      description: Whether the object is synced from an on-premises directory
+      type: boolean
+      required: false
+      example: false
+    operatingSystem:
+      title: Operating System
+      description: The type of operating system on the device
+      type: string
+      required: false
+      example: Android
+    operatingSystemVersion:
+      title: Operating System Version
+      description: The version of the operating system on the device
+      type: string
+      required: false
+      example: 9
+    physicalIds:
+      title: Physical IDs
+      description: List of physical IDs
+      type: '[]string'
+      required: false
+      example: ["[GID]:g:6966545952520216"]
+    profileType:
+      title: Profile Type
+      description: The profile type of the device
+      type: string
+      required: false
+      example: RegisteredDevice
+    registrationDateTime:
+      title: Registration Date Time
+      description: Date and time of when the device was registered. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time
+      type: string
+      required: false
+      example: 2014-01-01T00:00:00Z
+    systemLabels:
+      title: System Labels
+      description: List of labels applied to the device by the system
+      type: '[]string'
+      required: false
+      example: ["test"]
+    trustType:
+      title: Trust Type
+      description: Type of trust for the joined device
+      type: string
+      required: false
+      example: Workplace
+
+connection:
+  tenant_id:
+    title: Tenant ID
+    description: The ID of the directory that identifies the tenant
+    type: string
+    required: true
+    example: 5ceea899-ae8c-4ff1-fffe-353646eeeff0
+  application_id:
+    title: App ID
+    description: The ID of the registered application that obtained the refresh token
+    type: string
+    required: true
+    example: 6731de76-14a6-49ae-97bc-6eba6914391e
+  application_secret:
+    title: App Secret
+    description: The secret of the registered application that obtained the refresh token
+    type: credential_secret_key
+    required: true
+    example: JqQX2PNo9bpM0uEihUPzyrh
+actions:
+  disable_user_account:
+    title: Disable User Account
+    description: Disable a user account. This action will not disable an administrative account
+    input:
+      user_id:
+        title: User ID
+        type: string
+        description: User ID to disable
+        required: true
+        example: user@example.com
+    output:
+      success:
+        title: Success
+        description: Was operation successful
+        type: boolean
+        required: true
+  enable_user_account:
+    title: Enable User Account
+    description: Enable a user account
+    input:
+      user_id:
+        title: User ID
+        type: string
+        description: User ID to enable
+        required: true
+        example: user@example.com
+    output:
+      success:
+        title: Success
+        description: Was operation successful
+        type: boolean
+        required: true
+  get_user_info:
+    title: Get User Info
+    description: Get user information
+    input:
+      user_id:
+        title: User ID
+        type: string
+        description: Retrieve information about specific User ID
+        required: true
+        example: user@example.com
+    output:
+      user_information:
+        title: User Information
+        description: Information about a user
+        type: user_information
+        required: true
+  create_user:
+    title: Create User and Notify
+    description: Create a user with a randomly generated password and send out an email with the password
+    input:
+      display_name:
+        title: Display Name
+        description: The name to display in the address book for the user
+        type: string
+        required: true
+        example: displayName-value
+      mail_nickname:
+        title: Mail Nickname
+        description: The mail alias for the user
+        required: false
+        type: string
+        example: user@example.com
+      user_principal_name:
+        title: User Principal Name
+        description: The user principal name
+        required: true
+        type: string
+        example: user@example.com
+      account_enabled:
+        title: Account Enabled
+        description: True if the account is enabled; otherwise, false
+        type: boolean
+        default: true
+        required: false
+        example: true
+      notify_email_body:
+        required: false
+        title: Notify Email Body
+        type: string
+        description: Body of the email to be sent out. Use $password to place the generated password
+        example: Example message to send
+      notify_recipient:
+        required: true
+        title: Recipient of Creation Email
+        type: string
+        description: Email address of the account to be notified of user creation
+        example: user@example.com
+      notify_from:
+        required: true
+        title: Notify from
+        description: User from which email notifcation will be sent
+        type: string
+        example: user@example.com
+    output:
+      success:
+        title: Success
+        type: boolean
+        required: true
+        description: Did the step succeed
+  force_user_to_change_password:
+    title: Force User to Change Password
+    description: Forces a user to change their password on their next successful login
+    input:
+      user_id:
+        title: User ID
+        type: string
+        description: User ID to password change
+        required: true
+        example: user@example.com
+    output:
+      success:
+        title: Success
+        description: Was operation successful
+        type: boolean
+        required: true
+  change_user_password:
+    title: Change User Password
+    description: Change a user password by an administrator with appropriate permissions
+    input:
+      user_id:
+        title: User ID
+        type: string
+        description: User ID to password change
+        required: true
+        example: user@example.com
+      new_password:
+        title: New Password
+        type: password
+        description: The new password
+        required: true
+        example: newPassword
+    output:
+      success:
+        title: Success
+        description: Was operation successful
+        type: boolean
+        required: true
+  get_group_by_name:
+    title: Get Group by Name
+    description: Get a group by its name
+    input:
+      name:
+        title: Name
+        description: Display name to filter
+        type: string
+        required: true
+        example: displayName
+    output:
+        group:
+          title: Group
+          description: Group
+          type: group
+          required: false
+  add_user_to_group:
+    title: Add User to Group
+    description: Add a user to a group
+    input:
+      user_id:
+        title: User ID
+        description: User ID
+        type: string
+        required: true
+        example: user@example.com
+      group_name:
+        title: Group Name
+        description: Name of the group to add a user to
+        type: string
+        required: true
+        example: Example Group Name
+    output:
+      success:
+        title: Success
+        description: Was operation successful
+        type: boolean
+        required: false
+  add_user_to_groups_by_id:
+    title: Add User to Groups by ID
+    description: Add a user to a set of groups by group ID
+    input:
+      user_id:
+        title: User ID
+        description: User ID to add
+        type: string
+        required: true
+        example: user@example.com
+      group_id:
+        title: Group IDs
+        description: IDs of Groups to Add User to
+        type: "[]string"
+        required: true
+        example: ["b4d41d4-eb13-4a33-99b5-7d7290df22e9"]
+    output:
+      success:
+        title: Success
+        description: Was operation successful
+        type: boolean
+        required: false
+  remove_user_from_group:
+    title: Remove User from Group
+    description: Remove a user from a group
+    input:
+      user_id:
+        title: User ID
+        description: User ID to remove from group
+        type: string
+        required: true
+        example: user@example.com
+      group_name:
+        title: Group Name
+        description: Group Name to manage
+        type: string
+        required: true
+        example: Example Group Name
+    output:
+      success:
+        title: Success
+        description: Was operation successful
+        type: boolean
+        required: false
+  update_user_info:
+    title: Update User Information
+    description: Update a users information
+    input:
+      city:
+        title: City
+        type: string
+        description: The city in which the user is located
+        required: false
+        example: Boston
+      country:
+        title: Country
+        type: string
+        description: The country or region in which the user is located; for example, US or UK
+        required: false
+        example: US
+      department:
+        title: Department
+        type: string
+        description: The name for the department in which the user works
+        required: false
+        example: IT
+      job_title:
+        title: Job Title
+        type: string
+        description: The user's job title
+        required: false
+        example: Desktop Technician
+      state:
+        title: State
+        type: string
+        description: The state or province in the users address
+        required: false
+        example: MA
+      user_id:
+        title: User ID
+        description: User to updates ID
+        type: string
+        required: true
+        example: user@example.com
+      user_type:
+        title: User Type
+        type: string
+        description: A string value that can be used to classify user types in your directory, such as Member and Guest
+        required: false
+        example: Member
+    output:
+      success:
+        title: Success
+        description: Was operation successful
+        type: boolean
+        required: true
+  revoke_sign_in_sessions:
+    title: Revoke Sign-In Sessions
+    description: This will require the user to log back in after any page they are on is refreshed by invalidating all refresh tokens and cookies
+    input:
+      user_id:
+        title: User ID
+        description: User ID to revoke
+        type: string
+        example: user@example.com
+        required: true
+    output:
+      success:
+        title: Success
+        description: Was the operation successful
+        type: boolean
+        required: true
+  enable_device:
+    title: Enable Device
+    description: Enable the device with the given ID
+    input:
+      deviceId:
+        title: Device ID
+        description: ID of the device
+        type: string
+        required: true
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    output:
+      success:
+        title: Success
+        description: Whether the action was successful
+        type: boolean
+        required: true
+        example: true
+  disable_device:
+    title: Disable Device
+    description: Disable the device with the given ID
+    input:
+      deviceId:
+        title: Device ID
+        description: ID of the device
+        type: string
+        required: true
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    output:
+      success:
+        title: Success
+        description: Whether the action was successful
+        type: boolean
+        required: true
+        example: true
+  delete_device:
+    title: Delete Device
+    description: Delete the device with the given ID
+    input:
+      deviceId:
+        title: Device ID
+        description: ID of the device
+        type: string
+        required: true
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    output:
+      success:
+        title: Success
+        description: Whether the action was successful
+        type: boolean
+        required: true
+        example: true
+  get_device:
+    title: Get Device
+    description: Get the device with the given ID
+    input:
+      deviceId:
+        title: Device ID
+        description: ID of the device
+        type: string
+        required: true
+        example: 9de5069c-5afe-602b-2ea0-a04b66beb2c0
+    output:
+      device:
+        title: Device
+        description: Information about the device
+        type: device
+        required: false
+        example: {}
+  search_device:
+    title: Search Device
+    description: Search for devices using a given query. For more information about queries visit https://learn.microsoft.com/en-us/graph/filter-query-parameter?tabs=http; https://learn.microsoft.com/en-us/graph/search-query-parameter?tabs=http; https://learn.microsoft.com/en-us/graph/aad-advanced-queries?tabs=http#device-properties
+    input:
+      search:
+        title: Search
+        description: Search parameters by query. See details about query in action description
+        type: string
+        required: false
+        example: displayName:INTUNE
+      orderBy:
+        title: Order By
+        description: Sorts list results by the provided device parameter
+        type: string
+        required: false
+        example: displayName
+      filter:
+        title: Filter
+        description: Filter devices by query. See details about query in action description
+        type: string
+        required: false
+        example: approximateLastSignInDateTime le 2021-06-11T18:01:51Z
+      select:
+        title: Select
+        description: Fields to be included in the output
+        type: "[]string"
+        required: false
+        example: ["id", "createdDateTime"]
+    output:
+      devices:
+        title: Devices
+        description: Information about the devices
+        type: "[]device"
+        required: false
+        example: []
+
+triggers:
+  risk_detection:
+    title: Risk Detection
+    description: Provides list of both user and sign-in linked risk detections and associated information about the detection
+    input:
+      frequency:
+        type: integer
+        description: Poll frequency in seconds
+        default: 60
+        required: false
+        example: 60
+      risk_level:
+        title: Risk Level
+        description: Risk level
+        type: string
+        required: true
+        enum:
+          - "low"
+          - "medium"
+          - "high"
+          - "hidden"
+          - "none"
+          - "all"
+        example: all
+    output:
+      risk:
+        title: Risk
+        description: Risk
+        type: risk
+        required: true

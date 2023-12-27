@@ -1,0 +1,43 @@
+{
+	"spec": "8a23cae069a42ddd5819353a3ebc0bc4",
+	"manifest": "fc155dfb9ee3967779fada5f929c7450",
+	"setup": "a42303262f9410127ce43e6bbb0861bf",
+	"schemas": [
+		{
+			"identifier": "add_computer_to_group/schema.py",
+			"hash": "5b4da49d3927658f3cc2ed2ad1e45dbf"
+		},
+		{
+			"identifier": "erase_computer/schema.py",
+			"hash": "3e5e51102384b01070ddb7fd223f54c5"
+		},
+		{
+			"identifier": "get_device_groups/schema.py",
+			"hash": "39f730135c3aa2d172b62943e26035bb"
+		},
+		{
+			"identifier": "get_devices_name_id/schema.py",
+			"hash": "6e9ee7003cbe2511fa37f6542d2c8f7c"
+		},
+		{
+			"identifier": "get_group_detail/schema.py",
+			"hash": "38f89ae28de571b99a2f3ff129aaa24e"
+		},
+		{
+			"identifier": "get_user_location/schema.py",
+			"hash": "d4282f4c01e1ead9afa3b7ad9e0f47f8"
+		},
+		{
+			"identifier": "lock_computer/schema.py",
+			"hash": "a044e19ea2783689b385300e141cc044"
+		},
+		{
+			"identifier": "lock_mobile_devices/schema.py",
+			"hash": "a2a13413f569e1972bd3b73fcae1494b"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "a46b567bf7ea8297d7160e1f0714d11c"
+		}
+	]
+}

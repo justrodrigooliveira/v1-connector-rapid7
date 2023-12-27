@@ -1,0 +1,87 @@
+{
+	"spec": "287ddf0708ab23c6caaf0c4d128c601d",
+	"manifest": "7d6ae1bb692d9502872ec923f24086dd",
+	"setup": "ee71ca80effce1e7f3cc00c09e62232d",
+	"schemas": [
+		{
+			"identifier": "categorization/schema.py",
+			"hash": "408451d280372d323596097a09d5f5ee"
+		},
+		{
+			"identifier": "cooccurrences/schema.py",
+			"hash": "0bee2b404d6550b2d8e4556e7eda635e"
+		},
+		{
+			"identifier": "domain_tags/schema.py",
+			"hash": "1e08d0c354ef999604052aa9cdf8d07e"
+		},
+		{
+			"identifier": "domain_whois/schema.py",
+			"hash": "94caa4de7997641450930adc3379d3fb"
+		},
+		{
+			"identifier": "email_whois/schema.py",
+			"hash": "59282d844b6b9cabeb975a5f41be23ce"
+		},
+		{
+			"identifier": "latest_domains/schema.py",
+			"hash": "809c5df178c8ae3281ef61107b5cd5e3"
+		},
+		{
+			"identifier": "ns_whois/schema.py",
+			"hash": "91d3ee554879021c8c0426a845a1b48c"
+		},
+		{
+			"identifier": "passive_dns/schema.py",
+			"hash": "c26111d2d07ff12e2c1699caea5ce611"
+		},
+		{
+			"identifier": "related/schema.py",
+			"hash": "d1bade4cd91eb9cd9d644e780ecffb3c"
+		},
+		{
+			"identifier": "rr_history/schema.py",
+			"hash": "ae5eae8ee8ba0f5d16c8769ec91e757d"
+		},
+		{
+			"identifier": "rr_history_ip/schema.py",
+			"hash": "8faf037e3c3d65c96bf834d346b38591"
+		},
+		{
+			"identifier": "sample/schema.py",
+			"hash": "04b38c14cf11881ff5170e9f9f4a50bd"
+		},
+		{
+			"identifier": "sample_artifacts/schema.py",
+			"hash": "28747ae15f2840978749df90297a7fe4"
+		},
+		{
+			"identifier": "sample_connections/schema.py",
+			"hash": "4a7c720a007e8d3ffe18c26b6f4a05e8"
+		},
+		{
+			"identifier": "sample_samples/schema.py",
+			"hash": "aae306780da88662af580dc465bb445c"
+		},
+		{
+			"identifier": "samples/schema.py",
+			"hash": "5ce4770b9f694561346f506e236d54b9"
+		},
+		{
+			"identifier": "search/schema.py",
+			"hash": "91cc8b93a7ca49f89f36788362e06aca"
+		},
+		{
+			"identifier": "security/schema.py",
+			"hash": "2a3c867401681679ec398ccf39dc4682"
+		},
+		{
+			"identifier": "timeline/schema.py",
+			"hash": "033fcdea814bc45cd245137ac68e1754"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "270a601f84a87d2432f691188bb1415a"
+		}
+	]
+}

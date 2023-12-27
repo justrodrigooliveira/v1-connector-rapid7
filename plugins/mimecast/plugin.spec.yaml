@@ -1,0 +1,1502 @@
+plugin_spec_version: v2
+extension: plugin
+products: [insightconnect]
+name: mimecast
+title: Mimecast
+description: Services for email security, archiving and continuity. Protect, manage
+  and archive without compromise
+version: 5.3.2
+connection_version: 5
+supported_versions: ["Mimecast API 2022-11-07"]
+vendor: rapid7
+support: rapid7
+cloud_ready: true
+sdk:
+  type: slim
+  version: 5
+  user: nobody
+status: []
+resources:
+  source_url: https://github.com/rapid7/insightconnect-plugins/tree/master/plugins/mimecast
+  license_url: https://github.com/rapid7/insightconnect-plugins/blob/master/LICENSE
+  vendor_url: http://mimecast.com
+tags:
+- mimecast
+- email
+hub_tags:
+  use_cases: [threat_detection_and_response]
+  keywords: [mimecast, email, cloud_enabled]
+  features: []
+types:
+  managed_url:
+    id:
+      title: ID
+      description: The Mimecast secure ID of the managed URL
+      type: string
+      required: false
+    scheme:
+      title: Scheme
+      description: The protocol to apply for the managed URL. Either HTTP or HTTPS
+      type: string
+      required: false
+    domain:
+      title: Domain
+      description: The managed domain
+      type: string
+      required: false
+    port:
+      title: Port
+      description: The specified in the managed URL. Default value is -1 if no port was provided
+      type: integer
+      required: false
+    path:
+      title: Path
+      description: The resource path of the managed URL
+      type: string
+      required: false
+    queryString:
+      title: Query string
+      description: The query string of the managed URL
+      type: string
+      required: false
+    matchType:
+      title: Match Type
+      description: The type of URL to match against
+      type: string
+      required: false
+    action:
+      title: Action
+      description:  Action to take for when URL is clicked. Either block or permit
+      type: string
+      required: false
+    comment:
+      title: Comment
+      description: The comment that was posted in the request
+      type: string
+      required: false
+    disableUserAwareness:
+      title: User Awareness
+      description: If User Awareness challenges for this URL are disabled
+      type: boolean
+      required: false
+    disableLogClick:
+      title: Click Logging
+      description: If logging of user clicks on the URL is disabled
+      type: boolean
+      required: false
+    disableRewrite:
+      title: URL Rewriting
+      description: If rewriting of this URL in emails is disabled
+      type: boolean
+      required: false
+  managed_sender:
+    type:
+      title: Type
+      description: Either 'permit' (to bypass spam checks) or 'block' (to reject the
+        email)
+      type: string
+      required: false
+    to:
+      title: To
+      description: The email address of the internal recipient
+      type: string
+      required: false
+    sender:
+      title: Sender
+      description: The email address of the external sender
+      type: string
+      required: false
+    id:
+      title: ID
+      description: The Mimecast secure ID of the managed sender object
+      type: string
+      required: false
+  policy:
+    fromEternal:
+      title: From Eternal
+      description: If the policy is always applied or if there is a specific start
+        date
+      type: boolean
+      required: false
+    toDate:
+      title: To Date
+      description: The date that the policy will apply until
+      type: string
+      required: false
+    fromValue:
+      title: From Value
+      description: A value defining which senders the policy applies to
+      type: string
+      required: false
+    from:
+      title: From
+      description: An object containing type and value fields defining which sender
+        addresses the policy applies to
+      type: object
+      required: false
+    description:
+      title: Description
+      description: The description for the policy which is kept with the email in
+        the archive for future reference
+      type: string
+      required: false
+    bidirectional:
+      title: Bidirectional
+      description: If the policy is also applied in the reverse of the email flow,
+        i.e. where the specified recipient in the policy becomes the sender, and the
+        specified sender in the policy becomes the recipient
+      type: boolean
+      required: false
+    fromType:
+      title: From Type
+      description: Which sender addresses the policy applies to. Can be one of everyone,
+        internal_addresses, external_addresses, email_domain, profile_group, address_attribute_value,
+        individual_email_address, free_mail_domains, header_display_name
+      type: string
+      required: false
+    to:
+      title: To
+      description: An object containing type and value fields defining which recipient
+        addresses the policy applies to
+      type: object
+      required: false
+    fromDate:
+      title: From Date
+      description: The date that the policy will apply from
+      type: string
+      required: false
+    override:
+      title: Override
+      description: If true, this option overrides the order in which the policy is
+        applied, and forces it to be applied first if there are multiple applicable
+        policies, unless more specific policies of the same type have been configured
+        with an override as well
+      type: boolean
+      required: false
+    toEternal:
+      title: To Eternal
+      description: If the policy should always be applied or if there is an end date
+      type: boolean
+      required: false
+    conditions:
+      title: Conditions
+      description: An object with fields describing additional conditions that should
+        affect when the policy is applied
+      type: object
+      required: false
+    toType:
+      title: To Type
+      description: Which recipient addresses the policy applies to. Can be one of
+        everyone, internal_addresses, external_addresses, email_domain, profile_group,
+        address_attribute_value, individual_email_address, free_mail_domains, header_display_name
+      type: string
+      required: false
+    fromPart:
+      title: From Part
+      description: Which from address is used in the policy. Can be any of envelope_from,
+        header_from, both
+      type: string
+      required: false
+  sender_policy:
+    id:
+      title: ID
+      description: The Mimecast ID of the policy. Used when updating the policy
+      type: string
+      required: false
+    option:
+      title: Option
+      description: The option set for the policy. Will be one of no_action, block_sender
+      type: string
+      required: false
+    policy:
+      title: Policy
+      description: The policy that was created
+      type: policy
+      required: false
+  group:
+    description:
+      title: Description
+      description: The name of the group
+      type: string
+      required: false
+    source:
+      title:
+      description:
+      type: string
+      required: false
+    folder_count:
+      title:
+      description:
+      type: integer
+      required: false
+    parent_id:
+      title:
+      description:
+      type: string
+      required: false
+    id:
+      title:
+      description:
+      type: string
+      required: false
+    user_count:
+      title:
+      description:
+      type: integer
+      required: false
+  click_logs:
+    category:
+      title: Category
+      description: The category of the URL clicked
+      type: string
+      required: false
+    userEmailAddress:
+      title: User Email Address
+      description: The email address of the user who clicked the link
+      type: string
+      required: false
+    url:
+      title: URL
+      description: The URL clicked
+      type: string
+      required: false
+    userAwarenessAction:
+      title: User Awareness Action
+      description: The action taken by the user if user awareness was applied
+      type: string
+      required: false
+    route:
+      title: Route
+      description: The route of the email that contained the link
+      type: string
+      required: false
+    adminOverride:
+      title: Admin Override
+      description: The action defined by the administrator for the URL
+      type: string
+      required: false
+    date:
+      title: Date
+      description: The date that the URL was clicked
+      type: string
+      required: false
+    scanResult:
+      title: Scan Result
+      description: The result of the URL scan
+      type: string
+      required: false
+    action:
+      title: Action
+      description: The action that was taken for the click
+      type: string
+      required: false
+    ttpDefinition:
+      title: TTP Definition
+      description: The description of the definition that triggered the URL to be rewritten by Mimecast
+      type: string
+      required: false
+    userOverride:
+      title: User Override
+      description: The action requested by the user
+      type: string
+      required: false
+  audit_events_data:
+    startDateTime:
+      title: Start Date Time
+      description: The start date of events in ISO 8601 date time format
+      type: string
+      required: true
+      example: "2011-12-03T10:15:30+0000"
+    endDateTime:
+      title: End Date Time
+      description: The end date of events in ISO 8601 date time format
+      type: string
+      required: true
+      example: "2015-12-03T10:15:30+0000"
+    query:
+      title: Query
+      description: A character string to search for the audit events
+      type: string
+      required: false
+      example: "test query"
+    categories:
+      title: Categories
+      description: A list of audit category types
+      type: "[]string"
+      required: false
+      example: ["test", "malware"]
+  audit_events_request_pagination:
+    pageSize:
+      title: Page Size
+      description: The number of results to request
+      type: integer
+      required: false
+      default: 25
+    pageToken:
+      title: Page Token
+      description: The value of the next or previous fields from an earlier request
+      type: string
+      required: false
+  audit_events_response:
+    auditType:
+      title: Audit Type
+      description: The Mimecast audit type of the event
+      type: string
+      required: false
+    category:
+      title: Category
+      description: The category of the event
+      type: string
+      required: false
+    eventInfo:
+      title: Event Info
+      description: The detailed event information
+      type: string
+      required: false
+    eventTime:
+      title: Event Time
+      description: The time of the event in ISO 8601 format
+      type: string
+      required: false
+    id:
+      title: ID
+      description: The Mimecast unique id of the event
+      type: string
+      required: false
+  pagination:
+    pageSize:
+      title: Page Size
+      description: The number of results requested
+      type: integer
+      required: false
+    next:
+      title: Next
+      description: A pageToken value that can be used to request the next page of results. Only returned if there are more results to return
+      type: string
+      required: false
+    previous:
+      title: Previous
+      description: A pageToken value that can be used to request the previous page of results. Only returned if there is a previous page
+      type: string
+      required: false
+  search_criteria_object:
+    end:
+      title: End
+      type: string
+      description: The end date of messages included in ISO 8601 format
+      required: false
+    fileHash:
+      title: File Hash
+      type: string
+      description: The file hash used in creation of the remediation incident
+      required: false
+    from:
+      title: From
+      type: string
+      description: The sender address of the message
+      required: false
+    messageId:
+      title: Message ID
+      type: string
+      description: The message id use in creation of the remediation incident
+      required: false
+    restoreCode:
+      title: Restore Code
+      type: string
+      description: The restore code used if the incident type is restore
+      required: false
+    start:
+      title: Start
+      type: string
+      description: The start date of messages included in ISO 8601 format
+      required: false
+    subject:
+      title: Subject
+      type: string
+      description: Message subject line of the remediated message
+      required: false
+    to:
+      title: To
+      type: string
+      description: The recipient email address of the message
+      required: false
+    unremediateCode:
+      title: Unremediate Code
+      type: string
+      description: The Mimecast code used to restore a previously remediated message
+      required: false
+    url:
+      title: URL
+      type: string
+      description: URL used to create the remediation incident, if remediation type is URL
+      required: false
+  response_remediation_incident:
+    search_criteria_object:
+      title: Search Criteria Object
+      type: search_criteria_object
+      description: The search criteria used to identify messages
+      required: false
+    code:
+      title: Code
+      type: string
+      description: The incident code generated at creation, to be used as a reference for the remediation incident lookup
+      required: false
+    create:
+      title: Create
+      type: string
+      description: Timestamp of the incident creation in ISO 8601 format
+      required: false
+    failed:
+      title: Failed
+      type: integer
+      description: The number of messages that failed to remediate
+      required: false
+    fileRemediationCanBeCancelled:
+      title: File Remediation Can be Cancelled
+      type: boolean
+      description: Indicates whether the file remediation incident can still be cancelled
+      required: false
+    fileRemediationCancelled:
+      title: File Remediation Cancelled
+      type: string
+      description: Timestamp of an incident cancellation, if it has been cancelled, in ISO 8601 format
+      required: false
+    fileRemediationExpiryTime:
+      title: File Remediation Expiry Time
+      type: string
+      description: Timestamp of a file-bases remediation should expiration in ISO 8601 format
+      required: false
+    id:
+      title: ID
+      type: string
+      description: The Mimecast secure ID of the remediation incident
+      required: false
+    identified:
+      title: Identified
+      type: integer
+      description: Number of messages identified with provided search criteria
+      required: false
+    modified:
+      title: Modified
+      type: string
+      description: Timestamp of the incident's last modification date in ISO 8601 format
+      required: false
+    reason:
+      title: Reason
+      type: string
+      description: The reason provided at the creation of the remediation incident
+      required: false
+    remediatedBy:
+      title: Remediated by
+      type: string
+      description: Email address of the user who created the remediation incident
+      required: false
+    removeFromDevice:
+      title: Remove From Device
+      type: string
+      enum:
+        - recipient
+        - all
+      description: The devices where the downloaded file should be removed from
+      required: false
+    restored:
+      title: Restored
+      type: integer
+      description: The number of messages that were restored, if incident was a restore
+      required: false
+    successful:
+      title: Successful
+      type: integer
+      description: The number of successfully remediated messages
+      required: false
+    type:
+      title: Type
+      type: string
+      enum:
+        - notify_only
+        - automatic
+        - manual
+        - restored
+      description: Type of incident
+      required: false
+  searchCriteria:
+    start:
+      title: Start
+      type: string
+      description: The start date from the remediation incident creation
+      required: false
+    end:
+      title: End
+      type: string
+      description: The end date from the remediation incident creation
+      required: false
+    fileHash:
+      title: File Hash
+      type: string
+      description: The file hash provided during the remediation incident creation
+      required: false
+    from:
+      title: From
+      type: string
+      description: The sender address provided at the remediation incident creation
+      required: false
+    messageId:
+      title: Message ID
+      type: string
+      description: The message ID provided during the remediation incident creation
+      required: false
+    restoreCode:
+      title: Restore Code
+      type: string
+      description: The code provided to restore a message
+      required: false
+    to:
+      title: To
+      type: string
+      description: The recipient address provided at the remediation incident creation
+      required: false
+    unremediateCode:
+      title: Unremediate Code
+      type: string
+      description: Code used to restore messages that were previously removed by remediation incident
+      required: false
+  get_remediation_incident_response:
+    code:
+      title: Code
+      type: string
+      description: Incident code, used as a reference for a remediation incident
+      required: false
+    create:
+      title: Create
+      type: string
+      description: Date that the remediation incident was created
+      required: false
+    failed:
+      title: Failed
+      type: integer
+      description: The number of messages that failed to remediate as part of the incident
+      required: false
+    id:
+      title: ID
+      type: string
+      description: The Mimecast ID of the remediation incident, provided when the incident was created
+      required: false
+    identified:
+      title: Identified
+      type: integer
+      description: Number of messages identified by the search criteria
+      required: false
+    modified:
+      title: Modified
+      type: string
+      description: Date that the remediation incident was last updated
+      required: false
+    reason:
+      title: Reason
+      type: string
+      description: The reason provided when an incident was created
+      required: false
+    restored:
+      title: Restored
+      type: integer
+      description: The number of messages restored as part of the incident
+      required: false
+    searchCriteria:
+      title: Searchcriteria
+      type: "[]searchCriteria"
+      description: Conditions used to build a remediation incident. Includes messageId, file-hash, from or to addresses.
+      required: false
+    successful:
+      title: Successful
+      type: integer
+      description: The number of messages successfully remediated as part of the incident
+      required: false
+    type:
+      title: Type
+      type: string
+      description: The type of incident action taken. Can be one of notify_only, automatic, manual or restored
+      required: false
+  find_remediation_searchBy:
+    value:
+      title: Value
+      description: The text used to filter results
+      type: string
+      required: false
+    fieldName:
+      title: Field Name
+      description: Incident fields to filter based on
+      type: string
+      enum:
+        - all
+        - code
+        - file_hash
+        - reason
+      required: false
+  find_remediation_filterBy:
+    type:
+      title: Type
+      description: Specify the type of incidents to return
+      type: string
+      enum:
+        - notify_only
+        - automatic
+        - manual
+        - restore
+      required: false
+  searchCritera:
+    unremediateCode:
+      title: Unremediate Code
+      description: Code required to perform a message restoration
+      type: string
+      required: false
+    start:
+      title: Start
+      description: Date of oldest results to return
+      type: string
+      required: false
+    end:
+      title: End
+      description: Date of most recent incidents to return
+      type: string
+      required: false
+    fileHash:
+      title: File Hash
+      description: File hash used to create remediation incident
+      type: string
+      required: false
+    messageId:
+      title: Message ID
+      description: Message ID used to create remediation incident
+      type: string
+      required: false
+    restoreCode:
+      title: Restore Code
+      description: Restore code for remediation event
+      type: string
+      required: false
+    from:
+      title: From
+      description: Sender address or domain name used to create remediation incident
+      type: string
+      required: false
+    to:
+      title: To
+      description: Recipient address or domain name used to create remediation incident
+      type: string
+      required: false
+  incidents:
+    code:
+      title: Code
+      description: The remediation incident unique code
+      type: string
+      required: false
+    type:
+      title: Type
+      description: The incident type
+      type: string
+      enum:
+        - notify_only
+        - automatic
+        - manual
+        - restored
+      required: false
+    reason:
+      title: Reason
+      description: The reason provided when the remediation incident was created
+      type: string
+      required: false
+    create:
+      title: Create
+      description: The time stamp of the incident creation
+      type: string
+      required: false
+    modified:
+      title: Modified
+      description: The time stamp of the last modification to the incident
+      type: string
+      required: false
+    identified:
+      title: Identified
+      description: The total number of messages identified as part of the remediation incident
+      type: integer
+      required: false
+    successful:
+      title: Successful
+      description: The number of messages sucessfully rememdiated
+      type: integer
+      required: false
+    failed:
+      title: Failed
+      description: The number of messages that failed to remediate
+      type: integer
+      required: false
+    restored:
+      title: Restored
+      description: The number of messages restored from the remediation incident
+      type: integer
+      required: false
+    id:
+      title: ID
+      description: The Mimecast secure ID of the remediation incident
+      type: string
+      required: false
+    searchCriteria:
+      title: Search Criteria
+      description: Criteria used when the remediation incident was created
+      type: "searchCritera"
+      required: false
+  sender:
+    emailAddress:
+      title: Email Address
+      description: The email address of the sender
+      type: string
+      required: false
+    displayableName:
+      title: Display Name
+      description: The display name of the sender
+      type: string
+      required: false
+  recipient:
+    emailAddress:
+      title: Email Address
+      description: The email address of the recipient
+      type: string
+      required: false
+    displayableName:
+      title: Display Name
+      description: The display name of the recipient
+      type: string
+      required: false
+  tracked_emails:
+    detectionLevel:
+      title: Detection Level
+      description: The spam scanning level applied to the message
+      type: string
+      required: false
+    status:
+      title: Status
+      description: The status of the message
+      type: string
+      required: false
+    received:
+      title: Received
+      description: The date and time the message was received by Mimecast
+      type: date
+      required: false
+    attachments:
+      title: Attachments
+      description: Indicates whether the message has attachments or not
+      type: boolean
+      required: false
+    route:
+      title: Route
+      description: The route of the message
+      type: string
+      required: false
+    to:
+      title: To
+      description: An array of recipients
+      type: "[]recipient"
+      required: false
+    fromHdr:
+      title: Header From
+      description: An object describing the header from address information of the message
+      type: sender
+      required: false
+    fromEnv:
+      title: Envelope From
+      description: An object describing the envelope from address of the message
+      type: sender
+      required: false
+    senderIP:
+      title: Sender IP Address
+      description: The source IP address of the message
+      type: string
+      required: false
+    id:
+      title: ID
+      description: The Mimecast ID of the message
+      type: string
+      required: false
+    sent:
+      title: Sent
+      description: The date and time that the message was sent / processed by Mimecast
+      type: date
+      required: false
+    subject:
+      title: Subject
+      description: The subject of the message
+      type: string
+      required: false
+    spamScore:
+      title: Spam Score
+      description: The spam score of the received message
+      type: integer
+      required: false
+connection:
+  region:
+    title: Region
+    description: The region for the Mimecast server
+    type: string
+    enum:
+      - EU
+      - DE
+      - US
+      - CA
+      - ZA
+      - AU
+      - Offshore
+      - Sandbox
+      - USB
+      - USBCOM
+    required: true
+    example: EU
+    default: EU
+  app_id:
+    title: App ID
+    description: Application ID
+    type: string
+    example: 78d2e4b1-8cc2-4806-nt79-6ef332a47374
+    required: true
+  app_key:
+    title: Application Key
+    description: The application key
+    type: credential_secret_key
+    example: 475x54c6-4f61-4fab-8be7-a0710f3859e3
+    required: true
+  secret_key:
+    title: Application Secret Key
+    description: The application secret key
+    type: credential_secret_key
+    example: FgHrtydiP4TynI+rTZF42Qu0FtGuhJtuNM5bDh82goJQHed9kJZ5t/ORwGnI5r2hkl/bzCosZ+KVapJFeaf3Yw==
+    required: true
+  access_key:
+    title: Application Access Key
+    description: The application access key
+    type: credential_secret_key
+    example: eWtOL3XZCOwG96BOiFTZRiC5rdvDmP4FFdwU2Y1DC1Us-gh7KyL5trUrZ9aEuzQMV7pPWWxTnPVtsJ6x3fajAh3cRskP0w8hNjaFFVkZB6G9dOytLM2ssQ7HY-p7gJoi
+    required: true
+actions:
+  track_messages:
+    title: Track Messages
+    description: Search for messages processing, and current state using specific message information. Either one of `Send From`, `Send To`, `Subject`, `Sender IP` fields, or `Message ID` must not be empty
+    input:
+      search_reason:
+        title: Search Reason
+        description: Reason for Tracking a email, used for activity tracking purposes
+        type: string
+        example: Example Reason
+        required: false
+      start_date:
+        title: Start Date
+        description: The date and time of the earliest message to track
+        type: date
+        example: Example Reason
+        required: false
+      end_date:
+        title: End Date
+        description: The date and time of the latest message to track
+        type: date
+        example: Example Reason
+        required: false
+      message_id:
+        title: Message ID
+        description: The internet message id of the message to track
+        type: string
+        example: ExampleID
+        required: false
+      routes:
+        title: Routes
+        description: An array of routes to filter by. Possible values are internal, outbound and inbound
+        type: "[]string"
+        example: '["internal", "outbound"]'
+        required: false
+      send_from:
+        title: Send From
+        description: The sending email address or domain of the messages to track
+        type: string
+        example: user@example.com
+        required: false
+      send_to:
+        title: Send To
+        description: The recipient email address or domain of the messages to track
+        type: string
+        example: user@example.com
+        required: false
+      subject:
+        title: Subject
+        description: The subject of the messages to track
+        type: string
+        example: Example Email Subject
+        required: false
+      sender_ip:
+        title: Sender IP
+        description: The source IP address of messages to track
+        type: string
+        example: 192.168.0.1
+        required: false
+    output:
+      tracked_emails:
+        title: Tracked Emails
+        description: An array of found tracked emails
+        type: "[]tracked_emails"
+        required: true
+        example: []
+  delete_blocked_sender_policy:
+    title: Delete Blocked Sender Policy
+    description: Deletes a blocked sender policy
+    input:
+      id:
+        title: ID
+        description: The Mimecast secure ID of an existing policy to be deleted
+        type: string
+        example: eWtOL3XZCOwG96BOiFTZRiC5rdvDmP4FFdwU2Y1DC1Us-gh7KyL5trUrZ9aEuzQMV7pPWWxTnPVtsJ6x3fajAh3cRskP0w8hNjaFFVkZB6G9dOytLM2ssQ7HY-p7gJoi
+        required: true
+    output:
+      success:
+        title: Success
+        description: Success status of delete request
+        type: boolean
+        required: true
+        example: true
+  create_managed_url:
+    title: Create Managed URL
+    description: Create a managed URL
+    input:
+      url:
+        title: URL
+        description: The URL to block or permit. Do not include a fragment
+        type: string
+        example: https://example.com
+        required: true
+      comment:
+        title: Comment
+        description: A comment about the why the URL is managed; for tracking purposes
+        type: string
+        example: Deemed malicious by VirusTotal
+        required: false
+      disable_rewrite:
+        title: Disable Rewrite
+        description: Disable rewriting of this URL in emails. Applies only if action
+          = 'permit'
+        type: boolean
+        example: True
+        required: true
+      disable_user_awareness:
+        title: Disable User Awareness
+        description: Disable User Awareness challenges for this URL. Applies only
+          if action = 'permit'
+        type: boolean
+        example: False
+        required: true
+      disable_log_click:
+        title: Disable Log Click
+        description: Disable logging of user clicks on the URL
+        type: boolean
+        example: False
+        required: true
+      action:
+        title: Action
+        description: Set to 'block' to blacklist the URL, 'permit' to whitelist it
+        type: string
+        example: block
+        required: true
+        default: block
+        enum:
+        - block
+        - permit
+      match_type:
+        title: Match Type
+        description: Set to 'explicit' to block or permit only instances of the full
+          URL. Set to 'domain' to block or permit any URL with the same domain
+        type: string
+        example: explicit
+        required: true
+        default: explicit
+        enum:
+        - explicit
+        - domain
+    output:
+      response:
+        title: Managed URL
+        description: Managed URL that was created
+        type: '[]managed_url'
+        required: false
+        example: []
+  delete_managed_url:
+    title: Delete Managed URL
+    description: Delete a managed URL
+    input:
+      id:
+        title: ID
+        description: The Mimecast secure ID of the managed URL
+        type: string
+        example: wOi3MCwjYFYhZfkYlp2RMAhvN30QSmqOT7D-I9Abwlmy7ZH7eCwvY3ImP7QVjTLhHMy6V8J3VOvTNMW2G-txx3o4zL0YXqWxuCVlGQ-1viE
+        required: true
+    output:
+      success:
+        title: Success
+        description: Success status of delete request
+        type: boolean
+        required: false
+        example: true
+  get_managed_url:
+    title: Get Managed URL
+    description: Get information on a managed URL
+    input:
+      domainOrUrl:
+        title: Domain or URL
+        description: A domain or URL to filter results
+        type: string
+        required: false
+        example: https://example.com
+      exactMatch:
+        title: Exact Match
+        description: If true, the domainOrUrl value to act as an exact match value. If false, any partial matches will be returned
+        type: boolean
+        required: false
+        default: false
+        example: false
+      domain:
+        title: Domain
+        description: The managed domain
+        type: string
+        example: https://example.com
+        required: false
+      disable_user_awareness:
+        title: 'Filter: User Awareness'
+        description: Filter on whether or not User Awareness challenges for this URL
+        type: string
+        example: false
+        required: false
+        default: None
+        enum:
+          - 'None'
+          - 'False'
+          - 'True'
+      disable_log_click:
+        title: 'Filter: Log Click'
+        description: Filter on whether or not clicks are logged for this URL
+        type: string
+        required: false
+        example: true
+        default: None
+        enum:
+          - 'None'
+          - 'False'
+          - 'True'
+      action:
+        title: 'Filter: Action'
+        description: Filter on whether or not the action is 'block' or 'permit'
+        type: string
+        required: false
+        example: block
+        default: none
+        enum:
+          - none
+          - block
+          - permit
+      match_type:
+        title: 'Filter: Match Type'
+        description: Filter on whether or not the match type is 'explicit' or 'domain'
+        type: string
+        example: domain
+        required: false
+        default: none
+        enum:
+          - none
+          - explicit
+          - domain
+      scheme:
+        title: 'Filter: Scheme'
+        description: Filter on whether or not the protocol is HTTP or HTTPS
+        type: string
+        example: http
+        required: false
+      disable_rewrite:
+        title: 'Filter: URL Rewrite'
+        description: Filter on whether or not rewriting of this URL in emails is enabled
+        type: string
+        example: false
+        required: false
+        default: None
+        enum:
+          - 'None'
+          - 'False'
+          - 'True'
+      id:
+        title: 'Filter: ID'
+        description: Filter on the Mimecast secure ID of the managed URL
+        type: string
+        example: wOi3MCwjYFYhZfkYlp2RMAhwOgsDZixCK43rDjLP0YPWrtBgqVtVbzzFK8SjGLNE4
+        required: false
+    output:
+      response:
+        title: Managed URL
+        description: 'Managed URLs matching '
+        type: '[]managed_url'
+        required: false
+        example: []
+  permit_or_block_sender:
+    title: Permit or Block Sender
+    description: Permits or blocks a sender
+    input:
+      action:
+        title: Action
+        description: Either 'permit' (to bypass spam checks) or 'block' (to reject
+          the email)
+        type: string
+        example: block
+        required: true
+        default: block
+        enum:
+        - block
+        - permit
+      to:
+        title: To
+        description: The email address of the internal recipient
+        type: string
+        example: user@example.com
+        required: true
+      sender:
+        title: Sender
+        description: The email address of the external sender
+        example: user@example.com
+        type: string
+        required: true
+    output:
+      response:
+        title: Managed Sender
+        description: The Managed Sender that was created
+        type: '[]managed_sender'
+        required: false
+        example: []
+  create_blocked_sender_policy:
+    title: Create Blocked Sender Policy
+    description: Creates a blocked sender policy
+    input:
+      option:
+        title: Option
+        description: 'The block, option must be: no_action or block_sender'
+        type: string
+        required: true
+        example: block_sender
+        default: block_sender
+        enum:
+        - block_sender
+        - no_action
+      description:
+        title: Description
+        description: A description for the policy which is kept with the email in
+          the archive for future reference
+        type: string
+        example: A description
+        required: true
+      from_part:
+        title: From Part
+        description: 'Must be: envelope_from, header_from or both'
+        type: string
+        example: envelope_from
+        required: true
+        default: envelope_from
+        enum:
+        - envelope_from
+        - header_from
+        - both
+      from_type:
+        title: From Type
+        description: 'Can be one of: everyone, internal_addresses, external_addresses,
+          email_domain, profile_group or individual_email_address'
+        type: string
+        example: internal_addresses
+        required: true
+        default: individual_email_address
+        enum:
+        - everyone
+        - internal_addresses
+        - external_addresses
+        - email_domain
+        - profile_group
+        - individual_email_address
+      from_value:
+        title: From Value
+        description: 'Required if `From Type` is one of email_domain, profile_group,
+          individual_email_address. Expected values: If `From Type` is email_domain,
+          a domain name without the @ symbol. If `From Type` is profile_group, the
+          ID of the profile group. If `From Type` is individual_email_address, an
+          email address'
+        type: string
+        example: user@example.com
+        required: false
+      to_type:
+        title: To Type
+        description: 'Can be one of: everyone, internal_addresses, external_addresses,
+          email_domain, profile_group or individual_email_address'
+        type: string
+        example: everyone
+        required: true
+        default: individual_email_address
+        enum:
+        - everyone
+        - internal_addresses
+        - external_addresses
+        - email_domain
+        - profile_group
+        - individual_email_address
+      to_value:
+        title: To Value
+        description: 'Required if `To Type` is one of email_domain, profile_group,
+          individual_email_address. Expected values: If `To Type` is email_domain,
+          a domain name without the @ symbol. If `To Type` is profile_group, the ID
+          of the profile group. If `To Type` is individual_email_address, an email
+          address'
+        type: string
+        example: user@example.com
+        required: false
+      source_ips:
+        title: Source IPs
+        description: A comma separated list of IP addresses using CIDR notation (X.X.X.X/XX).
+          When set the policy only applies for connections from matching addresses
+        type: string
+        example: 198.51.100.0/24
+        required: false
+    output:
+      sender_policy:
+        title: Policy
+        description: The policy that was created
+        type: '[]sender_policy'
+        required: false
+        example: []
+  add_group_member:
+    title: Add Group Member
+    description: Add an email address or domain to a group
+    input:
+      id:
+        title: ID
+        description: The Mimecast ID of the group to add to
+        example: eNoVzssKgkAUgOF3OWuhvDHlTjMqgjIilWgzN0UdHZnjBBK9e7b_-fg_gJJbIxsBEdB2Dl-r1HDCMLeHuufXTZyt8_Gou3l_i21JWeK3TOgJizrBvFM0ez5EaDwcytO5AAeUoCNEFVUoHeAWJ91Lw7WQi7-7X1I3JtswWMK3NNjoASLXgUorIc3_ISA-8b4_Gl8xjA
+        type: string
+        required: true
+      email_address:
+        title: Email Address
+        description: The email address of a user to add to a group. Use either email address or domain
+        example: user@example.com
+        type: string
+        required: false
+      domain:
+        title: Domain
+        description: A domain to add to a group. Use either email address or domain
+        type: string
+        example: https://example.com
+        required: false
+    output:
+      folder_id:
+        title: Folder ID
+        description: The Mimecast ID of the group that the user / domain was added to
+        type: string
+        required: false
+        example: eNoVzssKgkAUgOF3OWuhvDHlTjMqgjIilWgzN0UdHZnjBBK9e7b_
+      email_address:
+        title: Email Address
+        description: The email address of the user that was added to the group
+        type: string
+        required: false
+        example: user@example.com
+      id:
+        title: ID
+        description: The Mimecast ID of the user / domain that was added to the group
+        type: string
+        required: false
+        example: eNoVzssKgkAUgOF3OWuhvDHlTjMqgjIilWgzN0UdHZnjBBK9e7b_-fg_gJJbIxsBEdB2Dl-r1HDCMLeHuufXTZyt8_Gou3l_i21JWeK3TOgJizrBvFM0ez5EaDwcytO5AAeUoCNEFVUoHeAWJ91Lw7WQi7-7X1I3JtswWMK3NNjoASLXgUorIc3_ISA-8b4_Gl8xjA
+      internal:
+        title: Internal
+        description: Whether or not the user or domain is internal
+        type: boolean
+        required: false
+        example: true
+  delete_group_member:
+    title: Delete Group Member
+    description: Delete an email address or domain from a group
+    input:
+      id:
+        title: ID
+        description: The Mimecast ID of the group to remove from
+        example: eNoVzssKgkAUgOF3OWuhvDHlTjMqgjIilWgzN0UdHZnjBBK9e7b_-fg_gJJbIxsBEdB2Dl-r1HDCMLeHuufXTZyt8_Gou3l_i21JWeK3TOgJizrBvFM0ez5EaDwcytO5AAeUoCNEFVUoHeAWJ91Lw7WQi7-7X1I3JtswWMK3NNjoASLXgUorIc3_ISA-8b4_Gl8xjA
+        type: string
+        required: true
+      email_address:
+        title: Email Address
+        description: The email address to remove from group. Use either email address or domain
+        type: string
+        example: user@example.com
+        required: false
+      domain:
+        title: Domain
+        description: A domain to remove from group. Use either email address or domain
+        example: example.com
+        type: string
+        required: false
+    output:
+      success:
+        title: Success
+        description: Status of success of the delete operation
+        type: boolean
+        required: false
+        example: true
+  find_groups:
+    title: Find Groups
+    description: Find groups that match a given query
+    input:
+      query:
+        title: Query
+        description: A string to query for
+        example: mygroup
+        type: string
+        required: false
+      source:
+        title: Source
+        description: A group source to filter on, either "cloud" or "ldap"
+        type: string
+        example: cloud
+        required: true
+        default: cloud
+        enum:
+        - cloud
+        - ldap
+    output:
+      groups:
+        title: Groups
+        description: A list of groups that mach the query
+        type: "[]group"
+        required: false
+        example: []
+  get_ttp_url_logs:
+    title: Get TTP URL Logs
+    description: Get TTP URL logs
+    input:
+      from:
+        title: From
+        description: Start date of logs to return in the following format 2015-11-16T14:49:18+0000. Default is the start of the current day
+        example: 2018-11-22T14:49:18+0000
+        type: string
+        required: false
+      to:
+        title: To
+        description: End date of logs to return in the following format 2015-11-16T14:49:18+0000. Default is time of request
+        example: 2018-11-22T14:49:18+0000
+        type: string
+        required: false
+      route:
+        title: Route
+        description: Filters logs by route, must be one of inbound, outbound, internal, or all
+        type: string
+        example: inbound
+        required: true
+        default: all
+        enum:
+        - all
+        - inbound
+        - outbound
+        - internal
+      scan_result:
+        title: Scan Result
+        description: Filters logs by scan result, must be one of clean, malicious, or all
+        type: string
+        example: malicious
+        required: true
+        default: all
+        enum:
+        - clean
+        - malicious
+        - all
+      oldest_first:
+        title: Oldest First
+        description: When true return results in descending order with oldest result first
+        type: boolean
+        example: false
+        required: false
+        default: false
+      max_pages:
+        title: Max Pages
+        description: Max pages returned, default 100
+        type: integer
+        required: false
+        default: 100
+        example: 10
+      url_to_filter:
+        title: URL Regular Expression Filter
+        description: Regular expression to filter on. e.g. `examp` will return only URLs with the letters examp in them
+        example: exam.*
+        type: string
+        required: false
+      page_size:
+        title: Page Size
+        type: integer
+        description: The number of results to request
+        required: false
+        default: 10
+        example: 10
+    output:
+      click_logs:
+        title: Click Logs
+        description: Click Logs
+        type: "[]click_logs"
+        required: false
+        example: []
+  decode_url:
+    title: Decode URL
+    description: Decode a Mimecast encoded URL
+    input:
+      encoded_url:
+        title: Encoded URL
+        description: The Mimecast encoded URL
+        example: https://url.xx.m.mimecastprotect.com/TXH7fhe
+        type: string
+        required: true
+    output:
+      decoded_url:
+        title: Decoded URL
+        description: Original decoded URL
+        type: string
+        required: true
+        example: https://example.com
+  get_audit_events:
+    title: Get Audit Events
+    description: Get audit of events in Mimecast service
+    input:
+      audit_events_data:
+        title: Audit Events Data
+        description: Data for request
+        type: "audit_events_data"
+        required: true
+        example: '{"categories": ["test", "malware"], "endDateTime": "2022-02-02T08:15:30-05:00", "query": "example query", "startDateTime": "2022-02-02T08:15:30-05:00"}'
+      audit_events_pagination:
+        title: Audit Events Pagination
+        description: Pagination object for request
+        type: "audit_events_request_pagination"
+        required: false
+        example: '{"pageSize": 25, "pageToken": "9de5069c5afe602b2ea0a04b66beb2c0"}'
+    output:
+      response:
+        title: Response
+        description: Event logs data
+        type: "[]audit_events_response"
+        required: true
+        example: []
+      pagination:
+        title: Pagination
+        description: Pagination for request
+        type: "pagination"
+        required: false
+        example: {}
+tasks:
+  monitor_siem_logs:
+    title: Monitor SIEM Logs
+    description: Monitor and retrieve the latest logs
+    output:
+      data:
+        title: Data
+        description: List of logs
+        type: "[]object"
+        required: true
+        example: []

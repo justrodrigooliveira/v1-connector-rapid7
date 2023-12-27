@@ -1,0 +1,158 @@
+plugin_spec_version: v2
+extension: plugin
+products: [insightconnect]
+name: powershell
+title: PowerShell
+description: Run a PowerShell script
+version: 3.0.2
+supported_versions: ["PowerShell 6.1.2"]
+vendor: rapid7
+support: community
+status: []
+resources:
+  source_url: https://github.com/rapid7/insightconnect-plugins/tree/master/plugins/powershell
+  license_url: https://github.com/rapid7/insightconnect-plugins/blob/master/LICENSE
+  vendor_url: https://www.microsoft.com
+  docs_url: https://docs.rapid7.com/insightconnect/mass-delete-with-powershell/
+tags:
+- powershell
+- microsoft
+hub_tags:
+  use_cases: [data_utility]
+  keywords: [powershell, microsoft]
+  features: []
+enable_cache: false
+language: python
+types:
+  kerberos:
+    kdc:
+      title: KDC
+      description: IP address of the Active Directory server. If Auth Type is set
+        to None then leave this blank
+      type: string
+      required: false
+    domain_name:
+      title: Domain Name
+      description: The fully qualified domain name of the remote host e.g. example.com.
+        If Auth Type is set to None then leave this blank
+      type: string
+      required: false
+connection:
+  credentials:
+    type: credential_username_password
+    title: Credentials
+    description: Username and password
+    required: false
+    example: '{"username": "user", "password": "mypassword"}'
+  port:
+    title: Port
+    description: Port number, defaults are 5986 for SSL and 5985 for unencrypted
+    type: integer
+    default: 5986
+    required: false
+    example: 5986
+  auth:
+    title: Auth Type
+    description: Authentication type
+    type: string
+    enum:
+    - NTLM
+    - Kerberos
+    - CredSSP
+    - None
+    default: None
+    required: true
+    example: Kerberos
+  kerberos:
+    title: Kerberos
+    description: Connection information required for Kerberos
+    type: kerberos
+    required: false
+    example: '{"kdc": "10.0.1.11", "domain": "EXAMPLE.domain"}'
+  script_secret_key:
+    title: Script Secret Key
+    description: Credential secret key available in script as powershell variable (`$secret_key`)
+    type: credential_secret_key
+    required: false
+    example: 9de5069c5afe602b2ea0a04b66beb2c0
+  script_username_and_password:
+    title: Script Username and Password
+    description: Username and password available in script as powershell variables (`$username`, `$password`)
+    type: credential_username_password
+    required: false
+    example: '{"username": "user", "password": "mypassword"}'
+actions:
+  execute_script:
+    title: Execute Script
+    description: Execute PowerShell script encoded as a base64 file on a remote host
+    input:
+      script:
+        title: Script
+        description: PowerShell script as base64. In this action you can use `$username`, `$password`, `$secret_key` variables if defined in connection
+        type: bytes
+        required: true
+        example: R2V0LURhdGU=
+      address:
+        title: Address
+        description: IP address of the remote host e.g. 192.168.1.1. If address is
+          left blank PowerShell will run locally
+        type: string
+        required: false
+        example: 10.0.1.15
+      host_name:
+        title: Host Name
+        description: Case-sensitive name of the remote host, eg. MyComputer for Kerberos
+          connection only
+        type: string
+        required: false
+        example: windows
+    output:
+      stdout:
+        title: PowerShell Standard Output
+        description: PowerShell standard output
+        type: string
+        required: false
+        example: Tuesday, January 11, 2022 5:05:42 AM
+      stderr:
+        title: PowerShell Standard Error
+        description: PowerShell standard error
+        type: string
+        required: false
+        example: "Fatal error." 
+  powershell_string:
+    title: PowerShell String
+    description: Execute PowerShell script in the form of a string
+    input:
+      script:
+        title: Script
+        description: PowerShell script as a string. In this action you can use `$username`, `$password`, `$secret_key` variables if defined in connection
+        type: string
+        required: true
+        example: Get-Date
+      address:
+        title: Address
+        description: IP address of the remote host e.g. 192.168.1.1. If address is
+          left blank PowerShell will run locally
+        type: string
+        required: false
+        example: 10.0.1.17
+      host_name:
+        title: Host Name
+        description: Case-sensitive name of the remote host, eg. MyComputer for Kerberos
+          connection only
+        type: string
+        required: false
+        example: windows
+    output:
+      stdout:
+        title: PowerShell Standard Output
+        description: PowerShell standard output
+        type: string
+        required: false
+        example: Tuesday, January 11, 2022 5:05:42 AM
+      stderr:
+        title: PowerShell Standard Error
+        description: PowerShell standard error
+        type: string
+        required: false
+        example: "Fatal error."

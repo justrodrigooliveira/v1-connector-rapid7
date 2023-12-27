@@ -1,0 +1,43 @@
+{
+	"spec": "318d7c8341e4736fe072c1d07385952f",
+	"manifest": "3308658e564632a09fa17d3d054e66f1",
+	"setup": "d77c3a54df93e27fb9ff9ec5d562025c",
+	"schemas": [
+		{
+			"identifier": "close_case/schema.py",
+			"hash": "ec6d1d27489f4776a906908913cfb6dc"
+		},
+		{
+			"identifier": "create_case/schema.py",
+			"hash": "c51205dd9c4479cae8094c4b1b456fa1"
+		},
+		{
+			"identifier": "create_case_observable/schema.py",
+			"hash": "9dfd6d7b84f97fe51e98088b36464ccf"
+		},
+		{
+			"identifier": "create_case_task/schema.py",
+			"hash": "d1cc6230cc4c7cb984e347f450267ea6"
+		},
+		{
+			"identifier": "get_case/schema.py",
+			"hash": "b3fcfed0f0cc0c8ca1912d7f27bdafc8"
+		},
+		{
+			"identifier": "get_cases/schema.py",
+			"hash": "18f013c13d6caa7209b4d2ac9b41e13c"
+		},
+		{
+			"identifier": "get_current_user/schema.py",
+			"hash": "f5cab102eb2f9f5a277e3e83152be4f2"
+		},
+		{
+			"identifier": "get_user_by_id/schema.py",
+			"hash": "9da81bcd6042fe4abe78457600aa67dc"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "10a91c0eb5842c4c87b5821e1b015c63"
+		}
+	]
+}

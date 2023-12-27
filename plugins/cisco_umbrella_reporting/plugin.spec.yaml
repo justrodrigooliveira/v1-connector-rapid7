@@ -1,0 +1,192 @@
+plugin_spec_version: v2
+extension: plugin
+products: [insightconnect]
+name: cisco_umbrella_reporting
+title: Cisco Umbrella Reporting
+version: 2.0.0
+description: This plugin utilizes Cisco Umbrella to get the most complete view of the relationships
+  and evolution of Internet domains, IP addresses, and autonomous systems to pinpoint
+  attackers infrastructures and predict future threats
+vendor: rapid7
+support: rapid7
+status: []
+supported_versions: ["Cisco Umbrella Reporting API v2"]
+resources:
+  source_url: https://github.com/rapid7/insightconnect-plugins/tree/master/plugins/cisco_umbrella_reporting
+  license_url: https://github.com/rapid7/insightconnect-plugins/blob/master/LICENSE
+  vendor_url: https://www.cisco.com
+tags:
+- cisco
+- umbrella
+- reporting
+hub_tags:
+  use_cases: [threat_detection_and_response]
+  keywords: [cisco, umbrella, reporting]
+  features: []
+connection:
+  api_key:
+    title: API Key
+    description: Cisco Umbrella API key
+    type: credential_secret_key
+    required: true
+    example: 9de5069c5afe602b2ea0a04b66beb2c0
+  api_secret:
+    title: API Secret Key
+    description: Cisco Umbrella API secret key
+    type: credential_secret_key
+    required: true
+    example: 9de5069c5afe602b2ea0a04b66beb2c0
+types:
+  identity:
+    id:
+      title: ID
+      description: The identifier of an identity
+      type: integer
+      required: false
+    label:
+      title: Label
+      description: The label of an identity
+      type: string
+      required: false
+    deleted:
+      title: Deleted
+      description: A true/false flag indicating whether or not the identity is deleted
+      type: boolean
+      required: false
+  threat:
+    label:
+      title: Label
+      description: The threat label
+      type: string
+      required: false
+    type:
+      title: Type
+      description: Type of threat
+      type: string
+      required: false
+  record:
+    internalIp:
+      title: Internal IP
+      description: Internal IP address of the identity making the request
+      type: string
+      required: false
+    externalIp:
+      title: External IP
+      description: External IP address of the identity making the request
+      type: string
+      required: false
+    datetime:
+      title: Datetime
+      description: UTC Datetime at which the event occurred, represented in ISO 8601 format
+      type: date
+      required: false
+    timestamp:
+      title: Timestamp
+      description: The unix UTC timestamp in milliseconds
+      type: integer
+      required: false
+    queryType:
+      title: Query Type
+      description: The type of DNS request that was made
+      type: string
+      required: false
+    verdict:
+      title: Verdict
+      description: The entry verdict
+      type: string
+      required: false
+    categories:
+      title: Categories
+      description: Which categories, if any, the destination for which this request was made falls into
+      type: "[]string"
+      required: false
+    domain:
+      title: Domain
+      description: Domain to which this request was made
+      type: string
+      required: false
+    identities:
+      title: Identities
+      description: An array of identities for entry
+      type: "[]identity"
+      required: false
+    threats:
+      title: Threats
+      description: An array of threats for entry
+      type: "[]string"
+      required: false
+    allApplications:
+      title: All Applications
+      description: An array of all applications for entry
+      type: "[]string"
+      required: false
+    allowedApplications:
+      title: Allowed Applications
+      description: An array of allowed applications for entry
+      type: "[]string"
+      required: false
+    blockedApplications:
+      title: Blocked Applications
+      description: An array of blocked applications for entry
+      type: "[]string"
+      required: false
+actions:
+  get_domain_visits:
+    title: Get Domain Visits
+    description: Get a list of computers that visited a domain within the last 24 hours for up to 500 computers
+    input:
+      address:
+        title: Address
+        description: Domain, IP address, or URL to search for computer visits. If a URL is provided it will be stripped down to a domain or IP address. If this field is empty, it will return activities for all domains in the organization
+        type: string
+        required: false
+        example: example.com
+      limit:
+        title: Limit
+        description: A timestamp or relative time string (for example, '-1days', '-31days') that filters for data appearing after this time, described in ISO 8601 format, where the maximum value is '-31days'. To search for all records, set the limit to 0
+        type: integer
+        required: true
+        example: 100
+        default: 0
+      from:
+        title: From
+        description: A timestamp or relative time string (for example, '-1days', '-31days') that filters for data appearing after this time, described in ISO 8601 format, where the maximum value is '-31days'
+        type: string
+        required: true
+        example: -1days
+        default: -1days
+      order:
+        title: Order
+        description: Describes how the results obtained should be ordered. Defaults to descending, even if it's empty
+        enum:
+          - ""
+          - Ascending
+          - Descending
+        type: string
+        required: false
+        example: Descending
+        default: Descending
+      verdict:
+        title: Verdict
+        description: The array of verdicts for results to be filtered on, where possible values are (Allowed, Blocked, Proxied)
+        type: "[]string"
+        required: false
+        example: ["Allowed", "Blocked"]
+      threats:
+        title: Threats
+        description: The array of threat names for results to be filtered on
+        type: "[]string"
+        required: false
+        example: ["Example", "Example2"]
+      threatTypes:
+        title: Threat Types
+        description: The array of threat types for results to be filtered on
+        type: "[]string"
+        required: false
+        example: ["Malware", "Ransomware"]
+    output:
+      domain_visits:
+        title: Domain Visits
+        description: List of computers that visited a domain
+        type: "[]record"
+        required: true

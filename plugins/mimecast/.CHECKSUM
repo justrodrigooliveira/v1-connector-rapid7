@@ -1,0 +1,67 @@
+{
+	"spec": "923a6bbb21fe0ce039f39ff00014ae00",
+	"manifest": "a5513a1c36d038851b10a6226d980590",
+	"setup": "318548fa67238e900bb082347305cef6",
+	"schemas": [
+		{
+			"identifier": "add_group_member/schema.py",
+			"hash": "51b45e9b27f22d434973d88afb06ccd7"
+		},
+		{
+			"identifier": "create_blocked_sender_policy/schema.py",
+			"hash": "cf248bc09643695079889ba15ae6abf0"
+		},
+		{
+			"identifier": "create_managed_url/schema.py",
+			"hash": "ee397039de9c277bd43f440adaa1afd6"
+		},
+		{
+			"identifier": "decode_url/schema.py",
+			"hash": "41b27d18aa2d4e3c0d3428d5e414c3d5"
+		},
+		{
+			"identifier": "delete_blocked_sender_policy/schema.py",
+			"hash": "a054369a93f3af33e3f6d30ff873c3c9"
+		},
+		{
+			"identifier": "delete_group_member/schema.py",
+			"hash": "c95248c47f651d918111c15f6ec4747e"
+		},
+		{
+			"identifier": "delete_managed_url/schema.py",
+			"hash": "9d207e236546044b9b351bd75b233c9a"
+		},
+		{
+			"identifier": "find_groups/schema.py",
+			"hash": "8c1accc62ed9cb95451422d4f54df476"
+		},
+		{
+			"identifier": "get_audit_events/schema.py",
+			"hash": "cdeee44f1cb87b304c5e5284c3ff1053"
+		},
+		{
+			"identifier": "get_managed_url/schema.py",
+			"hash": "d9b379224e918c98f66737327f4552a8"
+		},
+		{
+			"identifier": "get_ttp_url_logs/schema.py",
+			"hash": "de40a60d213eee45ab2831a1a9b4fef1"
+		},
+		{
+			"identifier": "permit_or_block_sender/schema.py",
+			"hash": "f5d7b1dd1dd8252a229c269109056e23"
+		},
+		{
+			"identifier": "track_messages/schema.py",
+			"hash": "a7fec9b22338b5184f0cdf2c2a26aacf"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "5f2643a1df641cfac4a907361dd63556"
+		},
+		{
+			"identifier": "monitor_siem_logs/schema.py",
+			"hash": "fed0e07521688fbeece2dd35abb49310"
+		}
+	]
+}

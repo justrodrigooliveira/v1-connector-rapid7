@@ -1,0 +1,51 @@
+{
+	"spec": "d6680b7260a333fdb3e925930dfff94d",
+	"manifest": "e8d63248a44f12145069a48477c57e75",
+	"setup": "974b756fbfc5cedcf85b6423e825778a",
+	"schemas": [
+		{
+			"identifier": "fetch_forensics/schema.py",
+			"hash": "cd9f4ba5df4065d388008c1af07cb125"
+		},
+		{
+			"identifier": "get_all_threats/schema.py",
+			"hash": "a8b50887bfaee7bb9db72f24488d2621"
+		},
+		{
+			"identifier": "get_blocked_clicks/schema.py",
+			"hash": "ec07ab1cc2b5728fb37912d479e1a1f6"
+		},
+		{
+			"identifier": "get_blocked_messages/schema.py",
+			"hash": "0dd9f3ec8a91d94d007e7bb71b69d234"
+		},
+		{
+			"identifier": "get_delivered_threats/schema.py",
+			"hash": "27300236ffa0bb19394afd30fb3b76e6"
+		},
+		{
+			"identifier": "get_permitted_clicks/schema.py",
+			"hash": "0bb7bba08d63bad2016994c96cc5782f"
+		},
+		{
+			"identifier": "get_top_clickers/schema.py",
+			"hash": "00df034452dbc8ce257413c262343116"
+		},
+		{
+			"identifier": "parse_tap_alert/schema.py",
+			"hash": "24570d086686cdff64186b7ae4a8fd4d"
+		},
+		{
+			"identifier": "url_decode/schema.py",
+			"hash": "953e2dbec1b757bc58578be8096ab714"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "f9bedd35fdfc9353ac4e5e3b880288fa"
+		},
+		{
+			"identifier": "monitor_events/schema.py",
+			"hash": "97bf765904f210427c00358887f9757f"
+		}
+	]
+}

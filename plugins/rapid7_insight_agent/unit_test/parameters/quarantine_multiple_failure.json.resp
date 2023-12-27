@@ -1,0 +1,24 @@
+{
+   "parameters":[
+      [
+         "good_and_bad_agent_ids",
+         ["ivm-agent-win", "badIDQuarantine"],
+         604800,
+         true,
+         {
+            "completed": ["ivm-agent-win"],
+            "failed": [{"hostname": "badIDQuarantine", "error": "Hostname could not be found"}]
+         }
+      ],
+      [
+         "bad_agent_id",
+         ["badIDQuarantine"],
+         604800,
+         true,
+         {
+            "completed": [],
+            "failed": [{"hostname": "badIDQuarantine", "error": "Hostname could not be found"}]
+         }
+      ]
+   ]
+}

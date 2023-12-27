@@ -1,0 +1,27 @@
+{
+	"spec": "83577573df58a4afcc8aa0fe78f66fb6",
+	"manifest": "64cf7ca693e22d7ff109516ecbf46932",
+	"setup": "5a839a023089e1ca0f3a8002d4015e28",
+	"schemas": [
+		{
+			"identifier": "close_ticket/schema.py",
+			"hash": "1bcfcb938fdd8107c4c3d177ee2d080b"
+		},
+		{
+			"identifier": "create_ticket/schema.py",
+			"hash": "d2dc4bee2f7b7b7755a0558c55dcd03a"
+		},
+		{
+			"identifier": "search_tickets/schema.py",
+			"hash": "4d5f8e17833784f46873861c6d4a32d1"
+		},
+		{
+			"identifier": "update_ticket/schema.py",
+			"hash": "590ca0be67141bcf835d534d8d9a7031"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "74357c1701ec1de55e1d745acee0fae7"
+		}
+	]
+}

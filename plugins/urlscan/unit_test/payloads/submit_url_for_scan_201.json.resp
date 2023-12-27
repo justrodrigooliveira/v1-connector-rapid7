@@ -1,0 +1,4 @@
+{
+  "message": "Scan prevented ...",
+  "description": "The submitted domain is on our blacklist, we will not scan it."
+}

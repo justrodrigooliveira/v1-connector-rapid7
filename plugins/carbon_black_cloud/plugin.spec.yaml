@@ -1,0 +1,504 @@
+plugin_spec_version: v2
+extension: plugin
+products: [insightconnect]
+name: carbon_black_cloud
+title: VMware Carbon Black Cloud
+description: Quarantine endpoints and get device details with the VMware Carbon Black Cloud plugin
+version: 2.0.0
+vendor: rapid7
+support: rapid7
+cloud_ready: true
+connection_version: 2
+supported_versions: ["2023-09-19"]
+status: []
+resources:
+  source_url: https://github.com/rapid7/insightconnect-plugins/tree/master/plugins/carbon_black_cloud
+  license_url: https://github.com/rapid7/insightconnect-plugins/blob/master/LICENSE
+  vendor_url: https://www.carbonblack.com/
+tags:
+- carbon black
+- defense
+- antivirus
+- cloud
+- vmware
+hub_tags:
+  use_cases: [threat_detection_and_response]
+  keywords: [carbon black, vmware, cloud, antivirus, cloud_enabled]
+  features: []
+sdk:
+  type: full
+  version: 5
+  user: nobody
+types:
+  agent:
+    activationCode:
+      title: Activation Code
+      description: Activation code
+      type: string
+      required: false
+    activationCodeExpiryTime:
+      title: Activation Code Expiry Time
+      description: Activation code expiry time
+      type: integer
+      required: false
+    adGroupId:
+      title: AD Group ID
+      description: AD group ID
+      type: integer
+      required: false
+    assignedToId:
+      title: Assigned to ID
+      description: Assigned to ID
+      type: string
+      required: false
+    assignedToName:
+      title: Assigned to Name
+      description: Assigned to name
+      type: string
+      required: false
+    avAveVersion:
+      title: AV AVE Version
+      description: AV AVE version
+      type: string
+      required: false
+    avEngine:
+      title: AV Engine
+      description: AV engine
+      type: string
+      required: false
+    avLastScanTime:
+      title: AV Last Scan Time
+      description: AV last scan time
+      type: integer
+      required: false
+    avMaster:
+      title: AV Master
+      description: AV master
+      type: boolean
+      required: false
+    avPackVersion:
+      title: AV Pack Version
+      description: AV pack version
+      type: string
+      required: false
+    avProductVersion:
+      title: AV Product Version
+      description: AV product version
+      type: string
+      required: false
+    avStatus:
+      title: AV Status
+      description: AV status
+      type: "[]string"
+      required: false
+    avUpdateServers:
+      title: AV Update Servers
+      description: AV update servers
+      type: string
+      required: false
+    avVdfVersion:
+      title: AV VDF Version
+      description: AV VDF version
+      type: string
+      required: false
+    createTime:
+      title: Create Time
+      description: Create time
+      type: string
+      required: false
+    currentSensorPolicyName:
+      title: Current Sensor Policy Name
+      description: Current sensor policy name
+      type: string
+      required: false
+    deregisteredTime:
+      title: Deregistered Time
+      description: Deregistered time
+      type: string
+      required: false
+    deviceGuid:
+      title: Device GUID
+      description: Device GUID
+      type: string
+      required: false
+    deviceId:
+      title: Device ID
+      description: Device ID
+      type: integer
+      required: false
+    deviceMetaDataItemList:
+      title: Device Meta Data Item List
+      description: Device meta data item list
+      type: string
+      required: false
+    deviceOwnerId:
+      title: Device Owner ID
+      description: Device owner ID
+      type: integer
+      required: false
+    deviceSessionId:
+      title: Device Session ID
+      description: Device session ID
+      type: string
+      required: false
+    deviceType:
+      title: Device Type
+      description: Device type
+      type: string
+      required: false
+    email:
+      title: Email
+      description: Email
+      type: string
+      required: false
+    encodedActivationCode:
+      title: Encoded Activation Code
+      description: Encoded activation code
+      type: string
+      required: false
+    firstName:
+      title: First Name
+      description: First name
+      type: string
+      required: false
+    firstVirusActivityTime:
+      title: First Virus Activity Time
+      description: First virus activity time
+      type: integer
+      required: false
+    lastContact:
+      title: Last Contact
+      description: Last contact
+      type: integer
+      required: false
+    lastDevicePolicyChangedTime:
+      title: Last Device Policy Changed Time
+      description: Last device policy changed time
+      type: string
+      required: false
+    lastDevicePolicyRequestedTime:
+      title: Last Device Policy Requested time
+      description: Last device policy requested time
+      type: string
+      required: false
+    lastExternalIpAddress:
+      title: Last External IP Address
+      description: Last external IP address
+      type: string
+      required: false
+    lastInternalIpAddress:
+      title: Last Internal IP Address
+      description: Last internal IP address
+      type: string
+      required: false
+    lastLocation:
+      title: Last Location
+      description: Last location
+      type: string
+      required: false
+    lastName:
+      title: Last Name
+      description: Last name
+      type: string
+      required: false
+    lastPolicyUpdatedTime:
+      title: Last Policy Updated Time
+      description: Last policy updated time
+      type: string
+      required: false
+    lastReportedTime:
+      title: Last Reported Time
+      description: Last reported time
+      type: integer
+      required: false
+    lastResetTime:
+      title: Last Reset Time
+      description: Last reset time
+      type: integer
+      required: false
+    lastShutdownTime:
+      title: Last Shutdown Time
+      description: Last shutdown time
+      type: integer
+      required: false
+    lastVirusActivityTime:
+      title: Last Virus Activity Time
+      description: Last virus activity time
+      type: integer
+      required: false
+    linuxKernelVersion:
+      title: Linux Kernel Version
+      description: Linux kernel version
+      type: string
+      required: false
+    loginUserName:
+      title: Login User Name
+      description: Login user name
+      type: string
+      required: false
+    macAddress:
+      title: MAC Address
+      description: MAC address
+      type: string
+      required: false
+    messages:
+      title: Messages
+      description: Messages
+      type: string
+      required: false
+    middleName:
+      title: Middle Name
+      description: Middle name
+      type: string
+      required: false
+    name:
+      title: Name
+      description: Name
+      type: string
+      required: false
+    organizationId:
+      title: Organization ID
+      description: Organization ID
+      type: integer
+      required: false
+    organizationName:
+      title: Organization Name
+      description: Organization name
+      type: string
+      required: false
+    originEventHash:
+      title: Origin Event Hash
+      description: Origin event hash
+      type: string
+      required: false
+    osVersion:
+      title: OS Version
+      description: OS version
+      type: string
+      required: false
+    passiveMode:
+      title: Passive Mode
+      description: Passive mode
+      type: boolean
+      required: false
+    policyId:
+      title: Policy ID
+      description: Policy ID
+      type: integer
+      required: false
+    policyName:
+      title: Policy Name
+      description: Policy name
+      type: string
+      required: false
+    policyOverride:
+      title: Policy Override
+      description: Policy override
+      type: boolean
+      required: false
+    quarantined:
+      title: Quarantined
+      description: Quarantined
+      type: boolean
+      required: false
+    registeredTime:
+      title: Registered Time
+      description: Registered time
+      type: integer
+      required: false
+    rootedByAnalytics:
+      title: Rooted by Analytics
+      description: Rooted by analytics
+      type: boolean
+      required: false
+    rootedByAnalyticsTime:
+      title: Rooted by Analytics Time
+      description: Rooted by analytics time
+      type: string
+      required: false
+    rootedBySensor:
+      title: Rooted by Sensor
+      description: Rooted by sensor
+      type: boolean
+      required: false
+    rootedBySensorTime:
+      title: Rooted by Sensor Time
+      description: Rooted by sensor time
+      type: string
+      required: false
+    scanLastActionTime:
+      title: Scan Last Action Time
+      description: Scan last action time
+      type: integer
+      required: false
+    scanLastCompleteTime:
+      title: Scan Last Complete Time
+      description: Scan last complete time
+      type: integer
+      required: false
+    scanStatus:
+      title: Scan Status
+      description: Scan status
+      type: string
+      required: false
+    sensorKitType:
+      title: Sensor Kit Type
+      description: Sensor kit type
+      type: string
+      required: false
+    sensorOutOfDate:
+      title: Sensor Out of Date
+      description: Sensor out of date
+      type: boolean
+      required: false
+    sensorPendingUpdate:
+      title: Sensor Pending Update
+      description: Sensor pending update
+      type: boolean
+      required: false
+    sensorStates:
+      title: Sensor States
+      description: Sensor states
+      type: "[]string"
+      required: false
+    sensorVersion:
+      title: Sensor Version
+      description: Sensor version
+      type: string
+      required: false
+    status:
+      title: Status
+      description: Status
+      type: string
+      required: false
+    targetPriorityType:
+      title: Target Priority Type
+      description: Target priority type
+      type: string
+      required: false
+    testId:
+      title: Test ID
+      description: Test ID
+      type: integer
+      required: false
+    uninstallCode:
+      title: Uninstall Code
+      description: Uninstall code
+      type: string
+      required: false
+    uninstalledTime:
+      title: Uninstalled Time
+      description: Uninstalled time
+      type: string
+      required: false
+    vdiBaseDevice:
+      title: VDI Base Device
+      description: VDI base device
+      type: string
+      required: false
+    virtualMachine:
+      title: Virtual Machine
+      description: Virtual machine
+      type: boolean
+      required: false
+    virtualizationProvider:
+      title: Virtualization Provider
+      description: Virtualization provider
+      type: string
+      required: false
+    windowsPlatform:
+      title: Windows Platform
+      description: Windows platform
+      type: string
+      required: false
+connection:
+  api_id:
+    title: API ID
+    description: API ID
+    type: string
+    example: ADFF2QLIIZ
+    required: true
+    order: 1
+  api_secret_key:
+    title: API Secret Key
+    description: API secret key
+    type: credential_secret_key
+    example: Z1PXFRDZI321LXQVAB9IJKKZ
+    required: true
+    order: 2
+  org_key:
+    title: Org Key
+    description: Organization Key
+    type: string
+    example: 1ABZY2FJ
+    required: true
+    order: 3
+  url:
+    title: URL
+    description: The Carbon Black Cloud URL you use. You can find this by looking at the web address of your Carbon Black Cloud console
+    type: string
+    enum:
+      - defense-eap01.conferdeploy.net
+      - dashboard.confer.net
+      - defense.conferdeploy.net
+      - defense-prod05.conferdeploy.net
+      - defense-eu.conferdeploy.net
+      - defense-prodnrt.conferdeploy.net
+      - defense-prodsyd.conferdeploy.net
+      - ew2.carbonblackcloud.vmware.com
+      - gprd1usgw1.carbonblack-us-gov.vmware.com
+    example: defense.conferdeploy.net
+    default: defense.conferdeploy.net
+    required: true
+    order: 4
+actions:
+  get_agent_details:
+    title: Get Agent Details
+    description: Get Agent Details
+    input:
+      agent:
+        title: Agent
+        description: Agent to retrieve device information from. Accepts IP address, hostname, or device ID. Search results are case-sensitive
+        type: string
+        required: true
+        example: 198.51.100.100
+    output:
+      agent:
+        title: Agent
+        description: Details about the agent
+        type: agent
+        required: false
+        example: '{"adGroupId":0,"policyOverride":false,"currentSensorPolicyName":null,"deviceMetaDataItemList":null,"lastDevicePolicyRequestedTime":null,"lastDevicePolicyChangedTime":null,"lastPolicyUpdatedTime":null,"loginUserName":null,"messages":null,"lastReportedTime":1591962280381,"uninstallCode":null,"organizationId":1105,"deviceId":3466056,"createTime":null,"deviceGuid":null,"email":"user@example.com","deviceSessionId":null,"deviceType":"WINDOWS","assignedToId":null,"assignedToName":null,"lastName":"User","firstName":"Test","middleName":null,"deviceOwnerId":12345,"activationCode":"1A2B3C","targetPriorityType":"HIGH","organizationName":"example.com","sensorVersion":"3.5.0.1680","activationCodeExpiryTime":1234567891011,"sensorKitType":null,"osVersion":"Server 2012 x64","registeredTime":1234567891011,"lastContact":1234567891011,"windowsPlatform":null,"vdiBaseDevice":null,"avStatus":["AV_ACTIVE","ONDEMAND_SCAN_DISABLED"],"deregisteredTime":null,"sensorStates":["ACTIVE","LIVE_RESPONSE_NOT_RUNNING","LIVE_RESPONSE_NOT_KILLED","LIVE_RESPONSE_ENABLED","SECURITY_CENTER_OPTLN_DISABLED"],"rootedBySensor":false,"rootedBySensorTime":null,"quarantined":false,"lastInternalIpAddress":"198.51.100.100","macAddress":"000000000000","lastExternalIpAddress":"198.51.100.100","lastLocation":"OFFSITE","sensorOutOfDate":false,"avUpdateServers":null,"passiveMode":false,"lastResetTime":0,"lastShutdownTime":0,"scanStatus":null,"scanLastActionTime":0,"scanLastCompleteTime":0,"linuxKernelVersion":null,"avEngine":"4.13.0.207-ave.8.3.60.40:avpack.8.5.0.60:vdf.8.18.2.56:apc.2.10.0.149","avProductVersion":"4.13.0.207","avAveVersion":"8.3.60.40","avPackVersion":"8.5.0.60","avVdfVersion":"8.18.2.56","avLastScanTime":0,"virtualMachine":false,"virtualizationProvider":"UNKNOWN","sensorPendingUpdate":false,"rootedByAnalytics":false,"rootedByAnalyticsTime":null,"avMaster":false,"firstVirusActivityTime":0,"lastVirusActivityTime":0,"testId":-1,"uninstalledTime":null,"encodedActivationCode":null,"originEventHash":null,"name":"example-host","status":"REGISTERED","policyId":12345,"policyName":"test"}'
+  quarantine:
+    title: Quarantine
+    description: Quarantine an agent
+    input:
+      agent:
+        title: Agent
+        description: Agent to retrieve device information from. Accepts IP address, hostname, or device ID. Search results are case-sensitive
+        type: string
+        required: true
+        example: 198.51.100.100
+        order: 1
+      quarantine_state:
+        title: Quarantine State
+        description: Set to true to quarantine the agent, set to false to unquarantine an agent
+        type: boolean
+        required: true
+        default: true
+        example: true
+        order: 2
+      whitelist:
+        title: Whitelist
+        description: An array of IPs, hostnames, or device ID that a user can pass in that will not be quarantined
+        type: "[]string"
+        required: false
+        example: ["198.51.100.100","win-test"]
+        order: 3
+    output:
+      quarantined:
+        title: Quarantined
+        description: Indicates whether or not the agent has been quarantined
+        type: boolean
+        required: true
+        example: true

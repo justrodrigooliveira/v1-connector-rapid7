@@ -1,0 +1,244 @@
+plugin_spec_version: v2
+extension: plugin
+products: [insightconnect]
+name: cisco_umbrella_enforcement
+title: Cisco Umbrella Enforcement
+vendor: rapid7
+support: rapid7
+status: []
+description: This plugin utilizes Cisco Umbrella Enforcement to inherit the ability to send
+  security events from platform/service/appliance within a customer environment
+  to the Cisco security cloud for enforcement
+version: 2.0.0
+resources:
+  source_url: https://github.com/rapid7/insightconnect-plugins/tree/master/plugins/cisco_umbrella_enforcement
+  license_url: https://github.com/rapid7/insightconnect-plugins/blob/master/LICENSE
+  vendor_url: https://www.cisco.com
+tags:
+- cisco
+- umbrella
+- enforcement
+hub_tags:
+  use_cases: [threat_detection_and_response]
+  keywords: [cisco, umbrella, enforcement]
+  features: []
+language: python
+types:
+  meta:
+    page:
+      type: integer
+      description: The page of results is available
+      required: true
+    limit:
+      type: integer
+      description: The number of results
+      required: true
+    prev:
+      type: boolean
+      description: If prev is false, this is the first available page of results.
+        Otherwise, it will provide a query formatted to show the next set of results
+      required: true
+    next:
+      type: boolean
+      description: If next is false, this is the last available page of results. Otherwise,
+        it will provide a query formatted to show the next set of results
+      required: true
+  data:
+    name:
+      type: string
+      description: Domain name
+      required: true
+    id:
+      type: integer
+      description: Unique ID number
+      required: true
+    lastSeenAt:
+      type: integer
+      title: Last seen malware
+      description: Unix timestamp last seen
+      required: true
+    meta:
+      type: meta
+      description: meta data
+      required: false
+  domains:
+    meta:
+      type: meta
+      description: Meta Data
+      required: true
+    data:
+      type: '[]data'
+      description: List of domains
+      required: true
+connection:
+  api_key:
+    title: API Key
+    type: credential_secret_key
+    description: Cisco Umbrella Management API key
+    example: 9de5069c5afe602b2ea0a04b66beb2c0
+    required: true
+actions:
+  add_event:
+    title: Add Event
+    description: Posts a malware event for processing and optionally adds it to the
+      customer's domain list
+    input:
+      alertTime:
+        title: Alert Time
+        description: The time the event was sent to Umbrella
+        type: string
+        example: 2013-02-08T09:30:26Z
+        required: true
+      deviceId:
+        title: Device ID
+        description: The ID of the device sending the event
+        type: string
+        example: 12345678-1234-1234-1234-123456789123
+        required: true
+      deviceVersion:
+        title: Device Version
+        description: The version of the device sending the event
+        type: string
+        example: 1.0a
+        required: true
+      dstDomain:
+        title: Destination Domain
+        description: The destination domain specified (follow RFC 3986 encoding guidelines)
+        type: string
+        example: www.internetbadguys.com
+        required: true
+      dstIP:
+        title: Destination IP
+        description: The destination UP of the domain, specified in IPv4 dotted-decimal notation
+        type: string
+        example: 8.8.8.8
+        required: false
+      dstUrl:
+        title: Destination URL
+        description: The destination URL specified (follow RFC 3986 encoding guidelines)
+        type: string
+        example: http://internetbadguys.com/security?foo=there%20are%20spaces%20here
+        required: true
+      eventDescription:
+        title: Event Description
+        description: Variant or other descriptor of event type
+        type: string
+        example: some other threat
+        required: false
+      eventHash:
+        title: Event Hash
+        description: A unique hash of the event
+        type: string
+        example: 9de5069c5afe602b2ea0a04b66beb2c0
+        required: false
+      eventSeverity:
+        title: Event Severity
+        description: The partner threat level or rating
+        type: string
+        example: severe, bad, high
+        required: false
+      eventTime:
+        title: Event Time
+        description: The time the event was detected
+        type: string
+        example: 2013-02-08T09:30:26Z
+        required: true
+      eventType:
+        title: Event Type
+        description: Common name or classification of threat
+        type: string
+        example: severe
+        required: false
+      externalURL:
+        title: External URL
+        description: External page containing additional information about event
+        type: string
+        example: https://link-to-external-page.txt
+        required: false
+      fileHash:
+        title: File Hash
+        description: SHA-1 of file reported by appliance
+        type: string
+        example: 02699626f388ed830012e5b787640e71c56d42d8
+        required: false
+      fileName:
+        title: File Name
+        description: Path to file exhibiting malicious behaviour
+        type: string
+        example: /path/to/file
+        required: false
+      protocolVersion:
+        title: Protocol Version
+        description: The version of the protocol for the API
+        type: string
+        example: 1.0a
+        default: 1.0a
+        required: true
+      providerName:
+        title: Provider Name
+        description: The provider name for the API
+        type: string
+        example: Security Platform
+        default: Security Platform
+        required: true
+      src:
+        title: Src
+        description: The first IP or hostname associated with the infected device
+        type: string
+        example: 192.168.0.1
+        required: false
+      disableDstSafeguards:
+        title: Disable Destination Safeguards
+        description: True bypasses validations normally performed against submitted events
+        type: boolean
+        example: false
+        default: false
+        required: false
+    output:
+      ID:
+        title: ID List
+        description: Object containing added IDs
+        type: object
+        required: true
+  domains:
+    title: List Domains
+    description: Gather the lists of domains already added to the shared customer's
+      domain list
+    output:
+      domains:
+        title: Domain List Query Results
+        description: Array containing domains in the domain list
+        type: domains
+        required: false
+  delete_domain_by_id:
+    title: Delete Domain by ID
+    description: Delete domain from user domain list by ID
+    input:
+      ID:
+        type: integer
+        title: ID
+        description: Unique ID number of domain
+        example: 1234567
+        required: true
+    output:
+      success:
+        title: Success
+        description: Action status [success | error]
+        type: boolean
+        required: true
+  delete_domain_by_name:
+    title: Delete Domain by Name
+    description: Delete domain from user domain list
+    input:
+      name:
+        type: string
+        title: Domain
+        description: Domain name
+        example: internetbadguys.bad-v5.com
+        required: true
+    output:
+      success:
+        title: Success
+        description: Action status [success | error]
+        type: boolean
+        required: true

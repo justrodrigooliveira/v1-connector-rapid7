@@ -1,0 +1,15 @@
+{
+	"spec": "d047deda835ded5ca60b8c5e4d9663fd",
+	"manifest": "a4087af582e2dd24c8b132075d3415f1",
+	"setup": "4f2df9ac40238a08745399dd2f9e1b59",
+	"schemas": [
+		{
+			"identifier": "update_external_dynamic_list/schema.py",
+			"hash": "c6968fba3852692f7628b0c26227566f"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "1de7ca9e00fae14170c7dbf1ab9a152e"
+		}
+	]
+}

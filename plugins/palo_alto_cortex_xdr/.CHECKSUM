@@ -1,0 +1,51 @@
+{
+	"spec": "c77175f3585faa1db09a97c357011654",
+	"manifest": "f79c9c7271d57fcb642319749b9536c9",
+	"setup": "c545c3e46f9cc7d140c6715b6a3f4dca",
+	"schemas": [
+		{
+			"identifier": "allow_file/schema.py",
+			"hash": "3e67339cb17d76d74fd81fb073511a36"
+		},
+		{
+			"identifier": "block_file/schema.py",
+			"hash": "bff8d1ae355617cdca391d2b8bb49d7d"
+		},
+		{
+			"identifier": "get_endpoint_details/schema.py",
+			"hash": "fec6a33a072821327bbda3eea2eb1b5c"
+		},
+		{
+			"identifier": "get_file_quarantine_status/schema.py",
+			"hash": "ec41c5f88476f5b2b05e1dfb4d788759"
+		},
+		{
+			"identifier": "get_xql_query_results/schema.py",
+			"hash": "c10e83968468efc155da6d9ba710cb47"
+		},
+		{
+			"identifier": "isolate_endpoint/schema.py",
+			"hash": "2b35a79f32fd38e7548b0bd8e145356b"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "292b006db45e73f699b01cd785efda35"
+		},
+		{
+			"identifier": "monitor_incident_events/schema.py",
+			"hash": "adcff00aacbc67df84ba0422a2b821e5"
+		},
+		{
+			"identifier": "get_alerts/schema.py",
+			"hash": "12e2528bd2b1e7099d841c27abf42775"
+		},
+		{
+			"identifier": "get_incidents/schema.py",
+			"hash": "4b052146052a423541583920d8afd5c6"
+		},
+		{
+			"identifier": "get_query_results/schema.py",
+			"hash": "64c151d95839f2c46a85d401b0d98e5f"
+		}
+	]
+}

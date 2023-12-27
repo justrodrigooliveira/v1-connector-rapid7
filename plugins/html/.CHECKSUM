@@ -1,0 +1,39 @@
+{
+	"spec": "474f6e7ef842a9bf36bb17dcda85ed45",
+	"manifest": "8fd4f609f7acc80e210d8123cc6fef99",
+	"setup": "bbf25ed708af09f4bf4002563411b69a",
+	"schemas": [
+		{
+			"identifier": "docx/schema.py",
+			"hash": "ef7f73efccfb9b24f54a5fce5d7f211d"
+		},
+		{
+			"identifier": "epub/schema.py",
+			"hash": "4aaaca45bb57c23ba6863ef46de21e03"
+		},
+		{
+			"identifier": "html5/schema.py",
+			"hash": "32b142d9b65f6c54f3f711b6661a88d5"
+		},
+		{
+			"identifier": "markdown/schema.py",
+			"hash": "19d300f14b41f7056a1c7dca5949c913"
+		},
+		{
+			"identifier": "pdf/schema.py",
+			"hash": "746f5363de67feac7e7114ae214e351d"
+		},
+		{
+			"identifier": "text/schema.py",
+			"hash": "bc8356341cc70b6b8a8ef95bedb35601"
+		},
+		{
+			"identifier": "validate/schema.py",
+			"hash": "c24b602a01adc63df232d2090c9c71bf"
+		},
+		{
+			"identifier": "connection/schema.py",
+			"hash": "bd524b567f9638ba1c6f7e0c9e45ff2e"
+		}
+	]
+}
